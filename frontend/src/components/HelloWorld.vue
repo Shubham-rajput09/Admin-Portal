@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
   <h5>HELLO WORLD TO ADMIN PORTAL</h5>
+    <h4>Welcome To Admin Portal</h4>
   </div>
 </template>
 
