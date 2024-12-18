@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Hello World!" />
+  <AdminDashboard />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AdminDashboard from "@/components/dashboard/AdminDashboard.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AdminDashboard
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
