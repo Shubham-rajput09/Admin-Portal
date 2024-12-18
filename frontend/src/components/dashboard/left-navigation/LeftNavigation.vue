@@ -1,13 +1,16 @@
 <template>
   <nav id="left-navigation">
-   Left Navigation
+  <ProfileSection/>
   </nav>
 </template>
 
 <script>
 
+import ProfileSection from "@/components/dashboard/left-navigation/ProfileSection.vue";
+
 export default {
   name: "LeftNavigation",
+  components: {ProfileSection}
 };
 </script>
 
