@@ -1,15 +1,12 @@
 <template>
-  <AdminDashboard />
+ <router-view/>
 </template>
 
 <script>
-import AdminDashboard from "@/components/dashboard/AdminDashboard.vue";
+
 
 export default {
-  name: 'App',
-  components: {
-    AdminDashboard
-  }
+  name: 'App'
 }
 </script>
 
