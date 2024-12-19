@@ -12,7 +12,7 @@
 <script>
 import LeftNavigation from "@/components/dashboard/left-navigation/LeftNavigation.vue";
 import AdminBody from "@/components/dashboard/body/AdminBody.vue";
-import DashboardHeader from "@/components/dashboard/header/Header.vue";
+import DashboardHeader from "@/components/dashboard/header/DashboardHeader.vue";
 
 export default {
   name: "AdminDashboard",
