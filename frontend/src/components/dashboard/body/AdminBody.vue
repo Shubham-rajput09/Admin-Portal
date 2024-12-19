@@ -1,6 +1,5 @@
 <template>
   <main id="admin-body">
-    Admin Body
   </main>
 </template>
 
