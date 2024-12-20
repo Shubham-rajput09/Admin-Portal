@@ -51,19 +51,19 @@ export default {
 }
 #help {
   position: absolute;          /* Position the button */
-  right: 180px;                /* Place it 100px from the right edge */
+  right: 140px;                /* Place it 100px from the right edge */
   top: 50%;                    /* Vertically center it relative to the parent */
   transform: translateY(-50%); /* Correct vertical alignment */
   background-color: #070000;   /* Button background color */
   color: #ffffff;              /* Button text color */
-  border: 2px solid white;     /* Add a thicker white border */
-  padding: 5px;          /* Increase padding for a larger button */
+  border: 1px solid white;     /* Add a thicker white border */
+  padding: 2px;          /* Increase padding for a larger button */
   border-radius: 8px;          /* Rounded corners */
-  font-size: 18px;             /* Increase font size for "Help" text */
+  font-size: 13px;             /* Increase font size for "Help" text */
   font-weight: normal;           /* Make the text bold */
   cursor: pointer;
-  width: 7rem;
-  height: 2.5rem;
+  width: 5.5rem;
+  height: 2rem;
 
   display: flex;               /* Enables flexbox layout */
   align-items: center;         /* Centers text vertically */
@@ -77,15 +77,15 @@ export default {
   transform: translateY(-50%); /* Correct vertical alignment */
   background-color: #070000;   /* Button background color */
   color: #ffffff;              /* Button text color */
-  border: 2px solid white;     /* Add a thicker white border */
+  border: 1px solid white;     /* Add a thicker white border */
   padding: 5px;          /* Increase padding for a larger button */
   border-radius: 8px;          /* Rounded corners */
-  font-size: 18px;             /* Increase font size for "Help" text */
+  font-size: 13px;             /* Increase font size for "Help" text */
   font-weight: normal;           /* Make the text bold */
   cursor: pointer;
-  width: 9rem;
+  width: 7rem;
   margin-left: 10px;
-  height: 2.5rem;
+  height: 2rem;
 
   display: flex;               /* Enables flexbox layout */
   align-items: center;         /* Centers text vertically */
