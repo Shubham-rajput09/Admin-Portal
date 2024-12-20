@@ -1,27 +1,23 @@
 <template>
   <div class="dropdown-container">
-  <div class="dropdown" @click="toggleDropdown">
-    <button class="dropdown-btn" :class="{ open: isOpen}">
-      <div class="icon-button">
-      <img class="dropdown-icon" src="../../../assets/headphone.svg" alt="headphone"/>
-        VSU
-      </div>
-      <span class="arrow" :class="{ open: isOpen }"></span>
-    </button>
+    <div class="dropdown" @click="toggleDropdown">
+      <button class="dropdown-btn" :class="{ open: isOpen }">
+        <div class="icon-button">
+          <img
+            class="dropdown-icon"
+            src="../../../assets/headphone.svg"
+            alt="headphone"
+          />
+          VSU
+        </div>
+        <span class="arrow" :class="{ open: isOpen }"></span>
+      </button>
 
-    <ul v-if="isOpen" class="dropdown-list" >
-      <li
-          class="dropdown-item-selected"
-      >
-        Search Account
-      </li>
-      <li
-          class="dropdown-item"
-      >
-        Phone Numbers
-      </li>
-    </ul>
-  </div>
+      <ul v-if="isOpen" class="dropdown-list">
+        <li class="dropdown-item-selected">Search Account</li>
+        <li class="dropdown-item">Phone Numbers</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -30,7 +26,6 @@ export default {
   data() {
     return {
       isOpen: false,
-
     };
   },
   methods: {
@@ -40,20 +35,19 @@ export default {
     selectOption(option) {
       this.selected = option;
       this.isOpen = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-
-.icon-button{
-  display:flex;
+.icon-button {
+  display: flex;
   align-items: center;
   gap: 10px;
 }
-.dropdown-container{
-  display:flex;
+.dropdown-container {
+  display: flex;
   justify-content: center;
 }
 .dropdown {
@@ -73,10 +67,10 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.dropdown-btn.open{
+.dropdown-btn.open {
   background: white;
 }
-.dropdown-icon{
+.dropdown-icon {
   width: 21px;
   height: 21px;
 }
@@ -100,7 +94,7 @@ export default {
   top: 100%;
   right: 0;
   border: none;
-  margin:0;
+  margin: 0;
   background: white;
   list-style: none;
   padding: 0;
@@ -108,11 +102,10 @@ export default {
   flex-direction: column;
   border-left: 1px solid #cccccc;
   width: 228px;
-
 }
 
 .dropdown-item-selected {
- margin-left: 10px;
+  margin-left: 10px;
   padding: 10px;
   cursor: pointer;
   background: #000;
@@ -128,6 +121,4 @@ export default {
   border-radius: 5px;
   font-size: 14px;
 }
-
-
 </style>
