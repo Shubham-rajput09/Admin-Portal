@@ -1,5 +1,5 @@
 <template>
-  <main id="admin-body"></main>
+          <main id="admin-body"></main>
 </template>
 
 <script>
