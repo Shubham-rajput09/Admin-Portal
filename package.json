@@ -52,12 +52,7 @@
     },
     "rules": {
       "vue/multi-word-component-names": [
-        "error",
-        {
-          "ignores": [
-            "Home"
-          ]
-        }
+        "error"
       ]
     },
     "ignorePatterns": [
