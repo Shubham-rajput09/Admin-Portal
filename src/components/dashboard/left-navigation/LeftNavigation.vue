@@ -1,30 +1,26 @@
 <template>
   <nav id="left-navigation">
-  <ProfileSection/>
-    <NavigationDropdown/>
-
+    <ProfileSection />
+    <NavigationDropdown />
   </nav>
 </template>
 
 <script>
-
-
-
-import ProfileSection from "@/components/dashboard/left-navigation/ProfileSection.vue";
-import NavigationDropdown from "@/components/dashboard/left-navigation/NavigationDropdown.vue";
+import ProfileSection from '@/components/dashboard/left-navigation/ProfileSection.vue';
+import NavigationDropdown from '@/components/dashboard/left-navigation/NavigationDropdown.vue';
 
 export default {
-  name: "LeftNavigation",
+  name: 'LeftNavigation',
   components: {
     ProfileSection,
-    NavigationDropdown
-  }
+    NavigationDropdown,
+  },
 };
 </script>
 
 <style scoped>
 #left-navigation {
-background: #fff;
+  background: #fff;
   width: 270px;
   height: 100vh;
 }

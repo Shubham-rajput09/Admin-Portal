@@ -3,16 +3,20 @@
     <!-- Left Section -->
     <div class="left-section">
       <img
-          src="../../assets/illustration.png"
-          alt="Collaboration Illustration"
-          class="illustration-full"
+        src="../../assets/illustration.png"
+        alt="Collaboration Illustration"
+        class="illustration-full"
       />
     </div>
 
     <!-- Right Section -->
     <div class="right-section">
       <div class="login-container">
-        <img src="../../assets/vonage-icon.jpg" alt="Vonage Logo" class="logo" />
+        <img
+          src="../../assets/vonage-icon.jpg"
+          alt="Vonage Logo"
+          class="logo"
+        />
 
         <h2>Log in to Vonage Business Communications</h2>
 
@@ -21,25 +25,29 @@
           <div class="input-group">
             <label for="username">Username</label>
             <input
-                id="username"
-                type="text"
-                v-model="username"
-                placeholder="Enter your username"
+              id="username"
+              type="text"
+              v-model="username"
+              placeholder="Enter your username"
             />
           </div>
           <div class="input-group">
             <label for="password">Password</label>
             <input
-                id="password"
-                type="password"
-                v-model="password"
-                placeholder="Enter your password"
+              id="password"
+              type="password"
+              v-model="password"
+              placeholder="Enter your password"
             />
           </div>
           <div class="remember-section">
             <input type="checkbox" id="rememberMe" v-model="rememberMe" />
             <label for="rememberMe">Remember me</label>
-            <a href="#" class="forgot-link" @click.prevent="$router.push('/password-recovery')">
+            <a
+              href="#"
+              class="forgot-link"
+              @click.prevent="$router.push('/password-recovery')"
+            >
               Forgot password?
             </a>
           </div>
@@ -70,20 +78,20 @@
 
 <script>
 export default {
-  name: "LoginPage",
+  name: 'LoginPage',
   data() {
     return {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       rememberMe: false,
     };
   },
   methods: {
     handleLogin() {
       if (this.username && this.password) {
-        this.$emit("loginSuccess");
+        this.$emit('loginSuccess');
       } else {
-        alert("Please enter both username and password.");
+        alert('Please enter both username and password.');
       }
     },
   },
@@ -155,8 +163,8 @@ label {
   color: #555;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type='text'],
+input[type='password'] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -224,7 +232,7 @@ input[type="password"] {
 
 .divider::before,
 .divider::after {
-  content: "";
+  content: '';
   flex: 1;
   height: 1px;
   background: #ddd;
