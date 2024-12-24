@@ -44,19 +44,11 @@ export default {
   },
   computed: {
     sortedData() {
-      const data = [...this.data];
-      if (this.sortKey) {
-        data.sort((a, b) => {
-          let comparison = 0;
-          if (a[this.sortKey] > b[this.sortKey]) {
-            comparison = 1;
-          } else if (a[this.sortKey] < b[this.sortKey]) {
-            comparison = -1;
-          }
-          return this.sortOrder === 'asc' ? comparison : -comparison;
-        });
-      }
-      return data;
+      if (!this.sortKey) return this.data;
+      return [...this.data].sort((a, b) => {
+        const comparison = a[this.sortKey] > b[this.sortKey] ? 1 : -1;
+        return this.sortOrder === 'asc' ? comparison : -comparison;
+      });
     },
   },
   methods: {
@@ -109,7 +101,7 @@ export default {
 .table-container th:before {
   content: '';
   display: inline-block;
-  background-image: url('../../assets/both-arrows.svg');
+  background-image: url('../../../public/assets/both-arrows.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -119,10 +111,10 @@ export default {
 }
 
 .table-container th[data-sort='asc']:before {
-  background-image: url('../../assets/up-arrow.svg');
+  background-image: url('../../../public/assets/up-arrow.svg');
 }
 
 .table-container th[data-sort='desc']:before {
-  background-image: url('../../assets/down-arrow.svg');
+  background-image: url('../../../public/assets/down-arrow.svg');
 }
 </style>

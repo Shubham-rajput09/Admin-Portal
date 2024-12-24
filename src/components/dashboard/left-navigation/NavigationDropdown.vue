@@ -5,7 +5,7 @@
         <div class="icon-button">
           <img
             class="dropdown-icon"
-            src="../../../assets/headphone.svg"
+            src="/assets/headphone.svg"
             alt="headphone"
           />
           VSU

@@ -26,8 +26,7 @@ export default {
   },
   data() {
     return {
-      columns: tableData.columns,
-      tableData: tableData.tableData,
+      ...tableData,
     };
   },
 };
