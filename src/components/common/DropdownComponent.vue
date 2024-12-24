@@ -1,14 +1,19 @@
 <template>
   <div class="dropdown">
     <button class="dropdown-button" @click="toggleDropdown">
-      Dropdown List
+      Users List
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
     <div v-if="isOpen" class="dropdown-menu">
-      <a href="#" class="dropdown-item">option 1</a>
-      <a href="#" class="dropdown-item">option 2</a>
-      <a href="#" class="dropdown-item">option 3</a>
+      <a
+        v-for="(user, index) in dropdownList"
+        :key="index"
+        href="#"
+        class="dropdown-item"
+      >
+        {{ user }}
+      </a>
     </div>
   </div>
 </template>
@@ -18,6 +23,7 @@ export default {
   data() {
     return {
       isOpen: false,
+      dropdownList: ['John Doe', 'Jane Smith', 'Emily Johnson', 'Sarah'],
     };
   },
   methods: {
