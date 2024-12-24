@@ -1,5 +1,5 @@
 <template>
-  <div>Dropdown Component</div>
+  <div></div>
 </template>
 
 <script>

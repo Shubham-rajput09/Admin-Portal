@@ -1,5 +1,5 @@
 <template>
-  <div>Primary Button</div>
+  <div></div>
 </template>
 
 <script>

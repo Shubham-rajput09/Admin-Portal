@@ -1,9 +1,9 @@
 <template>
-  <main id="admin-body">
-    <HeadingComponent />
+  <main id="admin-body" class="main">
     <PrimaryButton />
     <SecondaryButton />
     <DropdownComponent />
+    <HeadingComponent />
     <TableComponent />
   </main>
 </template>
@@ -31,5 +31,9 @@ export default {
   background: #f2f2f2;
   flex: 1;
   height: 100vh;
+}
+.main {
+  height: 100vh;
+  padding: 24px 32px;
 }
 </style>
