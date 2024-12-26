@@ -42,7 +42,7 @@
             <a
               href="#"
               class="forgot-link"
-              @click.prevent="$router.push('/password-recovery')"
+              @click.prevent="$router.push('/forgot-password')"
             >
               Forgot password?
             </a>
@@ -65,7 +65,7 @@
         </form>
 
         <div class="signup-link">
-          Don't have an account yet? <a href="#">Contact us</a>
+          Don't have an account yet? <a href="/contact-us">Contact us</a>
         </div>
       </div>
     </div>
