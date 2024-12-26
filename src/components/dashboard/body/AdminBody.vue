@@ -5,6 +5,7 @@
     <DropdownComponent />
     <HeadingComponent />
     <TableComponent :columns="columns" :data="tableData" />
+    <NavigationBar />
   </main>
 </template>
 
@@ -15,9 +16,11 @@ import PrimaryButton from '@/components/common/PrimaryButton.vue';
 import SecondaryButton from '@/components/common/SecondaryButton.vue';
 import DropdownComponent from '@/components/common/DropdownComponent.vue';
 import tableData from '@/json/tableData.json';
+import NavigationBar from '@/components/common/NavigationBar.vue';
 export default {
   name: 'AdminBody',
   components: {
+    NavigationBar,
     DropdownComponent,
     SecondaryButton,
     PrimaryButton,
