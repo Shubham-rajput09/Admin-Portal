@@ -101,7 +101,7 @@ export default {
 .table-container th:before {
   content: '';
   display: inline-block;
-  background-image: url('../../../public/assets/both-arrows.svg');
+  background-image: url('/public/assets/both-arrows.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -111,10 +111,10 @@ export default {
 }
 
 .table-container th[data-sort='asc']:before {
-  background-image: url('../../../public/assets/up-arrow.svg');
+  background-image: url('/public/assets/up-arrow.svg');
 }
 
 .table-container th[data-sort='desc']:before {
-  background-image: url('../../../public/assets/down-arrow.svg');
+  background-image: url('/public/assets/down-arrow.svg');
 }
 </style>
