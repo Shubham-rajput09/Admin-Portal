@@ -3,7 +3,7 @@
     <!-- Left Section -->
     <div class="left-section">
       <img
-        src="../../assets/illustration.png"
+        src="/assets/illustration.png"
         alt="Collaboration Illustration"
         class="illustration-full"
       />
@@ -12,11 +12,7 @@
     <!-- Right Section -->
     <div class="right-section">
       <div class="login-container">
-        <img
-          src="../../assets/vonage-icon.jpg"
-          alt="Vonage Logo"
-          class="logo"
-        />
+        <img src="/assets/vonage-icon.jpg" alt="Vonage Logo" class="logo" />
 
         <h2>Log in to Vonage Business Communications</h2>
 

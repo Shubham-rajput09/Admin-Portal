@@ -3,23 +3,19 @@
     <!-- Vonage Icon -->
     <div>
       <img
-        src="../../../assets/vonage-icon.jpg"
+        src="/assets/vonage-icon.jpg"
         alt="Notification Icon"
         class="notification-icon"
       />
     </div>
     <!--Help Button -->
     <button id="help">
-      <img
-        src="../../../assets/icn-help.svg"
-        alt="Help Icon"
-        class="help-icon"
-      />Help
+      <img src="/assets/icn-help.svg" alt="Help Icon" class="help-icon" />Help
     </button>
     <!--Visit Store Button -->
     <button id="visitstore">
       <img
-        src="../../../assets/visitstore.svg"
+        src="/assets/visitstore.svg"
         alt="Visit Store"
         class="visit-store"
       />Visit Store
