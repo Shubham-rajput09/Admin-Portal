@@ -4,8 +4,8 @@
     <SecondaryButton />
     <DropdownComponent />
     <HeadingComponent />
-    <TableComponent :columns="columns" :data="tableData" />
     <NavigationBar />
+    <TableComponent :columns="columns" :data="tableData" />
   </main>
 </template>
 
