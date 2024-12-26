@@ -1,5 +1,5 @@
 <template>
-  <div>Heading Component</div>
+  <div></div>
 </template>
 
 <script>
