@@ -10,6 +10,7 @@
               v-model="formData.firstName"
               required
               placeholder="First Name"
+              aria-label="First Name"
           />
         </div>
         <div class="input-group">
@@ -20,6 +21,7 @@
               v-model="formData.lastName"
               required
               placeholder="Last Name"
+              aria-label="Last Name"
           />
         </div>
       </div>
@@ -33,11 +35,12 @@
               v-model="formData.companyName"
               required
               placeholder="Company Name"
+              aria-label="Company Name"
           />
         </div>
         <div class="input-group">
           <label for="employees">Employees (optional)</label>
-          <select id="employees" v-model="formData.employees">
+          <select id="employees" v-model="formData.employees" aria-label="Employees">
             <option value="" disabled>Select</option>
             <option value="1-10">1-10</option>
             <option value="11-50">11-50</option>
@@ -57,12 +60,13 @@
               v-model="formData.email"
               required
               placeholder="Email"
+              aria-label="Email"
           />
         </div>
         <div class="input-group">
           <label for="phoneNumber">Phone Number</label>
           <div class="phone-input">
-            <select v-model="formData.countryCode">
+            <select v-model="formData.countryCode" aria-label="Country Code">
               <option value="+1">+1</option>
               <option value="+91">+91</option>
             </select>
@@ -72,6 +76,7 @@
                 v-model="formData.phoneNumber"
                 required
                 placeholder="Phone Number"
+                aria-label="Phone Number"
             />
           </div>
         </div>
@@ -80,7 +85,7 @@
       <div class="input-row">
         <div class="input-group">
           <label for="interest">What are you interested in?</label>
-          <select id="interest" v-model="formData.interest" required>
+          <select id="interest" v-model="formData.interest" required aria-label="Interest">
             <option value="" disabled>Select</option>
             <option value="product">Product</option>
             <option value="service">Service</option>
@@ -89,7 +94,7 @@
         </div>
         <div class="input-group">
           <label for="country">Country/Region</label>
-          <select id="country" v-model="formData.country" required>
+          <select id="country" v-model="formData.country" required aria-label="Country">
             <option value="India">India</option>
             <option value="USA">United States</option>
             <option value="UK">United Kingdom</option>
@@ -99,7 +104,13 @@
       </div>
 
       <div class="checkbox-group">
-        <input id="consent" type="checkbox" v-model="formData.consent" required />
+        <input
+            id="consent"
+            type="checkbox"
+            v-model="formData.consent"
+            required
+            aria-label="Consent Checkbox"
+        />
         <label for="consent">
           By checking this box, you agree to be contacted via phone and email
           regarding your interest in our products and services. We will treat your data in
@@ -114,7 +125,7 @@
 
 <script>
 export default {
-  name: 'ContactUs',
+  name: "ContactUs",
   data() {
     return {
       formData: {
@@ -126,7 +137,7 @@ export default {
         phoneNumber: "",
         countryCode: "+1",
         interest: "",
-        country: "United States",
+        country: "USA",
         consent: false,
       },
     };
@@ -147,7 +158,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 600px;
-  margin: 0 auto;
+  margin: 50px auto; /* Added spacing at the top */
 }
 
 .input-row {
@@ -177,6 +188,12 @@ select {
   border-radius: 5px;
 }
 
+input:focus,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
 .phone-input {
   display: flex;
   gap: 5px;
@@ -184,18 +201,14 @@ select {
 
 .checkbox-group {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   font-size: 14px;
 }
 
-.checkbox-group input {
-  transform: scale(2); /* Adjust the scale to make the checkbox smaller */
-  margin-top: 5px;
-}
-
 .checkbox-group a {
   color: #007bff;
+  text-decoration: none;
 }
 
 .submit-button {
@@ -207,13 +220,13 @@ select {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 .submit-button:hover {
   background: #333;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .input-row {
     flex-direction: column;

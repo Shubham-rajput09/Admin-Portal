@@ -53,11 +53,18 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .password-recovery-page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Allow full screen height */
+  background-image: url('@/assets/rpg.png'); /* Add background image */
+  background-size: cover; /* Ensure the background image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the background image */
 }
 
 .form-container {
