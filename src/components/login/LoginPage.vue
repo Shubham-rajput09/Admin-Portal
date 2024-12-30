@@ -111,34 +111,26 @@ export default {
         this.errors.password = 'Password must be at least 6 characters.';
         isValid = false;
       }
-
       return isValid;
     },
-
     handleLogin() {
       const isValid = this.validateInputs();
-
-      // Show errors for username and password first
-      if (!this.username && !this.password) {
-        return;
-      } else if (!this.username) {
-        return;
-      } else if (!this.password) {
+      // If inputs are invalid, exit early
+      if (!isValid) {
         return;
       }
-
       // If all conditions are met, proceed to the dashboard
-      if (isValid) {
-        this.$router.push('/dashboard');
-      }
-    },
-
-
+      this.$router.push('/dashboard');
+    }
   },
 };
+
 </script>
 
+
 <style scoped>
+
+
 /* General Layout */
 .login-page {
   display: flex;
