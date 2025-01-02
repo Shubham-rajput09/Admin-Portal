@@ -1,9 +1,7 @@
 <template>
-  <!-- Parent container with the background image -->
   <div class="background-container">
-    <!-- Form section inside the background container -->
     <div class="form-section">
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="handleSubmit" novalidate>
         <!-- First Name and Last Name -->
         <div class="input-row">
           <div class="input-group">
@@ -12,10 +10,11 @@
                 id="firstName"
                 type="text"
                 v-model="formData.firstName"
-                required
                 placeholder="First Name"
                 aria-label="First Name"
+                @blur="validateField('firstName')"
             />
+            <p v-if="errors.firstName" class="error-message">{{ errors.firstName }}</p>
           </div>
           <div class="input-group">
             <label for="lastName">Last Name</label>
@@ -23,10 +22,11 @@
                 id="lastName"
                 type="text"
                 v-model="formData.lastName"
-                required
                 placeholder="Last Name"
                 aria-label="Last Name"
+                @blur="validateField('lastName')"
             />
+            <p v-if="errors.lastName" class="error-message">{{ errors.lastName }}</p>
           </div>
         </div>
 
@@ -38,20 +38,17 @@
                 id="companyName"
                 type="text"
                 v-model="formData.companyName"
-                required
                 placeholder="Company Name"
                 aria-label="Company Name"
+                @blur="validateField('companyName')"
             />
+            <p v-if="errors.companyName" class="error-message">{{ errors.companyName }}</p>
           </div>
           <div class="input-group">
             <label for="employees">Employees (optional)</label>
             <select id="employees" v-model="formData.employees" aria-label="Employees">
               <option value="" disabled>Select</option>
-              <option value="1-10">1-10</option>
-              <option value="11-50">11-50</option>
-              <option value="51-200">51-200</option>
-              <option value="201-500">201-500</option>
-              <option value="500+">500+</option>
+              <option v-for="(option, index) in employeeOptions" :key="index" :value="option">{{ option }}</option>
             </select>
           </div>
         </div>
@@ -64,27 +61,29 @@
                 id="email"
                 type="email"
                 v-model="formData.email"
-                required
                 placeholder="Email"
                 aria-label="Email"
+                @blur="validateField('email')"
             />
+            <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
           </div>
           <div class="input-group">
             <label for="phoneNumber">Phone Number</label>
             <div class="phone-input">
               <select v-model="formData.countryCode" aria-label="Country Code">
-                <option value="+1">+1</option>
-                <option value="+91">+91</option>
+                <option value="" disabled>Select Code</option>
+                <option v-for="(code, index) in countryCodes" :key="index" :value="code">{{ code }}</option>
               </select>
               <input
                   id="phoneNumber"
                   type="tel"
                   v-model="formData.phoneNumber"
-                  required
                   placeholder="Phone Number"
                   aria-label="Phone Number"
+                  @blur="validateField('phoneNumber')"
               />
             </div>
+            <p v-if="errors.phoneNumber" class="error-message">{{ errors.phoneNumber }}</p>
           </div>
         </div>
 
@@ -92,21 +91,19 @@
         <div class="input-row">
           <div class="input-group">
             <label for="interest">What are you interested in?</label>
-            <select id="interest" v-model="formData.interest" required aria-label="Interest">
+            <select id="interest" v-model="formData.interest" required aria-label="Interest" @blur="validateField('interest')">
               <option value="" disabled>Select</option>
-              <option value="product">Product</option>
-              <option value="service">Service</option>
-              <option value="other">Other</option>
+              <option v-for="(interest, index) in interestOptions" :key="index" :value="interest">{{ interest }}</option>
             </select>
+            <p v-if="errors.interest" class="error-message">{{ errors.interest }}</p>
           </div>
           <div class="input-group">
             <label for="country">Country/Region</label>
-            <select id="country" v-model="formData.country" required aria-label="Country">
-              <option value="India">India</option>
-              <option value="USA">United States</option>
-              <option value="UK">United Kingdom</option>
-              <option value="Canada">Canada</option>
+            <select id="country" v-model="formData.country" required aria-label="Country" @blur="validateField('country')">
+              <option value="" disabled>Select</option>
+              <option v-for="(country, index) in countryOptions" :key="index" :value="country">{{ country }}</option>
             </select>
+            <p v-if="errors.country" class="error-message">{{ errors.country }}</p>
           </div>
         </div>
 
@@ -116,7 +113,6 @@
               id="consent"
               type="checkbox"
               v-model="formData.consent"
-              required
               aria-label="Consent Checkbox"
           />
           <label for="consent">
@@ -147,15 +143,69 @@ export default {
         phoneNumber: "",
         countryCode: "+1",
         interest: "",
-        country: "USA",
-        consent: false,
+        country: "",
+        consent: false, // Checkbox is optional
       },
+      errors: {},
+      employeeOptions: ["1-10", "11-50", "51-200", "201-500", "500+"],
+      countryCodes: ["+1", "+91", "+44", "+61"],
+      interestOptions: ["Product", "Service", "Other"],
+      countryOptions: ["India", "USA", "UK", "Canada"],
     };
   },
   methods: {
+    validateField(field) {
+      if (!this.formData[field]) {
+        this.errors[field] = "This field is required.";
+      } else {
+        delete this.errors[field];
+      }
+
+      // Additional email validation
+      if (field === "email" && this.formData.email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(this.formData.email)) {
+          this.errors.email = "Please enter a valid email address.";
+        }
+      }
+
+      // Additional phone number validation
+      if (field === "phoneNumber" && this.formData.phoneNumber) {
+        const phonePattern = /^\d{10}$/;
+        if (!phonePattern.test(this.formData.phoneNumber)) {
+          this.errors.phoneNumber = "Please enter a valid phone number.";
+        }
+      }
+    },
     handleSubmit() {
-      alert("Form submitted successfully!");
-      console.log(this.formData);
+      // Reset errors
+      this.errors = {};
+
+      // Define the order of fields to validate
+      const fieldsOrder = [
+        "firstName",
+        "lastName",
+        "companyName",
+        "employees",
+        "email",
+        "phoneNumber",
+        "interest",
+        "country",
+      ];
+
+      // Validate fields in order and stop at the first error
+      for (const field of fieldsOrder) {
+        this.validateField(field);
+        if (this.errors[field]) {
+          // Stop validation at the first error
+          break;
+        }
+      }
+
+      // If there are no errors, proceed with form submission
+      if (Object.keys(this.errors).length === 0) {
+        console.log("Form submitted successfully:", this.formData);
+      }
     },
   },
 };
@@ -163,6 +213,12 @@ export default {
 
 <style scoped>
 /* Style for the background container */
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
 .background-container {
   background: url('@/assets/rpg.png') no-repeat center center;
   background-size: cover;
