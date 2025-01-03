@@ -11,10 +11,12 @@
               type="text"
               v-model="username"
               placeholder="Enter your username"
+              @blur="validateUsername"
           />
+          <p v-if="errors.username" class="error-message">{{ errors.username }}</p>
         </div>
         <div class="captcha-group">
-          <input type="checkbox" id="captcha" />
+          <input type="checkbox" id="captcha" v-model="captchaChecked" />
           <label for="captcha">I'm not a robot</label>
         </div>
         <div class="actions">
@@ -33,16 +35,31 @@ export default {
   data() {
     return {
       username: "",
+      captchaChecked: false,
+      errors: {
+        username: null,
+      },
     };
   },
   methods: {
-    handlePasswordRecovery() {
-      if (this.username) {
-        alert(
-            `Password recovery instructions sent to the email associated with ${this.username}`
-        );
+    validateUsername() {
+      if (!this.username.trim()) {
+        this.errors.username = "Username is required.";
       } else {
-        alert("Please enter your username.");
+        this.errors.username = null;
+      }
+    },
+    handlePasswordRecovery() {
+      this.validateUsername();
+
+      if (!this.errors.username) {
+        console.log(`Password recovery initiated for username: ${this.username}`);
+        if (this.captchaChecked) {
+          console.log("Captcha checked: User verified they are not a robot.");
+        } else {
+          console.log("Captcha not checked: Proceeding without user verification.");
+        }
+        this.$router.push("/"); // Redirect to another page
       }
     },
     goBack() {
@@ -53,11 +70,22 @@ export default {
 </script>
 
 <style scoped>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .password-recovery-page {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Allow full screen height */
+  min-height: 100vh;
+  background-image: url('@/assets/rpg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px; /* Add padding for smaller screens */
 }
 
 .form-container {
@@ -103,6 +131,12 @@ input[type="text"] {
   font-size: 14px;
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .captcha-group {
   display: flex;
   align-items: center;
@@ -116,6 +150,7 @@ input[type="text"] {
 .actions {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   margin-top: 15px;
 }
 
@@ -159,5 +194,55 @@ input[type="text"] {
 .forgot-username:hover {
   text-decoration: underline;
 }
-</style>
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .password-recovery-page {
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 15px 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  input[type="text"] {
+    font-size: 13px;
+  }
+
+  .submit-button,
+  .cancel-button {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  input[type="text"] {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .submit-button,
+  .cancel-button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+}
+</style>

@@ -3,9 +3,9 @@
     <!-- Left Section -->
     <div class="left-section">
       <img
-        src="/assets/illustration.png"
-        alt="Collaboration Illustration"
-        class="illustration-full"
+          src="/assets/illustration.png"
+          alt="Collaboration Illustration"
+          class="illustration-full"
       />
     </div>
 
@@ -21,37 +21,37 @@
           <div class="input-group">
             <label for="username">Username</label>
             <input
-              id="username"
-              type="text"
-              v-model="username"
-              placeholder="Enter your username"
+                id="username"
+                type="text"
+                v-model="username"
+                placeholder="Enter your username"
             />
+            <p v-if="errors.username" class="error-message">{{ errors.username }}</p>
           </div>
           <div class="input-group">
             <label for="password">Password</label>
             <input
-              id="password"
-              type="password"
-              v-model="password"
-              placeholder="Enter your password"
+                id="password"
+                type="password"
+                v-model="password"
+                placeholder="Enter your password"
             />
+            <p v-if="errors.password" class="error-message">{{ errors.password }}</p>
           </div>
           <div class="remember-section">
             <input type="checkbox" id="rememberMe" v-model="rememberMe" />
             <label for="rememberMe">Remember me</label>
             <a
-              href="#"
-              class="forgot-link"
-              @click.prevent="$router.push('/forgot-password')"
+                href="#"
+                class="forgot-link"
+                @click.prevent="$router.push('/forgot-password')"
             >
               Forgot password?
             </a>
           </div>
 
           <!-- Login Button -->
-          <router-link to="/dashboard">
-            <button type="submit" class="login-button">Login</button>
-          </router-link>
+          <button type="submit" class="login-button">Login</button>
 
           <!-- Divider -->
           <div class="divider">
@@ -80,21 +80,57 @@ export default {
       username: '',
       password: '',
       rememberMe: false,
+      errors: {
+        username: '',
+        password: '',
+      },
     };
   },
   methods: {
-    handleLogin() {
-      if (this.username && this.password) {
-        this.$emit('loginSuccess');
-      } else {
-        alert('Please enter both username and password.');
+    validateInputs() {
+      let isValid = true;
+
+      // Reset errors
+      this.errors.username = '';
+      this.errors.password = '';
+
+      // Username validation
+      if (!this.username) {
+        this.errors.username = 'Username is required.';
+        isValid = false;
+      } else if (/^[\\w.-]+@[\\w-]+\\.[a-z]{2,4}$/i.test(this.username)) {
+        this.errors.username = 'Please enter a valid email address.';
+        isValid = false;
       }
+
+      // Password validation
+      if (!this.password) {
+        this.errors.password = 'Password is required.';
+        isValid = false;
+      } else if (this.password.length < 6) {
+        this.errors.password = 'Password must be at least 6 characters.';
+        isValid = false;
+      }
+      return isValid;
     },
+    handleLogin() {
+      const isValid = this.validateInputs();
+      // If inputs are invalid, exit early
+      if (!isValid) {
+        return;
+      }
+      // If all conditions are met, proceed to the dashboard
+      this.$router.push('/dashboard');
+    }
   },
 };
+
 </script>
 
+
 <style scoped>
+
+
 /* General Layout */
 .login-page {
   display: flex;
@@ -166,6 +202,12 @@ input[type='password'] {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .remember-section {
