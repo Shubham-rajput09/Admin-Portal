@@ -15,16 +15,34 @@
       </div>
     </div>
     <hr class="underline" />
+    <TableComponent :columns="filteredColumns" :data="filteredData" />
   </div>
 </template>
 
 <script>
+import TableComponent from './TableComponent.vue';
+import tableData from '@/json/tableData.json';
+
 export default {
   name: 'NavigationBar',
+  components: { TableComponent },
   data() {
     return {
-      selected: 'user', // Default to 'User' tab
+      selected: 'user',
     };
+  },
+  computed: {
+    filteredColumns() {
+      return this.selected === 'user'
+        ? tableData.userColumn
+        : tableData.auditColumn;
+    },
+    filteredData() {
+      // Show empty table for audit log
+      return this.selected === 'user'
+        ? tableData.userData
+        : tableData.auditData;
+    },
   },
   methods: {
     selectTab(tab) {
