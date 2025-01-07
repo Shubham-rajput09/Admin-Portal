@@ -1,5 +1,5 @@
 {
-  "columns": [
+  "userColumn": [
     { "key": "account", "label": "Account" },
     { "key": "companyName", "label": "Company Name" },
     { "key": "accountType", "label": "Account Type" },
@@ -10,7 +10,7 @@
     { "key": "country", "label": "Country" },
     { "key": "customerSignature", "label": "Customer Signature" }
   ],
-  "tableData": [
+  "userData": [
     {
       "account": "ACC12345",
       "companyName": "Tech Solutions Inc.",
@@ -65,6 +65,32 @@
       "status": "Inactive",
       "country": "Australia",
       "customerSignature": "Sarah Miller"
+    }
+  ],
+  "auditColumn": [
+    { "key": "eventDate", "label": "Event Date/Time" },
+    { "key": "eventType", "label": "Event Type" },
+    { "key": "changedBy", "label": "Changed By" },
+    { "key": "itemChanged", "label": "Item Changed" },
+    { "key": "itemLocation", "label": "Item Location" },
+    { "key": "changeSummary", "label": "Change Summary" }
+  ],
+  "auditData": [
+    {
+      "eventDate": "2020-03-01",
+      "eventType": "Startup",
+      "changedBy": "PID9876",
+      "itemChanged": "2020-03-01",
+      "itemLocation": "PID9876",
+      "changeSummary": "John Doe"
+    },
+    {
+      "eventDate": "2020-03-01",
+      "eventType": "Startup",
+      "changedBy": "PID1234",
+      "itemChanged": "2020-03-01",
+      "itemLocation": "PID1234",
+      "changeSummary": "Jane Smith"
     }
   ]
 }
