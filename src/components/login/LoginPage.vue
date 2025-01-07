@@ -18,6 +18,7 @@
 
         <!-- Login Form -->
         <form @submit.prevent="handleLogin">
+          <!-- Username Input -->
           <div class="input-group">
             <label for="username">Username</label>
             <input
@@ -26,18 +27,35 @@
                 v-model="username"
                 placeholder="Enter your username"
             />
-            <p v-if="errors.username" class="error-message">{{ errors.username }}</p>
+            <p v-if="errors.username" class="error-message">
+              {{ errors.username }}
+            </p>
           </div>
+
+          <!-- Password Input with Toggle -->
           <div class="input-group">
             <label for="password">Password</label>
-            <input
-                id="password"
-                type="password"
-                v-model="password"
-                placeholder="Enter your password"
-            />
-            <p v-if="errors.password" class="error-message">{{ errors.password }}</p>
+            <div class="password-wrapper">
+              <input
+                  id="password"
+                  :type="showPassword ? 'text' : 'password'"
+                  v-model="password"
+                  placeholder="Enter your password"
+              />
+              <span
+                  class="toggle-password"
+                  @click="togglePasswordVisibility"
+                  :aria-label="showPassword ? 'Hide password' : 'Show password'"
+              >
+                <i :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+              </span>
+            </div>
+            <p v-if="errors.password" class="error-message">
+              {{ errors.password }}
+            </p>
           </div>
+
+          <!-- Remember Me and Forgot Password -->
           <div class="remember-section">
             <input type="checkbox" id="rememberMe" v-model="rememberMe" />
             <label for="rememberMe">Remember me</label>
@@ -51,7 +69,13 @@
           </div>
 
           <!-- Login Button -->
-          <button type="submit" class="login-button">Login</button>
+          <button
+              type="submit"
+              class="login-button"
+              :disabled="!isFormValid"
+          >
+            Login
+          </button>
 
           <!-- Divider -->
           <div class="divider">
@@ -64,6 +88,7 @@
           </button>
         </form>
 
+        <!-- Sign Up Link -->
         <div class="signup-link">
           Don't have an account yet? <a href="/contact-us">Contact us</a>
         </div>
@@ -80,13 +105,22 @@ export default {
       username: '',
       password: '',
       rememberMe: false,
+      showPassword: false, // State for password visibility toggle
       errors: {
         username: '',
         password: '',
       },
     };
   },
+  computed: {
+    isFormValid() {
+      return this.username.trim() !== '' && this.password.trim() !== '';
+    },
+  },
   methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
     validateInputs() {
       let isValid = true;
 
@@ -115,22 +149,16 @@ export default {
     },
     handleLogin() {
       const isValid = this.validateInputs();
-      // If inputs are invalid, exit early
       if (!isValid) {
         return;
       }
-      // If all conditions are met, proceed to the dashboard
       this.$router.push('/dashboard');
-    }
+    },
   },
 };
-
 </script>
 
-
 <style scoped>
-
-
 /* General Layout */
 .login-page {
   display: flex;
@@ -195,19 +223,43 @@ label {
   color: #555;
 }
 
+
 input[type='text'],
 input[type='password'] {
   width: 100%;
   padding: 10px;
+  padding-right: 40px; /* Add space for the eye icon */
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .error-message {
   color: red;
   font-size: 12px;
   margin-top: 5px;
+}
+
+/* Password Toggle */
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+.toggle-password:hover {
+  color: #6c5ce7;
 }
 
 .remember-section {
@@ -249,6 +301,11 @@ input[type='password'] {
   background-color: #5a4ad1;
 }
 
+.login-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .sso-button {
   background-color: #fff;
   color: #6c5ce7;
@@ -267,7 +324,6 @@ input[type='password'] {
   margin: 20px 0;
   color: #888;
 }
-
 .divider::before,
 .divider::after {
   content: '';
