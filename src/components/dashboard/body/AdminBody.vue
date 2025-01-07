@@ -5,12 +5,10 @@
     <DropdownComponent />
     <HeadingComponent />
     <NavigationBar />
-    <TableComponent :columns="columns" :data="tableData" />
   </main>
 </template>
 
 <script>
-import TableComponent from '@/components/common/TableComponent.vue';
 import HeadingComponent from '@/components/common/HeadingComponent.vue';
 import PrimaryButton from '@/components/common/PrimaryButton.vue';
 import SecondaryButton from '@/components/common/SecondaryButton.vue';
@@ -25,7 +23,6 @@ export default {
     SecondaryButton,
     PrimaryButton,
     HeadingComponent,
-    TableComponent,
   },
   data() {
     return {
