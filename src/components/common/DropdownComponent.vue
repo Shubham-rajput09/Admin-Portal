@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown">
     <button class="dropdown-button" @click="toggleDropdown">
-      Users List
+      {{ DropDownName }}
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
@@ -20,6 +20,11 @@
 
 <script>
 export default {
+  props: {
+    DropDownName: {
+      type: String,
+    },
+  },
   data() {
     return {
       isOpen: false,
@@ -27,48 +32,56 @@ export default {
     };
   },
   methods: {
-    toggleDropdown() {
+    toggleDropdown(event) {
+      event.stopPropagation();
       this.isOpen = !this.isOpen;
     },
+    closeDropdown() {
+      this.isOpen = false;
+    },
+  },
+  mounted() {
+    document.addEventListener('click', this.closeDropdown);
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.closeDropdown);
   },
 };
 </script>
 
 <style scoped>
 .dropdown {
-  position: absolute;
+  position: relative;
   display: inline-block;
-  right: 20px;
 }
-
 .arrow {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-left: 15px;
-  margin-bottom: 3px;
+  width: 5px;
+  height: 5px;
+  margin-left: 10px;
+  margin-bottom: 0;
   border: solid #070000;
   border-width: 0 1px 1px 0;
   transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.arrow.open {
-  transform: rotate(-135deg);
-}
-
 .dropdown-button {
   border: 1.3px solid;
   border-radius: 6px;
-  display: inline-block;
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
   font-weight: 590;
   font-style: normal;
   text-align: center;
-  padding: 8px 12px;
+  padding: 10px 15px;
   cursor: pointer;
-  min-height: 15px;
-  min-width: 40px;
-  background-color: white;
+  min-height: 30px;
+  min-width: 50px;
+  background-color: transparent;
+  color: #070000;
+  white-space: nowrap;
 }
 
 .dropdown-button:hover {
