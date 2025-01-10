@@ -41,15 +41,23 @@
         <button class="print-button">
           <img src="@/assets/print-icon.png" alt="Print" class="print-icon" />
         </button>
-        <PrimaryButton :button-name="ButtonName1" class="button1" />
-        <DropdownComponent :DropDownName="DropDownName1" class="dropdown1" />
-        <DropdownComponent :DropDownName="DropDownName2" class="dropdown2" />
+        <PrimaryButton :buttonName="exportToExcelButton" class="button1" />
+        <DropdownComponent
+          :dropDownTitle="bulkDropDown"
+          dropDownList=""
+          class="bulkDropDown"
+        />
+        <DropdownComponent
+          :dropDownTitle="showHideDropDown"
+          dropDownList=""
+          class="showHideDropDown"
+        />
       </div>
     </div>
 
     <div class="bottom-row">
-      <PrimaryButton :button-name="ButtonName2" class="button" />
-      <PrimaryButton :button-name="ButtonName3" class="button" />
+      <PrimaryButton :buttonName="changeSuperUserButton" class="button" />
+      <PrimaryButton :buttonName="addNewButton" class="button" />
     </div>
   </div>
 </template>
@@ -63,11 +71,11 @@ export default {
   components: { DropdownComponent, PrimaryButton },
   data() {
     return {
-      ButtonName1: 'Export to Excel',
-      ButtonName2: 'Change Super User',
-      ButtonName3: 'Add New',
-      DropDownName1: 'Bulk',
-      DropDownName2: 'Show/Hide Columns',
+      exportToExcelButton: 'Export to Excel',
+      changeSuperUserButton: 'Change Super User',
+      addNewButton: 'Add New',
+      bulkDropDown: 'Bulk',
+      showHideDropDown: 'Show/Hide Columns',
       isSearchInputVisible: false,
       searchText: '',
     };
@@ -138,11 +146,11 @@ export default {
   align-items: center;
 }
 
-.dropdown1 {
+.bulkDropDown {
   padding: 3px 1px;
 }
 
-.dropdown2 {
+.showHideDropDown {
   padding: 3px 8px;
 }
 

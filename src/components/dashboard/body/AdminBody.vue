@@ -9,7 +9,6 @@
 <script>
 import HeadingComponent from '@/components/common/HeadingComponent.vue';
 import SecondaryButton from '@/components/common/SecondaryButton.vue';
-//import DropdownComponent from '@/components/common/DropdownComponent.vue';
 import tableData from '@/json/tableData.json';
 import NavigationBar from '@/components/common/NavigationBar.vue';
 export default {

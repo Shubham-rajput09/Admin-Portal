@@ -1,13 +1,13 @@
 <template>
   <div class="dropdown">
     <button class="dropdown-button" @click="toggleDropdown">
-      {{ DropDownName }}
+      {{ dropDownTitle }}
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
     <div v-if="isOpen" class="dropdown-menu">
       <a
-        v-for="(user, index) in dropdownList"
+        v-for="(user, index) in dropDownList"
         :key="index"
         href="#"
         class="dropdown-item"
@@ -21,14 +21,18 @@
 <script>
 export default {
   props: {
-    DropDownName: {
+    dropDownTitle: {
       type: String,
+      required: true,
+    },
+    dropDownList: {
+      type: Array,
+      required: true,
     },
   },
   data() {
     return {
       isOpen: false,
-      dropdownList: ['John Doe', 'Jane Smith', 'Emily Johnson', 'Sarah'],
     };
   },
   methods: {
