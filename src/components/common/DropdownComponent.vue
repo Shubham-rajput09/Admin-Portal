@@ -7,12 +7,13 @@
 
     <div v-if="isOpen" class="dropdown-menu">
       <a
-        v-for="(user, index) in dropDownList"
+        v-for="(option, index) in dropDownList"
         :key="index"
         href="#"
         class="dropdown-item"
+        @click="selectOption(option.key)"
       >
-        {{ user }}
+        {{ option.label }}
       </a>
     </div>
   </div>
@@ -36,15 +37,20 @@ export default {
     };
   },
   methods: {
+    selectOption(optionKey) {
+      this.$emit('select-option', optionKey);
+    },
     toggleDropdown(event) {
       event.stopPropagation();
       this.isOpen = !this.isOpen;
+      console.log('Dropdown isOpen:', this.isOpen);
     },
     closeDropdown() {
       this.isOpen = false;
     },
   },
   mounted() {
+    console.log('dropDownList in child:', this.dropDownList);
     document.addEventListener('click', this.closeDropdown);
   },
   beforeUnmount() {
@@ -96,18 +102,19 @@ export default {
   position: absolute;
   top: 45px;
   left: 0;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #fbf7f7;
+  border: 1px solid #fbf7f7;
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 160px;
+  min-width: 80px;
   z-index: 1000;
 }
-
 .dropdown-item {
   padding: 10px 16px;
   display: block;
-  color: #333;
+  font-weight: 300;
+  font-size: 14px;
+  color: #070000;
   text-decoration: none;
 }
 

@@ -41,23 +41,26 @@
         <button class="print-button">
           <img src="@/assets/print-icon.png" alt="Print" class="print-icon" />
         </button>
-        <PrimaryButton :buttonName="exportToExcelButton" class="button1" />
+        <PrimaryButton :buttonName="exportToExcelButton" class="export-excel" />
         <DropdownComponent
-          :dropDownTitle="bulkDropDown"
-          dropDownList=""
-          class="bulkDropDown"
+          :dropDownTitle="dropDownOptions[bulkDropDown].title"
+          :dropDownList="dropDownOptions[bulkDropDown].list"
+          @selectOption="handleDropdownOption"
         />
-        <DropdownComponent
-          :dropDownTitle="showHideDropDown"
-          dropDownList=""
-          class="showHideDropDown"
+        <CheckBoxDropDown
+          :checkBoxDropDownTitle="checkBoxDropDown['show_or_hide'].title"
+          :dropDownList="checkBoxDropDown['show_or_hide'].checkBoxDropDownList"
+          @update-selected="handleSelectedOptions"
         />
       </div>
     </div>
 
     <div class="bottom-row">
-      <PrimaryButton :buttonName="changeSuperUserButton" class="button" />
-      <PrimaryButton :buttonName="addNewButton" class="button" />
+      <PrimaryButton
+        :buttonName="changeSuperUserButton"
+        class="change-user-button"
+      />
+      <PrimaryButton :buttonName="addNewButton" class="add-new-button" />
     </div>
   </div>
 </template>
@@ -65,10 +68,11 @@
 <script>
 import PrimaryButton from '@/components/common/PrimaryButton.vue';
 import DropdownComponent from '@/components/common/DropdownComponent.vue';
+import CheckBoxDropDown from '@/components/common/CheckBoxDropDown.vue';
 
 export default {
   name: 'SearchBar',
-  components: { DropdownComponent, PrimaryButton },
+  components: { DropdownComponent, PrimaryButton, CheckBoxDropDown },
   data() {
     return {
       exportToExcelButton: 'Export to Excel',
@@ -77,6 +81,32 @@ export default {
       bulkDropDown: 'Bulk',
       showHideDropDown: 'Show/Hide Columns',
       isSearchInputVisible: false,
+      dropDownOptions: {
+        bulk_drop_down: {
+          title: 'Bulk',
+          dropDownOptions: [
+            {
+              key: 'add',
+              label: 'Add',
+            },
+          ],
+        },
+      },
+      checkBoxDropDown: {
+        show_or_hide: {
+          title: 'Show/Hide Columns',
+          checkBoxDropDownList: [
+            { key: 'user', label: 'User' },
+            { key: 'extension', label: 'Extension' },
+            { key: 'phone number', label: 'Phone Number' },
+            { key: 'groups', label: 'Groups' },
+            { key: 'email', label: 'Email' },
+            { key: 'user name', label: 'User name' },
+            { key: 'User Type', label: 'User Type' },
+          ],
+        },
+      },
+      selectedOptions: [],
       searchText: '',
     };
   },
@@ -89,6 +119,12 @@ export default {
           this.$refs.searchInput.focus();
         }
       });
+    },
+    handleDropdownOption(optionKey) {
+      console.log('Selected Option:', optionKey);
+    },
+    handleSelectedOptions(selected) {
+      this.selectedOptions = selected;
     },
   },
 };
@@ -132,11 +168,12 @@ export default {
   justify-content: flex-end;
 }
 
-.button {
+.change-user-button,
+.add-new-button {
   padding: 6px 5px;
 }
 
-.button1 {
+.export-excel {
   padding: 2px 8px;
   min-height: 2px;
   white-space: nowrap;
@@ -145,15 +182,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-.bulkDropDown {
-  padding: 3px 1px;
-}
-
-.showHideDropDown {
-  padding: 3px 8px;
-}
-
 .refresh-button {
   background-color: transparent;
   border: 1.3px solid;
