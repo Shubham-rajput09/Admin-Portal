@@ -1,27 +1,31 @@
 <template>
   <main id="admin-body" class="main">
-    <SecondaryButton />
-    <HeadingComponent />
+    <HeadingComponent :heading="useSelectedOptionStore.selectedOptionLabel" />
     <NavigationBar />
   </main>
 </template>
 
 <script>
 import HeadingComponent from '@/components/common/HeadingComponent.vue';
-import SecondaryButton from '@/components/common/SecondaryButton.vue';
 import tableData from '@/json/tableData.json';
 import NavigationBar from '@/components/common/NavigationBar.vue';
+import { useSelectedOptionStore } from '@/stores/selectedOption';
+
 export default {
   name: 'AdminBody',
   components: {
     NavigationBar,
-    SecondaryButton,
     HeadingComponent,
   },
   data() {
     return {
       ...tableData,
     };
+  },
+  computed: {
+    useSelectedOptionStore() {
+      return useSelectedOptionStore();
+    },
   },
 };
 </script>

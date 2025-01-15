@@ -1,10 +1,16 @@
 <template>
-  <div class="heading">Search Account</div>
+  <div class="heading">{{ heading }}</div>
 </template>
 
 <script>
 export default {
   name: 'HeadingComponent',
+  props: {
+    heading: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
