@@ -43,8 +43,8 @@
         </button>
         <PrimaryButton :buttonName="exportToExcelButton" class="export-excel" />
         <DropdownComponent
-          :dropDownTitle="dropDownOptions[bulkDropDown].title"
-          :dropDownList="dropDownOptions[bulkDropDown].list"
+          :dropDownTitle="dropDownOptions['bulk_drop_down'].title"
+          :dropDownList="dropDownOptions['bulk_drop_down'].list"
           @selectOption="handleDropdownOption"
         />
         <CheckBoxDropDown
@@ -78,8 +78,6 @@ export default {
       exportToExcelButton: 'Export to Excel',
       changeSuperUserButton: 'Change Super User',
       addNewButton: 'Add New',
-      bulkDropDown: 'Bulk',
-      showHideDropDown: 'Show/Hide Columns',
       isSearchInputVisible: false,
       dropDownOptions: {
         bulk_drop_down: {
