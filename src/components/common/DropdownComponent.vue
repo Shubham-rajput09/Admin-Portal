@@ -1,74 +1,98 @@
 <template>
   <div class="dropdown">
     <button class="dropdown-button" @click="toggleDropdown">
-      Users List
+      {{ dropDownTitle }}
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
     <div v-if="isOpen" class="dropdown-menu">
-      <a
-        v-for="(user, index) in dropdownList"
-        :key="index"
-        href="#"
-        class="dropdown-item"
-      >
-        {{ user }}
-      </a>
+      <ul>
+        <li
+          v-for="(option, index) in dropDownList"
+          :key="index"
+          class="dropdown-item"
+          @click="selectOption(option.key)"
+        >
+          {{ option.label }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    dropDownTitle: {
+      type: String,
+      required: true,
+    },
+    dropDownList: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       isOpen: false,
-      dropdownList: ['John Doe', 'Jane Smith', 'Emily Johnson', 'Sarah'],
     };
   },
   methods: {
-    toggleDropdown() {
-      this.isOpen = !this.isOpen;
+    selectOption(optionKey) {
+      this.$emit('select-option', optionKey);
     },
+    toggleDropdown(event) {
+      event.stopPropagation();
+      this.isOpen = !this.isOpen;
+      console.log('Dropdown isOpen:', this.isOpen);
+    },
+    closeDropdown() {
+      this.isOpen = false;
+    },
+  },
+  mounted() {
+    console.log('dropDownList in child:', this.dropDownList);
+    document.addEventListener('click', this.closeDropdown);
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.closeDropdown);
   },
 };
 </script>
 
 <style scoped>
 .dropdown {
-  position: absolute;
+  position: relative;
   display: inline-block;
-  right: 20px;
 }
-
 .arrow {
   display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-left: 15px;
-  margin-bottom: 3px;
+  width: 5px;
+  height: 5px;
+  margin-left: 10px;
+  margin-bottom: 0;
   border: solid #070000;
   border-width: 0 1px 1px 0;
   transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
-.arrow.open {
-  transform: rotate(-135deg);
-}
-
 .dropdown-button {
   border: 1.3px solid;
   border-radius: 6px;
-  display: inline-block;
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
   font-weight: 590;
   font-style: normal;
   text-align: center;
-  padding: 8px 12px;
+  padding: 10px 15px;
   cursor: pointer;
-  min-height: 15px;
-  min-width: 40px;
-  background-color: white;
+  min-height: 30px;
+  min-width: 50px;
+  background-color: transparent;
+  color: #070000;
+  white-space: nowrap;
 }
 
 .dropdown-button:hover {
@@ -79,21 +103,28 @@ export default {
   position: absolute;
   top: 45px;
   left: 0;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #fbf7f7;
   border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 160px;
+  box-shadow: 0 4px 6px rgba(14, 0, 0, 0.12);
+  min-width: 80px;
+  min-height: 30px;
   z-index: 1000;
 }
-
-.dropdown-item {
-  padding: 10px 16px;
-  display: block;
-  color: #333;
-  text-decoration: none;
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
-
+.dropdown-item {
+  padding: 10px 5px;
+  font-weight: 300;
+  font-size: 14px;
+  color: #070000;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .dropdown-item:hover {
   background-color: #f1f1f1;
 }

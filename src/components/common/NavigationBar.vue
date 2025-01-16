@@ -15,6 +15,7 @@
       </div>
     </div>
     <hr class="underline" />
+    <SearchBar />
     <TableComponent :columns="filteredColumns" :data="filteredData" />
   </div>
 </template>
@@ -22,10 +23,11 @@
 <script>
 import TableComponent from './TableComponent.vue';
 import tableData from '@/json/tableData.json';
+import SearchBar from './SearchBar.vue';
 
 export default {
   name: 'NavigationBar',
-  components: { TableComponent },
+  components: { SearchBar, TableComponent },
   data() {
     return {
       selected: 'user',
