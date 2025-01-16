@@ -6,15 +6,16 @@
     </button>
 
     <div v-if="isOpen" class="dropdown-menu">
-      <a
-        v-for="(option, index) in dropDownList"
-        :key="index"
-        href="#"
-        class="dropdown-item"
-        @click="selectOption(option.key)"
-      >
-        {{ option.label }}
-      </a>
+      <ul>
+        <li
+          v-for="(option, index) in dropDownList"
+          :key="index"
+          class="dropdown-item"
+          @click="selectOption(option.key)"
+        >
+          {{ option.label }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -103,21 +104,27 @@ export default {
   top: 45px;
   left: 0;
   background-color: #fbf7f7;
-  border: 1px solid #fbf7f7;
   border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(14, 0, 0, 0.12);
   min-width: 80px;
+  min-height: 30px;
   z-index: 1000;
 }
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 .dropdown-item {
-  padding: 10px 16px;
-  display: block;
+  padding: 10px 5px;
   font-weight: 300;
   font-size: 14px;
   color: #070000;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .dropdown-item:hover {
   background-color: #f1f1f1;
 }
