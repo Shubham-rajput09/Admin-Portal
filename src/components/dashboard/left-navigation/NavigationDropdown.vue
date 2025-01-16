@@ -14,15 +14,35 @@
       </button>
 
       <ul v-if="isOpen" class="dropdown-list">
-        <li class="dropdown-item-selected">Search Account</li>
-        <li class="dropdown-item">Phone Numbers</li>
+        <li
+          v-for="(label, key) in selectedOptionLabels"
+          :key="key"
+          :class="{
+            'dropdown-item-selected': selectedOption === key,
+            'dropdown-item': selectedOption !== key,
+          }"
+          @click.stop="setSelectedOption(key)"
+        >
+          {{ label }}
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { useSelectedOptionStore } from '@/stores/selectedOption';
+import { selectedOptionLabels } from '@/constants/SelectedOption';
+
 export default {
+  computed: {
+    selectedOption() {
+      return useSelectedOptionStore().selectedOption;
+    },
+    selectedOptionLabels() {
+      return selectedOptionLabels;
+    },
+  },
   data() {
     return {
       isOpen: false,
@@ -32,9 +52,8 @@ export default {
     toggleDropdown() {
       this.isOpen = !this.isOpen;
     },
-    selectOption(option) {
-      this.selected = option;
-      this.isOpen = false;
+    setSelectedOption(key) {
+      useSelectedOptionStore().setSelectedOption(key);
     },
   },
 };
