@@ -4,12 +4,14 @@
       <h2>Add Users</h2>
       <p class="subtext">
         Enter the details below for up to 25 users. Be sure to use the email
-        address where you'd like them to receive any communication, including the
-        link to set up their accounts.
+        address where you'd like them to receive any communication, including
+        the link to set up their accounts.
       </p>
       <div class="email-checkbox">
         <input type="checkbox" id="welcomeEmail" />
-        <label for="welcomeEmail">Send welcome email to all users added below</label>
+        <label for="welcomeEmail"
+          >Send welcome email to all users added below</label
+        >
       </div>
       <div class="form-container">
         <input type="text" placeholder="First Name" class="input-field" />
@@ -25,8 +27,8 @@
       <div class="empty-state">
         <div class="empty-circle">
           <img
-              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-              alt="Add user icon"
+            src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+            alt="Add user icon"
           />
         </div>
         <p>You have not yet added any users</p>
@@ -37,7 +39,7 @@
 
 <script>
 export default {
-  name: "Adbulk",
+  name: 'AddBulk',
 };
 </script>
 
@@ -79,7 +81,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.email-checkbox input[type="checkbox"] {
+.email-checkbox input[type='checkbox'] {
   margin-right: 10px;
 }
 
@@ -208,5 +210,4 @@ export default {
     font-size: 12px;
   }
 }
-
 </style>
