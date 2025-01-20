@@ -12,6 +12,7 @@ export default {
   props: {
     buttonName: {
       type: String,
+      required: true,
     },
   },
 };

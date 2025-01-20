@@ -1,10 +1,20 @@
 <template>
-  <div class="secondary-button">Secondary Button</div>
+  <div>
+    <button class="secondary-button">
+      {{ secondaryButton }}
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'SecondaryButton',
+  props: {
+    secondaryButton: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
