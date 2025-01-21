@@ -1,1 +1,22 @@
-npm run test:unit && npx lint-staged
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running unit tests..."
+npm run test:unit
+
+if [ $? -eq 0 ]; then
+  echo "Unit tests passed!"
+else
+  echo "Unit tests failed!"
+  exit 1
+fi
+
+echo "Running lint-staged..."
+npx lint-staged
+
+if [ $? -eq 0 ]; then
+  echo "Linting passed!"
+else
+  echo "Linting failed!"
+  exit 1
+fi

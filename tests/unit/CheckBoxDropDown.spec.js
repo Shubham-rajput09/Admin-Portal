@@ -85,4 +85,30 @@ describe('CheckboxDropdown.vue', () => {
     document.dispatchEvent(new Event('click'));
     expect(wrapper.vm.isOpen).toBe(false);
   });
+
+  it('accepts props and passes them correctly', () => {
+    const wrapper = mount(CheckBoxDropDown, {
+      props: { checkBoxDropDownTitle: title, dropDownList: options },
+    });
+
+    expect(wrapper.props('checkBoxDropDownTitle')).toBe(title);
+    expect(wrapper.props('dropDownList')).toStrictEqual(options);
+  });
+
+  it('throws an error if required prop is missing', () => {
+    console.error = jest.fn();
+    expect(() => {
+      mount(CheckBoxDropDown, {});
+    }).toThrow('props are required');
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(CheckBoxDropDown, {
+      propsData: {
+        checkBoxDropDownTitle: 'Snapshot Test',
+        dropDownList: options,
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

@@ -11,6 +11,11 @@ export default {
       required: true,
     },
   },
+  created() {
+    if (!this.heading) {
+      throw new Error('prop is required');
+    }
+  },
 };
 </script>
 

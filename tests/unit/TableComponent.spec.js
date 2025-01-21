@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Table from '@/components/common/TableComponent.vue';
+import TableComponent from '@/components/common/TableComponent.vue';
 
 describe('Table.vue', () => {
   let wrapper;
@@ -50,5 +51,27 @@ describe('Table.vue', () => {
     expect(wrapper.vm.sortOrder).toBe('asc');
     await thName.trigger('click');
     expect(wrapper.vm.sortOrder).toBe('desc');
+  });
+
+  it('accepts props and passes them correctly', () => {
+    const wrapper = mount(TableComponent, {
+      props: { columns: columns, data: data },
+    });
+    expect(wrapper.props('columns')).toStrictEqual(columns);
+    expect(wrapper.props('data')).toStrictEqual(data);
+  });
+
+  it('throws an error if required prop is missing', () => {
+    console.error = jest.fn();
+    expect(() => {
+      mount(TableComponent, {});
+    }).toThrow('props are required');
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(TableComponent, {
+      propsData: { columns: columns, data: data },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

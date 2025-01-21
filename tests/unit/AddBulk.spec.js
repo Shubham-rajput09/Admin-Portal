@@ -46,4 +46,9 @@ describe('AddBulk.vue', () => {
     const emptyStateText = wrapper.find('.empty-state p').text();
     expect(emptyStateText).toBe('You have not yet added any users');
   });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(AddBulk);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

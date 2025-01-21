@@ -72,5 +72,15 @@ describe('SearchBar.vue', () => {
     expect(wrapper.findComponent(PrimaryButton).props('buttonName')).toBe(
       'Export to Excel',
     );
+    const dropdown = wrapper.findComponent(DropdownComponent);
+    const checkbox = wrapper.findComponent(CheckBoxDropDown);
+
+    expect(dropdown.props('dropDownTitle')).toBe('Bulk');
+    expect(checkbox.props('checkBoxDropDownTitle')).toBe('Show/Hide Columns');
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(SearchBar);
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

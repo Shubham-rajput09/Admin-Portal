@@ -54,4 +54,9 @@ describe('NavigationBar.vue', () => {
     expect(wrapper.vm.filteredColumns).toEqual(tableData.auditColumn);
     expect(wrapper.vm.filteredData).toEqual(tableData.auditData);
   });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(NavigationBar);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

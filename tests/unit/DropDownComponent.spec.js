@@ -56,4 +56,27 @@ describe('Dropdown Component', () => {
     document.dispatchEvent(new Event('click'));
     expect(wrapper.vm.isOpen).toBe(false);
   });
+
+  it('accepts props and passes them correctly', () => {
+    const wrapper = mount(DropDownComponent, {
+      props: { dropDownTitle: dropDownTitle, dropDownList: dropDownList },
+    });
+
+    expect(wrapper.props('dropDownTitle')).toBe(dropDownTitle);
+    expect(wrapper.props('dropDownList')).toStrictEqual(dropDownList);
+  });
+
+  it('throws an error if required prop is missing', () => {
+    console.error = jest.fn();
+    expect(() => {
+      mount(DropDownComponent, {});
+    }).toThrow('props are required');
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(DropDownComponent, {
+      propsData: { dropDownTitle: 'Snapshot Test', dropDownList: dropDownList },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

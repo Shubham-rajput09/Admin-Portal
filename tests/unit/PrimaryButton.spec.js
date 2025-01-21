@@ -13,4 +13,28 @@ describe('PrimaryButton.vue', () => {
     expect(title.exists()).toBe(true);
     expect(title.text()).toBe(buttonName);
   });
+
+  it('accepts props and passes them correctly', () => {
+    const buttonName = 'Test Button';
+    const wrapper = mount(PrimaryButton, {
+      propsData: { buttonName },
+    });
+    expect(wrapper.props('buttonName')).toBe(buttonName);
+  });
+
+  it('throws an error if required prop is missing', () => {
+    console.error = jest.fn();
+    expect(() => {
+      mount(PrimaryButton);
+    }).toThrow('Label prop is required');
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = mount(PrimaryButton, {
+      propsData: {
+        buttonName: 'Snapshot Test', // Correct prop name
+      },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

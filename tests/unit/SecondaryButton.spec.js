@@ -13,4 +13,22 @@ describe('SecondaryButton.vue', () => {
     expect(title.exists()).toBe(true);
     expect(title.text()).toBe(secondaryButton);
   });
+  it('accepts props and passes them correctly', () => {
+    const secondaryButton = 'Test Button';
+    const wrapper = mount(SecondaryButton, {
+      propsData: { secondaryButton },
+    });
+    expect(wrapper.props('secondaryButton')).toBe(secondaryButton); // Check prop
+  });
+  it('throws an error if required prop is missing', () => {
+    expect(() => {
+      mount(SecondaryButton);
+    }).toThrow('Label prop is required');
+  });
+  it('matches snapshot', () => {
+    const wrapper = mount(SecondaryButton, {
+      propsData: { secondaryButton: 'Snapshot Test' },
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

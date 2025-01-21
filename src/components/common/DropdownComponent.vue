@@ -32,6 +32,11 @@ export default {
       required: true,
     },
   },
+  created() {
+    if (!this.dropDownTitle && !this.dropDownList) {
+      throw new Error('props are required');
+    }
+  },
   data() {
     return {
       isOpen: false,
