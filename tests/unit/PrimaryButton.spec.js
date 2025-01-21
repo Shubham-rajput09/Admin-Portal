@@ -22,11 +22,13 @@ describe('PrimaryButton.vue', () => {
     expect(wrapper.props('buttonName')).toBe(buttonName);
   });
 
-  it('throws an error if required prop is missing', () => {
-    console.error = jest.fn();
-    expect(() => {
-      mount(PrimaryButton);
-    }).toThrow('Label prop is required');
+  it('throws a warning if required prop is missing', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    mount(PrimaryButton, {});
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toEqual(
+      expect.stringContaining('Missing required prop: "buttonName"'),
+    );
   });
 
   it('matches snapshot', () => {

@@ -18,13 +18,18 @@ describe('SecondaryButton.vue', () => {
     const wrapper = mount(SecondaryButton, {
       propsData: { secondaryButton },
     });
-    expect(wrapper.props('secondaryButton')).toBe(secondaryButton); // Check prop
+    expect(wrapper.props('secondaryButton')).toBe(secondaryButton);
   });
-  it('throws an error if required prop is missing', () => {
-    expect(() => {
-      mount(SecondaryButton);
-    }).toThrow('Label prop is required');
+
+  it('throws a warning if required prop is missing', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    mount(SecondaryButton, {});
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toEqual(
+      expect.stringContaining('Missing required prop: "secondaryButton"'),
+    );
   });
+
   it('matches snapshot', () => {
     const wrapper = mount(SecondaryButton, {
       propsData: { secondaryButton: 'Snapshot Test' },

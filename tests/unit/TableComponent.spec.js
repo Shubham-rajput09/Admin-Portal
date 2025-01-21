@@ -61,11 +61,29 @@ describe('Table.vue', () => {
     expect(wrapper.props('data')).toStrictEqual(data);
   });
 
-  it('throws an error if required prop is missing', () => {
-    console.error = jest.fn();
-    expect(() => {
-      mount(TableComponent, {});
-    }).toThrow('props are required');
+  it('throws a warning if required props are missing', () => {
+    // Mock `console.warn`
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+    // Mount the component with missing props
+    mount(TableComponent, {});
+
+    // Filter warnings for missing "columns" and "data" props
+    const filteredWarnings = warnSpy.mock.calls.filter(
+      ([message]) =>
+        message.includes('Missing required prop: "columns"') ||
+        message.includes('Missing required prop: "data"'),
+    );
+
+    // Check that the specific warnings were triggered
+    expect(filteredWarnings.length).toBe(2);
+    expect(filteredWarnings[0][0]).toEqual(
+      expect.stringContaining('Missing required prop: "columns"'),
+    );
+    expect(filteredWarnings[1][0]).toEqual(
+      expect.stringContaining('Missing required prop: "data"'),
+    );
+    warnSpy.mockRestore();
   });
 
   it('matches snapshot', () => {

@@ -66,11 +66,17 @@ describe('Dropdown Component', () => {
     expect(wrapper.props('dropDownList')).toStrictEqual(dropDownList);
   });
 
-  it('throws an error if required prop is missing', () => {
-    console.error = jest.fn();
-    expect(() => {
-      mount(DropDownComponent, {});
-    }).toThrow('props are required');
+  it('throws a warning if required prop is missing', () => {
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    mount(DropDownComponent, {});
+    const filteredWarnings = warnSpy.mock.calls.filter(([message]) =>
+      message.includes('Missing required prop: "dropDownTitle"'),
+    );
+    expect(filteredWarnings.length).toBe(1);
+    expect(filteredWarnings[0][0]).toEqual(
+      expect.stringContaining('Missing required prop: "dropDownTitle"'),
+    );
+    warnSpy.mockRestore();
   });
 
   it('matches snapshot', () => {
