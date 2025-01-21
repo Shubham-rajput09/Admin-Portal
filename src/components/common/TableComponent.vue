@@ -36,11 +36,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    if (!this.columns && !this.data) {
-      throw new Error('props are required');
-    }
-  },
   data() {
     return {
       sortKey: '',

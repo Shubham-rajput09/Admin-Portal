@@ -15,11 +15,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    if (!this.secondaryButton) {
-      throw new Error('Label prop is required');
-    }
-  },
 };
 </script>
 

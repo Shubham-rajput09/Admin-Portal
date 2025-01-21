@@ -46,11 +46,6 @@ export default {
       required: true,
     },
   },
-  created() {
-    if (!this.checkBoxDropDownTitle && !this.dropDownList) {
-      throw new Error('props are required');
-    }
-  },
   data() {
     return {
       isOpen: false,
