@@ -4,15 +4,20 @@
       <!-- Basic Info Section -->
       <div class="section">
         <h2>Basic Info</h2>
-        <div v-for="field in basicInfoFields" :key="field.id" class="form-group">
+        <div
+          v-for="field in basicInfoFields"
+          :key="field.id"
+          class="form-group"
+        >
           <label :for="field.id">{{ field.label }}</label>
           <input
-              :id="field.id"
-              v-model="form[field.model]"
-              :type="field.type"
-              :placeholder="field.placeholder"
-              :required="field.required"
-              class="full-width-input"
+            :id="field.id"
+            v-model="form[field.model]"
+            :type="field.type"
+            :placeholder="field.placeholder"
+            :required="field.required"
+            :data-id="`basic-info-${field.id}`"
+            class="full-width-input"
           />
         </div>
 
@@ -21,13 +26,16 @@
           <label for="groups">Select Group(s)</label>
           <select id="groups" v-model="form.groups" class="full-width-input">
             <option value="">Select Group(s)</option>
-            <option v-for="group in groups" :key="group.value" :value="group.value">
+            <option
+              v-for="group in groups"
+              :key="group.value"
+              :value="group.value"
+            >
               {{ group.label }}
             </option>
           </select>
         </div>
       </div>
-
 
       <div class="divider">
         <span></span>
@@ -39,7 +47,11 @@
         <div class="form-group">
           <label for="userType">User Type*</label>
           <select id="userType" v-model="form.userType" required>
-            <option v-for="option in userTypeOptions" :key="option.value" :value="option.value">
+            <option
+              v-for="option in userTypeOptions"
+              :key="option.value"
+              :value="option.value"
+            >
               {{ option.text }}
             </option>
           </select>
@@ -48,9 +60,17 @@
 
       <!-- User Type Section (Moved after Settings and Permissions) -->
       <div class="section">
-        <div v-for="(label, key) in permissionFields" :key="key" class="form-group">
+        <div
+          v-for="(label, key) in permissionFields"
+          :key="key"
+          class="form-group"
+        >
           <label>
-            <input type="checkbox" v-model="form.permissions[key]" />
+            <input
+              type="checkbox"
+              v-model="form.permissions[key]"
+              :data-id="`permission-${key}`"
+            />
             {{ label }}
           </label>
         </div>
@@ -60,19 +80,29 @@
         <span></span>
       </div>
 
-
       <!-- Extensions Section -->
       <div class="section">
         <h2>Extensions</h2>
-        <div v-for="(label, key) in extensionOptions" :key="key" class="form-group">
+        <div
+          v-for="(label, key) in extensionOptions"
+          :key="key"
+          class="form-group"
+        >
           <label>
-            <input type="radio" v-model="form.extensionOption" :value="key" />
+            <input
+              type="radio"
+              v-model="form.extensionOption"
+              :value="key"
+              :data-id="`extension-${key}`"
+            />
             {{ label }}
           </label>
         </div>
 
         <div v-if="form.extensionOption === 'purchase'" class="notice">
-          You will be brought to the store to purchase an extension after saving the user. Once you have purchased an extension, go to the Extensions page to assign the extension to this user.
+          You will be brought to the store to purchase an extension after saving
+          the user. Once you have purchased an extension, go to the Extensions
+          page to assign the extension to this user.
         </div>
       </div>
     </form>
@@ -84,13 +114,13 @@ export default {
   data() {
     return {
       form: {
-        firstName: "",
-        lastName: "",
-        username: "",
-        email: "",
-        confirmEmail: "",
-        groups: "",
-        userType: "",
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        confirmEmail: '',
+        groups: '',
+        userType: '',
         permissions: {
           serviceAnnouncements: false,
           webAccess: true,
@@ -98,48 +128,89 @@ export default {
           manageCallerId: false,
           manageCallBlocking: false,
         },
-        extensionOption: "",
+        extensionOption: '',
       },
       basicInfoFields: [
-        { id: "firstName", model: "firstName", type: "text", label: "First Name*", placeholder: "Enter first name", required: true },
-        { id: "lastName", model: "lastName", type: "text", label: "Last Name*", placeholder: "Enter last name", required: true },
-        { id: "username", model: "username", type: "text", label: "Username*", placeholder: "Enter username", required: true },
-        { id: "email", model: "email", type: "email", label: "Email*", placeholder: "Enter email", required: true },
-        { id: "confirmEmail", model: "confirmEmail", type: "email", label: "Confirm Email*", placeholder: "Confirm email", required: true },
+        {
+          id: 'firstName',
+          model: 'firstName',
+          type: 'text',
+          label: 'First Name*',
+          placeholder: 'Enter first name',
+          required: true,
+        },
+        {
+          id: 'lastName',
+          model: 'lastName',
+          type: 'text',
+          label: 'Last Name*',
+          placeholder: 'Enter last name',
+          required: true,
+        },
+        {
+          id: 'username',
+          model: 'username',
+          type: 'text',
+          label: 'Username*',
+          placeholder: 'Enter username',
+          required: true,
+        },
+        {
+          id: 'email',
+          model: 'email',
+          type: 'email',
+          label: 'Email*',
+          placeholder: 'Enter email',
+          required: true,
+        },
+        {
+          id: 'confirmEmail',
+          model: 'confirmEmail',
+          type: 'email',
+          label: 'Confirm Email*',
+          placeholder: 'Confirm email',
+          required: true,
+        },
       ],
       groups: [
-        { value: "group1", label: "Group 1" },
-        { value: "group2", label: "Group 2" },
-        { value: "group3", label: "Group 3" },
+        { value: 'group1', label: 'Group 1' },
+        { value: 'group2', label: 'Group 2' },
+        { value: 'group3', label: 'Group 3' },
       ],
       userTypeOptions: [
-        { value: "", text: "Select User Type" },
-        { value: "accountAdmin", text: "V Account Administrator" },
-        { value: "billingAdmin", text: "Billing Admin" },
-        { value: "callQueuesAdmin", text: "Call Queues Admin" },
-        { value: "callQueuesReportingAdmin", text: "Call Queues Reporting Admin" },
-        { value: "endUser", text: "End User" },
-        { value: "endUserNoDashboard", text: "End User No Dashboard" },
-        { value: "reportsAdmin", text: "Reports Admin" },
-        { value: "usersAdmin", text: "Users Admin" },
+        { value: '', text: 'Select User Type' },
+        { value: 'accountAdmin', text: 'V Account Administrator' },
+        { value: 'billingAdmin', text: 'Billing Admin' },
+        { value: 'callQueuesAdmin', text: 'Call Queues Admin' },
+        {
+          value: 'callQueuesReportingAdmin',
+          text: 'Call Queues Reporting Admin',
+        },
+        { value: 'endUser', text: 'End User' },
+        { value: 'endUserNoDashboard', text: 'End User No Dashboard' },
+        { value: 'reportsAdmin', text: 'Reports Admin' },
+        { value: 'usersAdmin', text: 'Users Admin' },
       ],
       permissionFields: {
-        serviceAnnouncements: "Update this user with important service announcements",
-        webAccess: "Allow web and mobile app access",
-        sendEmail: "Send new user email",
-        manageCallerId: "Allow this user to set and block the Outbound Caller ID for their extension(s)",
-        manageCallBlocking: "Allow this user to manage Call Blocking for their extension(s)",
+        serviceAnnouncements:
+          'Update this user with important service announcements',
+        webAccess: 'Allow web and mobile app access',
+        sendEmail: 'Send new user email',
+        manageCallerId:
+          'Allow this user to set and block the Outbound Caller ID for their extension(s)',
+        manageCallBlocking:
+          'Allow this user to manage Call Blocking for their extension(s)',
       },
       extensionOptions: {
-        assign: "Assign an available extension",
-        purchase: "Purchase a new extension",
-        none: "User does not need an extension",
+        assign: 'Assign an available extension',
+        purchase: 'Purchase a new extension',
+        none: 'User does not need an extension',
       },
     };
   },
   methods: {
     handleSubmit() {
-      console.log("Form submitted:", this.form);
+      console.log('Form submitted:', this.form);
     },
   },
 };

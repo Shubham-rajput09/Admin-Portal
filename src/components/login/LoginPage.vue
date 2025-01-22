@@ -3,9 +3,9 @@
     <!-- Left Section -->
     <div class="left-section">
       <img
-          src="/assets/illustration.png"
-          alt="Collaboration Illustration"
-          class="illustration-full"
+        src="/assets/illustration.png"
+        alt="Collaboration Illustration"
+        class="illustration-full"
       />
     </div>
 
@@ -22,10 +22,11 @@
           <div class="input-group">
             <label for="username">Username</label>
             <input
-                id="username"
-                type="text"
-                v-model="username"
-                placeholder="Enter your username"
+              id="username"
+              data-id="username"
+              type="text"
+              v-model="username"
+              placeholder="Enter your username"
             />
             <p v-if="errors.username" class="error-message">
               {{ errors.username }}
@@ -37,15 +38,16 @@
             <label for="password">Password</label>
             <div class="password-wrapper">
               <input
-                  id="password"
-                  :type="showPassword ? 'text' : 'password'"
-                  v-model="password"
-                  placeholder="Enter your password"
+                id="password"
+                data-id="password"
+                :type="showPassword ? 'text' : 'password'"
+                v-model="password"
+                placeholder="Enter your password"
               />
               <span
-                  class="toggle-password"
-                  @click="togglePasswordVisibility"
-                  :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                class="toggle-password"
+                @click="togglePasswordVisibility"
+                :aria-label="showPassword ? 'Hide password' : 'Show password'"
               >
                 <i :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
               </span>
@@ -57,23 +59,24 @@
 
           <!-- Remember Me and Forgot Password -->
           <div class="remember-section">
-            <input type="checkbox" id="rememberMe" v-model="rememberMe" />
+            <input
+              type="checkbox"
+              data-id="remember-me"
+              id="rememberMe"
+              v-model="rememberMe"
+            />
             <label for="rememberMe">Remember me</label>
             <a
-                href="#"
-                class="forgot-link"
-                @click.prevent="$router.push('/forgot-password')"
+              href="#"
+              class="forgot-link"
+              @click.prevent="$router.push('/forgot-password')"
             >
               Forgot password?
             </a>
           </div>
 
           <!-- Login Button -->
-          <button
-              type="submit"
-              class="login-button"
-              :disabled="!isFormValid"
-          >
+          <button type="submit" class="login-button" :disabled="!isFormValid">
             Login
           </button>
 
@@ -222,7 +225,6 @@ label {
   margin-bottom: 5px;
   color: #555;
 }
-
 
 input[type='text'],
 input[type='password'] {

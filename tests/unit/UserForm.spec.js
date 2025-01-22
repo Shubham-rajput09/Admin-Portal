@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import UserForm from '@/components/common/UserForm';
 
-describe('FormComponent.vue', () => {
+describe('UserForm.vue', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -35,7 +35,7 @@ describe('FormComponent.vue', () => {
 
       expect(label.exists()).toBe(true);
 
-      const checkbox = label.find('input[type="checkbox"]');
+      const checkbox = label.find(`[data-id="permission-${key}"]`);
       expect(checkbox.exists()).toBe(true);
     });
   });
@@ -44,9 +44,7 @@ describe('FormComponent.vue', () => {
     const extensionOptions = wrapper.vm.extensionOptions;
 
     Object.keys(extensionOptions).forEach((key) => {
-      expect(wrapper.find(`input[type="radio"][value="${key}"]`).exists()).toBe(
-        true,
-      );
+      expect(wrapper.find(`[data-id="extension-${key}"]`).exists()).toBe(true);
     });
   });
 

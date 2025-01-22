@@ -7,6 +7,9 @@ describe('AddBulk.vue', () => {
   beforeEach(() => {
     wrapper = mount(AddBulk);
   });
+  afterEach(() => {
+    wrapper.unmount();
+  });
 
   it('renders the AddBulk component correctly', () => {
     expect(wrapper.exists()).toBe(true);
@@ -20,9 +23,9 @@ describe('AddBulk.vue', () => {
   });
 
   it('enables the "Add User" button when all fields are filled', async () => {
-    const firstNameInput = wrapper.find('input[placeholder="First Name"]');
-    const lastNameInput = wrapper.find('input[placeholder="Last Name"]');
-    const emailInput = wrapper.find('input[type="email"]');
+    const firstNameInput = wrapper.find('[data-id="first-name"]');
+    const lastNameInput = wrapper.find('[data-id="last-name"]');
+    const emailInput = wrapper.find('[data-id="email-id"]');
     const roleSelect = wrapper.find('select');
     const button = wrapper.find('.add-user-btn');
 

@@ -12,6 +12,7 @@
             type="checkbox"
             :checked="isSelectAllChecked"
             @change="toggleSelectAll"
+            data-id="select-all"
           />
           Select All
         </label>
@@ -26,6 +27,7 @@
             type="checkbox"
             :value="option.key"
             v-model="selectedOptions"
+            :data-id="`option-${index}`"
           />
           {{ option.label }}
         </label>

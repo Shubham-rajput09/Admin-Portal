@@ -14,9 +14,24 @@
         >
       </div>
       <div class="form-container">
-        <input type="text" placeholder="First Name" class="input-field" />
-        <input type="text" placeholder="Last Name" class="input-field" />
-        <input type="email" placeholder="Email Address" class="input-field" />
+        <input
+          type="text"
+          data-id="first-name"
+          placeholder="First Name"
+          class="input-field"
+        />
+        <input
+          type="text"
+          data-id="last-name"
+          placeholder="Last Name"
+          class="input-field"
+        />
+        <input
+          type="email"
+          data-id="email-id"
+          placeholder="Email Address"
+          class="input-field"
+        />
         <select class="input-field">
           <option value="" disabled selected>Select an Option</option>
           <option value="admin">Admin</option>

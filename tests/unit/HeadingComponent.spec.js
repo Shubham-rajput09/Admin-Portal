@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import HeadingComponent from '@/components/common/HeadingComponent.vue';
 
-describe('Heading Component', () => {
+describe('HeadingComponent.vue', () => {
   it('renders the heading with the correct text', () => {
     const heading = 'Hello World';
     const wrapper = mount(HeadingComponent, {

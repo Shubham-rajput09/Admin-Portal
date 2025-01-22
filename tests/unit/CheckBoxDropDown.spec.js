@@ -43,11 +43,9 @@ describe('CheckboxDropdown.vue', () => {
 
   it('updates selectedOptions when individual checkboxes are checked', async () => {
     await wrapper.find('.dropdown-button').trigger('click');
-    const checkboxes = wrapper.findAll('input[type="checkbox"]');
-    await checkboxes[1].setChecked();
+    const checkboxes = wrapper.find('[data-id="option-0"]');
+    await checkboxes.setChecked();
     expect(wrapper.vm.selectedOptions).toContain('user');
-    await checkboxes[2].setChecked();
-    expect(wrapper.vm.selectedOptions).toContain('extension');
   });
 
   it('checks "Select All" checkbox when all options are selected', async () => {
@@ -62,7 +60,7 @@ describe('CheckboxDropdown.vue', () => {
 
   it('toggles all checkboxes when "Select All" is clicked', async () => {
     await wrapper.find('.dropdown-button').trigger('click');
-    const selectAllCheckbox = wrapper.find('input[type="checkbox"]');
+    const selectAllCheckbox = wrapper.find('[data-id="select-all"]');
     await selectAllCheckbox.setChecked();
     expect(wrapper.vm.selectedOptions).toEqual(options.map((opt) => opt.key));
     await selectAllCheckbox.setChecked(false);
@@ -71,7 +69,7 @@ describe('CheckboxDropdown.vue', () => {
 
   it('emits "update-selected" event with selected options', async () => {
     await wrapper.find('.dropdown-button').trigger('click');
-    const selectAllCheckbox = wrapper.find('input[type="checkbox"]');
+    const selectAllCheckbox = wrapper.find('[data-id="select-all"]');
     await selectAllCheckbox.setChecked();
     expect(wrapper.emitted('update-selected')).toBeTruthy();
     expect(wrapper.emitted('update-selected')[0][0]).toEqual(

@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormComponent.vue matches snapshot 1`] = `
+exports[`UserForm.vue matches snapshot 1`] = `
 <div class="form-container">
   <form>
     <!-- Basic Info Section -->
     <div class="section">
       <h2>Basic Info</h2>
-      <div class="form-group"><label for="firstName">First Name*</label><input id="firstName" type="text" placeholder="Enter first name" required="" class="full-width-input"></div>
-      <div class="form-group"><label for="lastName">Last Name*</label><input id="lastName" type="text" placeholder="Enter last name" required="" class="full-width-input"></div>
-      <div class="form-group"><label for="username">Username*</label><input id="username" type="text" placeholder="Enter username" required="" class="full-width-input"></div>
-      <div class="form-group"><label for="email">Email*</label><input id="email" type="email" placeholder="Enter email" required="" class="full-width-input"></div>
-      <div class="form-group"><label for="confirmEmail">Confirm Email*</label><input id="confirmEmail" type="email" placeholder="Confirm email" required="" class="full-width-input"></div><!-- Select Group(s) Dropdown -->
+      <div class="form-group"><label for="firstName">First Name*</label><input id="firstName" type="text" placeholder="Enter first name" required="" data-id="basic-info-firstName" class="full-width-input"></div>
+      <div class="form-group"><label for="lastName">Last Name*</label><input id="lastName" type="text" placeholder="Enter last name" required="" data-id="basic-info-lastName" class="full-width-input"></div>
+      <div class="form-group"><label for="username">Username*</label><input id="username" type="text" placeholder="Enter username" required="" data-id="basic-info-username" class="full-width-input"></div>
+      <div class="form-group"><label for="email">Email*</label><input id="email" type="email" placeholder="Enter email" required="" data-id="basic-info-email" class="full-width-input"></div>
+      <div class="form-group"><label for="confirmEmail">Confirm Email*</label><input id="confirmEmail" type="email" placeholder="Confirm email" required="" data-id="basic-info-confirmEmail" class="full-width-input"></div><!-- Select Group(s) Dropdown -->
       <div class="form-group"><label for="groups">Select Group(s)</label><select id="groups" class="full-width-input">
           <option value="">Select Group(s)</option>
           <option value="group1">Group 1</option>
@@ -34,18 +34,18 @@ exports[`FormComponent.vue matches snapshot 1`] = `
         </select></div>
     </div><!-- User Type Section (Moved after Settings and Permissions) -->
     <div class="section">
-      <div class="form-group"><label><input type="checkbox"> Update this user with important service announcements</label></div>
-      <div class="form-group"><label><input type="checkbox"> Allow web and mobile app access</label></div>
-      <div class="form-group"><label><input type="checkbox"> Send new user email</label></div>
-      <div class="form-group"><label><input type="checkbox"> Allow this user to set and block the Outbound Caller ID for their extension(s)</label></div>
-      <div class="form-group"><label><input type="checkbox"> Allow this user to manage Call Blocking for their extension(s)</label></div>
+      <div class="form-group"><label><input type="checkbox" data-id="permission-serviceAnnouncements"> Update this user with important service announcements</label></div>
+      <div class="form-group"><label><input type="checkbox" data-id="permission-webAccess"> Allow web and mobile app access</label></div>
+      <div class="form-group"><label><input type="checkbox" data-id="permission-sendEmail"> Send new user email</label></div>
+      <div class="form-group"><label><input type="checkbox" data-id="permission-manageCallerId"> Allow this user to set and block the Outbound Caller ID for their extension(s)</label></div>
+      <div class="form-group"><label><input type="checkbox" data-id="permission-manageCallBlocking"> Allow this user to manage Call Blocking for their extension(s)</label></div>
     </div>
     <div class="divider"><span></span></div><!-- Extensions Section -->
     <div class="section">
       <h2>Extensions</h2>
-      <div class="form-group"><label><input type="radio" value="assign"> Assign an available extension</label></div>
-      <div class="form-group"><label><input type="radio" value="purchase"> Purchase a new extension</label></div>
-      <div class="form-group"><label><input type="radio" value="none"> User does not need an extension</label></div>
+      <div class="form-group"><label><input type="radio" data-id="extension-assign" value="assign"> Assign an available extension</label></div>
+      <div class="form-group"><label><input type="radio" data-id="extension-purchase" value="purchase"> Purchase a new extension</label></div>
+      <div class="form-group"><label><input type="radio" data-id="extension-none" value="none"> User does not need an extension</label></div>
       <!--v-if-->
     </div>
   </form>

@@ -29,18 +29,18 @@ exports[`NavigationBar.vue matches snapshot 1`] = `
     <table class="table-container">
       <thead>
         <tr>
-          <th data-sort="">Name</th>
-          <th data-sort="">Age</th>
+          <th data-sort="" data-id="name">Name</th>
+          <th data-sort="" data-id="age">Age</th>
         </tr>
       </thead>
       <tbody>
         <tr class="table-data">
-          <td>Alice</td>
-          <td>30</td>
+          <td data-id="0-name">Alice</td>
+          <td data-id="0-age">30</td>
         </tr>
         <tr class="table-data">
-          <td>Bob</td>
-          <td>25</td>
+          <td data-id="1-name">Bob</td>
+          <td data-id="1-age">25</td>
         </tr>
       </tbody>
     </table>

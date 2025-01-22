@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils';
-import Table from '@/components/common/TableComponent.vue';
 import TableComponent from '@/components/common/TableComponent.vue';
 
-describe('Table.vue', () => {
+describe('TableComponent.vue', () => {
   let wrapper;
 
   const columns = [
@@ -16,7 +15,7 @@ describe('Table.vue', () => {
   ];
 
   beforeEach(() => {
-    wrapper = mount(Table, {
+    wrapper = mount(TableComponent, {
       propsData: {
         columns,
         data,
@@ -38,14 +37,14 @@ describe('Table.vue', () => {
   });
 
   it('sorts data in ascending order when a column header is clicked', async () => {
-    const thName = wrapper.find('th');
+    const thName = wrapper.find('[data-id="name"]');
     await thName.trigger('click');
     expect(wrapper.vm.sortKey).toBe('name');
     expect(wrapper.vm.sortOrder).toBe('asc');
   });
 
   it('sorts data in descending order when the same column header is clicked again', async () => {
-    const thName = wrapper.find('th');
+    const thName = wrapper.find('[data-id="name"]');
     expect(thName.exists()).toBe(true);
     await thName.trigger('click');
     expect(wrapper.vm.sortOrder).toBe('asc');
