@@ -16,7 +16,7 @@
             :type="field.type"
             :placeholder="field.placeholder"
             :required="field.required"
-            :data-id="`basic-info-${field.id}`"
+            :data-id="field.id"
             class="full-width-input"
           />
         </div>
@@ -24,12 +24,18 @@
         <!-- Select Group(s) Dropdown -->
         <div class="form-group">
           <label for="groups">Select Group(s)</label>
-          <select id="groups" v-model="form.groups" class="full-width-input">
+          <select
+            data-id="groups"
+            id="groups"
+            v-model="form.groups"
+            class="full-width-input"
+          >
             <option value="">Select Group(s)</option>
             <option
               v-for="group in groups"
               :key="group.value"
               :value="group.value"
+              :data-id="group.value"
             >
               {{ group.label }}
             </option>
@@ -46,11 +52,17 @@
         <h2>Settings and Permissions</h2>
         <div class="form-group">
           <label for="userType">User Type*</label>
-          <select id="userType" v-model="form.userType" required>
+          <select
+            data-id="userType"
+            id="userType"
+            v-model="form.userType"
+            required
+          >
             <option
               v-for="option in userTypeOptions"
               :key="option.value"
               :value="option.value"
+              :data-id="option.value"
             >
               {{ option.text }}
             </option>
