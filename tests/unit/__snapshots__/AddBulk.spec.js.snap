@@ -10,7 +10,7 @@ exports[`AddBulk.vue matches snapshot 1`] = `
         <option value="" disabled="" selected="">Select an Option</option>
         <option value="admin">Admin</option>
         <option value="user">User</option>
-      </select><button data-id="add-user-btn" class="add-user-btn" disabled="">Add User</button></div>
+      </select><button data-id="add-user-btn" class="add-user-btn" disabled=""> Add User </button></div>
     <div class="empty-state" data-id="no-user-added">
       <div class="empty-circle"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Add user icon"></div>
       <p>You have not yet added any users</p>

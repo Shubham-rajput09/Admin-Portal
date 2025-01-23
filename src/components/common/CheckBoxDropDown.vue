@@ -1,11 +1,15 @@
 <template>
   <div class="checkbox-dropdown" @click.stop>
-    <button class="dropdown-button" @click="toggleDropdown">
+    <button
+      data-id="dropdown-button"
+      class="dropdown-button"
+      @click="toggleDropdown"
+    >
       {{ checkBoxDropDownTitle }}
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
-    <div v-if="isOpen" class="dropdown-menu">
+    <div v-if="isOpen" data-id="dropdown-menu" class="dropdown-menu">
       <div class="dropdown-item">
         <label>
           <input
