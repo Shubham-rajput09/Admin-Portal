@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DropdownComponent.vue matches snapshot 1`] = `
-<div class="dropdown"><button class="dropdown-button">Snapshot Test <span class="arrow"></span></button>
+<div class="dropdown"><button data-id="dropdown-button" class="dropdown-button">Snapshot Test <span class="arrow"></span></button>
   <!--v-if-->
 </div>
 `;

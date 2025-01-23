@@ -12,7 +12,7 @@ exports[`NavigationBar.vue matches snapshot 1`] = `
       <div class="left-section"><button class="search-button"><img src="" alt="Search" class="search-icon"><span>Search</span><input class="search-input" placeholder="" style="display: none;"></button><button class="advanced-filter-button"><img src="" alt="Filter" class="filter-icon"> Advanced Filters </button></div>
       <div class="right-section"><button class="refresh-button"><img src="" alt="Refresh" class="refresh-icon"></button><button class="print-button"><img src="" alt="Print" class="print-icon"></button>
         <div class="export-excel"><button class="simple-button">Export to Excel</button></div>
-        <div class="dropdown"><button class="dropdown-button">Bulk <span class="arrow"></span></button>
+        <div class="dropdown"><button data-id="dropdown-button" class="dropdown-button">Bulk <span class="arrow"></span></button>
           <!--v-if-->
         </div>
         <div class="checkbox-dropdown"><button data-id="dropdown-button" class="dropdown-button">Show/Hide Columns <span class="arrow"></span></button>

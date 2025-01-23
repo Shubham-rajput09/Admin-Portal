@@ -1,16 +1,21 @@
 <template>
   <div class="dropdown">
-    <button class="dropdown-button" @click="toggleDropdown">
+    <button
+      data-id="dropdown-button"
+      class="dropdown-button"
+      @click="toggleDropdown"
+    >
       {{ dropDownTitle }}
       <span class="arrow" :class="{ open: isOpen }"></span>
     </button>
 
-    <div v-if="isOpen" class="dropdown-menu">
+    <div v-if="isOpen" data-id="dropdown-menu" class="dropdown-menu">
       <ul>
         <li
           v-for="(option, index) in dropDownList"
           :key="index"
           class="dropdown-item"
+          :data-id="'dropdown-item-' + index"
           @click="selectOption(option.key)"
         >
           {{ option.label }}
