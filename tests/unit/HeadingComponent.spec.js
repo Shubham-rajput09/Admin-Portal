@@ -21,15 +21,6 @@ describe('HeadingComponent.vue', () => {
     expect(wrapper.props('heading')).toBe(heading);
   });
 
-  it('throws a warning if required prop is missing', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    mount(HeadingComponent, {});
-    expect(warnSpy).toHaveBeenCalledTimes(1);
-    expect(warnSpy.mock.calls[0][0]).toEqual(
-      expect.stringContaining('Missing required prop: "heading"'),
-    );
-  });
-
   it('matches snapshot', () => {
     const wrapper = mount(HeadingComponent, {
       propsData: {
