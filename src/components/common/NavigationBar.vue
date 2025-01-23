@@ -40,7 +40,6 @@ export default {
         : tableData.auditColumn;
     },
     filteredData() {
-      // Show empty table for audit log
       return this.selected === 'user'
         ? tableData.userData
         : tableData.auditData;

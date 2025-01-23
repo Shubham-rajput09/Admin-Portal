@@ -8,23 +8,40 @@
         the link to set up their accounts.
       </p>
       <div class="email-checkbox">
-        <input type="checkbox" id="welcomeEmail" />
+        <input type="checkbox" id="welcomeEmail" data-id="welcome-checkbox" />
         <label for="welcomeEmail"
           >Send welcome email to all users added below</label
         >
       </div>
       <div class="form-container">
-        <input type="text" placeholder="First Name" class="input-field" />
-        <input type="text" placeholder="Last Name" class="input-field" />
-        <input type="email" placeholder="Email Address" class="input-field" />
-        <select class="input-field">
+        <input
+          type="text"
+          data-id="first-name"
+          placeholder="First Name"
+          class="input-field"
+        />
+        <input
+          type="text"
+          data-id="last-name"
+          placeholder="Last Name"
+          class="input-field"
+        />
+        <input
+          type="email"
+          data-id="email"
+          placeholder="Email Address"
+          class="input-field"
+        />
+        <select data-id="select-role" class="input-field">
           <option value="" disabled selected>Select an Option</option>
           <option value="admin">Admin</option>
           <option value="user">User</option>
         </select>
-        <button class="add-user-btn" disabled>Add User</button>
+        <button data-id="add-user-btn" class="add-user-btn" disabled>
+          Add User
+        </button>
       </div>
-      <div class="empty-state">
+      <div class="empty-state" data-id="no-user-added">
         <div class="empty-circle">
           <img
             src="https://cdn-icons-png.flaticon.com/512/847/847969.png"

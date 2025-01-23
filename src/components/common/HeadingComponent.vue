@@ -1,5 +1,5 @@
 <template>
-  <div class="heading">{{ heading }}</div>
+  <div data-id="heading" class="heading">{{ heading }}</div>
 </template>
 
 <script>

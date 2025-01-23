@@ -8,14 +8,23 @@
             :key="index"
             @click="sortColumn(column.key)"
             :data-sort="sortKey === column.key ? sortOrder : ''"
+            :data-id="column.key"
           >
             {{ column.label }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(row, index) in sortedData" :key="index" class="table-data">
-          <td v-for="(column, index) in columns" :key="index">
+        <tr
+          v-for="(row, rowIndex) in sortedData"
+          :key="rowIndex"
+          class="table-data"
+        >
+          <td
+            v-for="(column, colIndex) in columns"
+            :key="colIndex"
+            :data-id="`${rowIndex}-${column.key}`"
+          >
             {{ row[column.key] }}
           </td>
         </tr>

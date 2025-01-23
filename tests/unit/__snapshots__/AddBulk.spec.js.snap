@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddBulk.vue matches snapshot 1`] = `
+<div class="wrapper">
+  <div class="content">
+    <h2>Add Users</h2>
+    <p class="subtext"> Enter the details below for up to 25 users. Be sure to use the email address where you'd like them to receive any communication, including the link to set up their accounts. </p>
+    <div class="email-checkbox"><input type="checkbox" id="welcomeEmail" data-id="welcome-checkbox"><label for="welcomeEmail">Send welcome email to all users added below</label></div>
+    <div class="form-container"><input type="text" data-id="first-name" placeholder="First Name" class="input-field"><input type="text" data-id="last-name" placeholder="Last Name" class="input-field"><input type="email" data-id="email" placeholder="Email Address" class="input-field"><select data-id="select-role" class="input-field">
+        <option value="" disabled="" selected="">Select an Option</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+      </select><button data-id="add-user-btn" class="add-user-btn" disabled=""> Add User </button></div>
+    <div class="empty-state" data-id="no-user-added">
+      <div class="empty-circle"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Add user icon"></div>
+      <p>You have not yet added any users</p>
+    </div>
+  </div>
+</div>
+`;
