@@ -9,7 +9,7 @@ describe('HeadingComponent.vue', () => {
         heading,
       },
     });
-    const title = wrapper.find('.heading');
+    const title = wrapper.find('[data-id="heading"]');
     expect(title.exists()).toBe(true);
     expect(title.text()).toBe(heading);
   });
