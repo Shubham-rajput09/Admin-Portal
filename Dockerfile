@@ -1,11 +1,20 @@
-# Use the official Nginx image as the base
-FROM nginx:alpine
+# Use an official Node.js runtime as the base image
+FROM node:16
 
-# Copy the production build to the default Nginx directory
-COPY dist/ /usr/share/nginx/html
+# Set the working directory in the container
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# Run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application
+COPY . .
+
+# Expose the application port
+EXPOSE 3068
+
+# Command to run the application
+CMD ["npm", "run", "serve", "--", "--port", "3068"]
