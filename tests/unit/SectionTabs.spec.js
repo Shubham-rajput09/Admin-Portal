@@ -22,7 +22,7 @@ describe('SectionTabs.vue', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(SectionTabs, {
-      stubs: ['SearchBar', 'TableComponent'],
+      stubs: ['SearchFilterBar', 'TableComponent'],
     });
   });
 

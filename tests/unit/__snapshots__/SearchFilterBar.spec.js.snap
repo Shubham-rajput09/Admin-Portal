@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchBar.vue matches snapshot 1`] = `
+exports[`SearchFilterBar.vue matches snapshot 1`] = `
 <div class="search-bar">
   <div class="top-row">
     <div class="left-section"><button class="search-button"><img src="" alt="Search" class="search-icon"><span>Search</span><input class="search-input" placeholder="" style="display: none;"></button><button class="advanced-filter-button"><img src="" alt="Filter" class="filter-icon"> Advanced Filters </button></div>

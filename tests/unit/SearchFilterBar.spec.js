@@ -1,14 +1,14 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import SearchBar from '@/components/common/SearchBar';
+import SearchFilterBar from '@/components/common/SearchFilterBar.vue';
 import PrimaryButton from '@/components/common/PrimaryButton';
 import DropdownComponent from '@/components/common/DropdownComponent.vue';
 import CheckBoxDropDown from '@/components/common/CheckBoxDropDown.vue';
 
-describe('SearchBar.vue', () => {
+describe('SearchFilterBar.vue', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(SearchBar, {
+    wrapper = mount(SearchFilterBar, {
       stubs: {
         PrimaryButton,
         DropdownComponent,
@@ -80,7 +80,7 @@ describe('SearchBar.vue', () => {
   });
 
   it('matches snapshot', () => {
-    const wrapper = shallowMount(SearchBar);
+    const wrapper = shallowMount(SearchFilterBar);
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
