@@ -46,21 +46,18 @@ export default {
     },
     error: {
       type: String,
-      default: '',
+      default: 'Select a value to proceed',
     },
   },
   methods: {
-    // Emit an update to the parent component when the value changes
     updateValue(event) {
       this.$emit('update:modelValue', event.target.value);
     },
-    // Validation logic, triggered on blur
     validateField() {
-      if (this.required && !this.modelValue) {
-        this.$emit('update:error', 'This field is required');
-      } else {
-        this.$emit('update:error', '');
-      }
+      this.$emit(
+        'update:error',
+        this.required && !this.modelValue ? 'This field is required' : '',
+      );
     },
   },
 };
