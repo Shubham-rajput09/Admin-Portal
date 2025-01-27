@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils';
-import HeadingComponent from '@/components/common/HeadingComponent.vue';
+import PageHeader from '@/components/common/PageHeader.vue';
 
-describe('HeadingComponent.vue', () => {
+describe('PageHeader.vue', () => {
   it('renders the heading with the correct text', () => {
     const heading = 'Hello World';
-    const wrapper = mount(HeadingComponent, {
+    const wrapper = mount(PageHeader, {
       props: {
         heading,
       },
@@ -15,14 +15,14 @@ describe('HeadingComponent.vue', () => {
   });
   it('accepts props and passes them correctly', () => {
     const heading = 'Test Button';
-    const wrapper = mount(HeadingComponent, {
+    const wrapper = mount(PageHeader, {
       propsData: { heading },
     });
     expect(wrapper.props('heading')).toBe(heading);
   });
 
   it('matches snapshot', () => {
-    const wrapper = mount(HeadingComponent, {
+    const wrapper = mount(PageHeader, {
       propsData: {
         heading: 'Snapshot Test', // Correct prop name
       },
