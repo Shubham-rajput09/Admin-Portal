@@ -111,7 +111,11 @@
           </label>
         </div>
 
-        <div v-if="form.extensionOption === 'purchase'" class="notice">
+        <div
+          data-id="notice"
+          v-if="form.extensionOption === 'purchase'"
+          class="notice"
+        >
           You will be brought to the store to purchase an extension after saving
           the user. Once you have purchased an extension, go to the Extensions
           page to assign the extension to this user.
