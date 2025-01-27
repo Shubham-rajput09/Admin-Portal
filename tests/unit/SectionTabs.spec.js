@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import NavigationBar from '@/components/common/NavigationBar.vue';
+import SectionTabs from '@/components/common/SectionTabs.vue';
 import tableData from '@/json/tableData.json';
 
 jest.mock('@/json/tableData.json', () => ({
@@ -18,10 +18,10 @@ jest.mock('@/json/tableData.json', () => ({
   auditData: [],
 }));
 
-describe('NavigationBar.vue', () => {
+describe('SectionTabs.vue', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(NavigationBar, {
+    wrapper = mount(SectionTabs, {
       stubs: ['SearchBar', 'TableComponent'],
     });
   });
@@ -56,7 +56,7 @@ describe('NavigationBar.vue', () => {
   });
 
   it('matches snapshot', () => {
-    const wrapper = mount(NavigationBar);
+    const wrapper = mount(SectionTabs);
     expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -26,7 +26,7 @@ import tableData from '@/json/tableData.json';
 import SearchBar from './SearchBar.vue';
 
 export default {
-  name: 'NavigationBar',
+  name: 'SectionTabs',
   components: { SearchBar, TableComponent },
   data() {
     return {
