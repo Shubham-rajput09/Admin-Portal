@@ -15,6 +15,5 @@ COPY . .
 
 # Expose the application port
 EXPOSE 3068
-
 # Command to run the application
 CMD ["npm", "run", "serve", "--", "--port", "3068"]
