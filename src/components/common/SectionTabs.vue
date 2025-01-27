@@ -16,18 +16,18 @@
     </div>
     <hr class="underline" />
     <SearchFilterBar />
-    <TableComponent :columns="filteredColumns" :data="filteredData" />
+    <DataTable :columns="filteredColumns" :data="filteredData" />
   </div>
 </template>
 
 <script>
-import TableComponent from './TableComponent.vue';
+import DataTable from './DataTable.vue';
 import tableData from '@/json/tableData.json';
 import SearchFilterBar from './SearchFilterBar.vue';
 
 export default {
   name: 'SectionTabs',
-  components: { SearchFilterBar, TableComponent },
+  components: { SearchFilterBar, DataTable },
   data() {
     return {
       selected: 'user',

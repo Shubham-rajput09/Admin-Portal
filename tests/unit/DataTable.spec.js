@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import TableComponent from '@/components/common/TableComponent.vue';
+import DataTable from '@/components/common/DataTable.vue';
 
-describe('TableComponent.vue', () => {
+describe('DataTable.vue', () => {
   let wrapper;
 
   const columns = [
@@ -15,7 +15,7 @@ describe('TableComponent.vue', () => {
   ];
 
   beforeEach(() => {
-    wrapper = mount(TableComponent, {
+    wrapper = mount(DataTable, {
       propsData: {
         columns,
         data,
@@ -53,7 +53,7 @@ describe('TableComponent.vue', () => {
   });
 
   it('accepts props and passes them correctly', () => {
-    const wrapper = mount(TableComponent, {
+    const wrapper = mount(DataTable, {
       props: { columns: columns, data: data },
     });
     expect(wrapper.props('columns')).toStrictEqual(columns);
@@ -61,7 +61,7 @@ describe('TableComponent.vue', () => {
   });
 
   it('matches snapshot', () => {
-    const wrapper = mount(TableComponent, {
+    const wrapper = mount(DataTable, {
       propsData: { columns: columns, data: data },
     });
     expect(wrapper.html()).toMatchSnapshot();

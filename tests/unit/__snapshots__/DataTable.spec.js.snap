@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableComponent.vue matches snapshot 1`] = `
+exports[`DataTable.vue matches snapshot 1`] = `
 <div class="table-wrapper">
   <table class="table-container">
     <thead>
