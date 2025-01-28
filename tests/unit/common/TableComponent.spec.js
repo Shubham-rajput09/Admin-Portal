@@ -61,9 +61,6 @@ describe('TableComponent.vue', () => {
   });
 
   it('matches snapshot', () => {
-    const wrapper = mount(TableComponent, {
-      propsData: { columns: columns, data: data },
-    });
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
