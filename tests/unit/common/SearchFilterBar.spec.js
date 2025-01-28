@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import SearchFilterBar from '@/components/common/SearchFilterBar.vue';
-import PrimaryButton from '@/components/common/PrimaryButton';
+import PrimaryButton from '@/components/common/PrimaryButton.vue';
 import DropdownComponent from '@/components/common/DropdownComponent.vue';
 import CheckBoxDropDown from '@/components/common/CheckBoxDropDown.vue';
 

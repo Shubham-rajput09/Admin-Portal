@@ -51,7 +51,6 @@ describe('UserForm.vue', () => {
     await wrapper.setData({
       form: { ...wrapper.vm.form, extensionOption: 'purchase' },
     });
-
     const notice = wrapper.find('[data-id="notice"]');
     expect(notice.exists()).toBe(true);
     expect(notice.text()).toContain(
@@ -72,7 +71,6 @@ describe('UserForm.vue', () => {
       const input = wrapper.find(`#${field}`);
       expect(input.attributes('required')).toBeDefined();
     });
-
     const userType = wrapper.find('[data-id="userType"]');
     expect(userType.attributes('required')).toBeDefined();
   });
