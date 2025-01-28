@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import SecondaryButton from '@/components/common/SecondaryButton';
+import SecondaryButton from '@/components/common/SecondaryButton.vue';
 
 describe('SecondaryButton.vue', () => {
   it('renders button name correctly', () => {

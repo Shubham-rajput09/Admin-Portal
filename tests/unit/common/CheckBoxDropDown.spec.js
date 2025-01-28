@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import CheckBoxDropDown from '@/components/common/CheckBoxDropDown';
+import CheckBoxDropDown from '@/components/common/CheckBoxDropDown.vue';
 
 describe('CheckboxDropdown.vue', () => {
   let wrapper;
