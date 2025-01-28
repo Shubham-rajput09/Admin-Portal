@@ -58,13 +58,15 @@ describe('ForgotPassword.vue', () => {
     wrapper.setData({ username: '' });
     wrapper.vm.validateUsername();
 
-    const form = wrapper.find('form');
-    await form.trigger('submit.prevent');
+    const submitButton = wrapper.find('[data-id="password-recovery-form"]'); // Updated line
+    await submitButton.trigger('submit.prevent');
 
     await wrapper.vm.$nextTick();
 
     expect(wrapper.vm.errors.username).toBe('Username is required.');
-    expect(wrapper.find('.error-message').text()).toBe('Username is required.');
+    expect(wrapper.find('[data-id="username-error"]').text()).toBe(
+      'Username is required.',
+    );
     expect(mockRouter.push).not.toHaveBeenCalled();
   });
 
