@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import UserForm from '@/components/common/UserForm';
+import UserForm from '@/components/common/UserForm.vue';
 
 describe('UserForm.vue', () => {
   let wrapper;
