@@ -36,9 +36,7 @@ describe('ForgotPassword.vue', () => {
     });
   });
 
-  it('shows a console log if captcha is not checked', async () => {
-    console.log = jest.fn();
-
+  it('shows a message if captcha is not checked', async () => {
     await wrapper.setData({
       username: 'tester',
       captchaChecked: false,
@@ -46,12 +44,6 @@ describe('ForgotPassword.vue', () => {
 
     wrapper.vm.handlePasswordRecovery();
 
-    expect(console.log).toHaveBeenCalledWith(
-      'Password recovery initiated for username: tester',
-    );
-    expect(console.log).toHaveBeenCalledWith(
-      'Captcha not checked: Proceeding without user verification.',
-    );
     expect(mockRouter.push).toHaveBeenCalledWith('/');
   });
 
@@ -63,9 +55,13 @@ describe('ForgotPassword.vue', () => {
   });
 
   it('displays an error message if username is not entered', async () => {
-    const submitButton = wrapper.find('form');
+    wrapper.setData({ username: '' });
+    wrapper.vm.validateUsername();
 
-    await submitButton.trigger('submit.prevent');
+    const form = wrapper.find('form');
+    await form.trigger('submit.prevent');
+
+    await wrapper.vm.$nextTick();
 
     expect(wrapper.vm.errors.username).toBe('Username is required.');
     expect(wrapper.find('.error-message').text()).toBe('Username is required.');

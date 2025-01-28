@@ -89,7 +89,7 @@ export default {
             'Captcha not checked: Proceeding without user verification.',
           );
         }
-        this.$router.push('/'); // Redirect to another page
+        this.$router.push('/');
       }
     },
     goBack() {
