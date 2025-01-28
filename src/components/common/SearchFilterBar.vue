@@ -71,7 +71,7 @@ import DropdownComponent from '@/components/common/DropdownComponent.vue';
 import CheckBoxDropDown from '@/components/common/CheckBoxDropDown.vue';
 
 export default {
-  name: 'SearchBar',
+  name: 'SearchFilterBar',
   components: { DropdownComponent, PrimaryButton, CheckBoxDropDown },
   data() {
     return {

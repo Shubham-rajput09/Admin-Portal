@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchFilterBar.vue matches snapshot 1`] = `
+<div class="search-bar">
+  <div class="top-row">
+    <div class="left-section"><button class="search-button"><img src="" alt="Search" class="search-icon"><span>Search</span><input class="search-input" placeholder="" style="display: none;"></button><button class="advanced-filter-button"><img src="" alt="Filter" class="filter-icon"> Advanced Filters </button></div>
+    <div class="right-section"><button class="refresh-button"><img src="" alt="Refresh" class="refresh-icon"></button><button class="print-button"><img src="" alt="Print" class="print-icon"></button>
+      <primary-button-stub buttonname="Export to Excel" class="export-excel"></primary-button-stub>
+      <dropdown-component-stub dropdowntitle="Bulk" dropdownlist="[object Object]"></dropdown-component-stub>
+      <check-box-drop-down-stub checkboxdropdowntitle="Show/Hide Columns" dropdownlist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></check-box-drop-down-stub>
+    </div>
+  </div>
+  <div class="bottom-row">
+    <primary-button-stub buttonname="Change Super User" class="change-user-button"></primary-button-stub>
+    <primary-button-stub buttonname="Add New" class="add-new-button"></primary-button-stub>
+  </div>
+</div>
+`;

@@ -15,19 +15,19 @@
       </div>
     </div>
     <hr class="underline" />
-    <SearchBar />
-    <TableComponent :columns="filteredColumns" :data="filteredData" />
+    <SearchFilterBar />
+    <DataTable :columns="filteredColumns" :data="filteredData" />
   </div>
 </template>
 
 <script>
-import TableComponent from './TableComponent.vue';
+import DataTable from './DataTable.vue';
 import tableData from '@/json/tableData.json';
-import SearchBar from './SearchBar.vue';
+import SearchFilterBar from './SearchFilterBar.vue';
 
 export default {
-  name: 'NavigationBar',
-  components: { SearchBar, TableComponent },
+  name: 'SectionTabs',
+  components: { SearchFilterBar, DataTable },
   data() {
     return {
       selected: 'user',

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'HeadingComponent',
+  name: 'PageHeader',
   props: {
     heading: {
       type: String,

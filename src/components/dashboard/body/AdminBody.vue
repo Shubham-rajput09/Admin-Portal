@@ -1,21 +1,21 @@
 <template>
   <main id="admin-body" class="main">
-    <HeadingComponent :heading="useSelectedOptionStore.selectedOptionLabel" />
-    <NavigationBar />
+    <PageHeader :heading="useSelectedOptionStore.selectedOptionLabel" />
+    <SectionTabs />
   </main>
 </template>
 
 <script>
-import HeadingComponent from '@/components/common/HeadingComponent.vue';
+import PageHeader from '@/components/common/PageHeader.vue';
 import tableData from '@/json/tableData.json';
-import NavigationBar from '@/components/common/NavigationBar.vue';
+import SectionTabs from '@/components/common/SectionTabs.vue';
 import { useSelectedOptionStore } from '@/stores/selectedOption';
 
 export default {
   name: 'AdminBody',
   components: {
-    NavigationBar,
-    HeadingComponent,
+    SectionTabs,
+    PageHeader,
   },
   data() {
     return {
