@@ -85,10 +85,6 @@ describe('CheckboxDropdown.vue', () => {
   });
 
   it('accepts props and passes them correctly', () => {
-    const wrapper = mount(CheckBoxDropDown, {
-      props: { checkBoxDropDownTitle: title, dropDownList: options },
-    });
-
     expect(wrapper.props('checkBoxDropDownTitle')).toBe(title);
     expect(wrapper.props('dropDownList')).toStrictEqual(options);
   });
