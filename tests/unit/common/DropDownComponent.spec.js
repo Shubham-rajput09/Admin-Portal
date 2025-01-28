@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import DropDownComponent from '@/components/common/DropDownComponent';
+import DropDownComponent from '@/components/common/DropdownComponent.vue';
 
 describe('DropdownComponent.vue', () => {
   const dropDownTitle = 'AddBulk';
