@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:16
+FROM node:23.4.0
 
 # Set the working directory in the container
 WORKDIR /app
@@ -15,5 +15,6 @@ COPY . .
 
 # Expose the application port
 EXPOSE 3068
+
 # Command to run the application
 CMD ["npm", "run", "serve", "--", "--port", "3068"]
