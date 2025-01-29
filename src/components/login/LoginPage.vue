@@ -1,26 +1,34 @@
 <template>
-  <div class="login-page">
+  <div class="login-page" data-id="login-page">
     <!-- Left Section -->
-    <div class="left-section">
+    <div class="left-section" data-id="left-section">
       <img
         src="/assets/illustration.png"
         alt="Collaboration Illustration"
         class="illustration-full"
+        data-id="illustration"
       />
     </div>
 
     <!-- Right Section -->
-    <div class="right-section">
-      <div class="login-container">
-        <img src="/assets/vonage-icon.jpg" alt="Vonage Logo" class="logo" />
+    <div class="right-section" data-id="right-section">
+      <div class="login-container" data-id="login-container">
+        <img
+          src="/assets/vonage-icon.jpg"
+          alt="Vonage Logo"
+          class="logo"
+          data-id="logo"
+        />
 
-        <h2>Log in to Vonage Business Communications</h2>
+        <h2 data-id="login-heading">
+          Log in to Vonage Business Communications
+        </h2>
 
         <!-- Login Form -->
-        <form @submit.prevent="handleLogin">
+        <form @submit.prevent="handleLogin" data-id="login-form">
           <!-- Username Input -->
-          <div class="input-group">
-            <label for="username">Username</label>
+          <div class="input-group" data-id="username-input-group">
+            <label for="username" data-id="username-label">Username</label>
             <input
               id="username"
               data-id="username"
@@ -28,15 +36,19 @@
               v-model="username"
               placeholder="Enter your username"
             />
-            <p v-if="errors.username" class="error-message">
+            <p
+              v-if="errors.username"
+              class="error-message"
+              data-id="username-error"
+            >
               {{ errors.username }}
             </p>
           </div>
 
           <!-- Password Input with Toggle -->
-          <div class="input-group">
-            <label for="password">Password</label>
-            <div class="password-wrapper">
+          <div class="input-group" data-id="password-input-group">
+            <label for="password" data-id="password-label">Password</label>
+            <div class="password-wrapper" data-id="password-wrapper">
               <input
                 id="password"
                 data-id="password"
@@ -48,52 +60,67 @@
                 class="toggle-password"
                 @click="togglePasswordVisibility"
                 :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                data-id="toggle-password"
               >
-                <i :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                <i
+                  :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                  data-id="password-icon"
+                ></i>
               </span>
             </div>
-            <p v-if="errors.password" class="error-message">
+            <p
+              v-if="errors.password"
+              class="error-message"
+              data-id="password-error"
+            >
               {{ errors.password }}
             </p>
           </div>
 
           <!-- Remember Me and Forgot Password -->
-          <div class="remember-section">
+          <div class="remember-section" data-id="remember-section">
             <input
               type="checkbox"
               data-id="remember-me"
               id="rememberMe"
               v-model="rememberMe"
             />
-            <label for="rememberMe">Remember me</label>
+            <label for="rememberMe" data-id="remember-label">Remember me</label>
             <a
               href="#"
               class="forgot-link"
               @click.prevent="$router.push('/forgot-password')"
+              data-id="forgot-password-link"
             >
               Forgot password?
             </a>
           </div>
 
           <!-- Login Button -->
-          <button type="submit" class="login-button" :disabled="!isFormValid">
+          <button
+            type="submit"
+            class="login-button"
+            :disabled="!isFormValid"
+            data-id="login-button"
+          >
             Login
           </button>
 
           <!-- Divider -->
-          <div class="divider">
+          <div class="divider" data-id="divider">
             <span>OR</span>
           </div>
 
           <!-- Single Sign-On Button -->
-          <button type="button" class="sso-button">
+          <button type="button" class="sso-button" data-id="sso-button">
             Log in with Single Sign-On
           </button>
         </form>
 
         <!-- Sign Up Link -->
-        <div class="signup-link">
-          Don't have an account yet? <a href="/contact-us">Contact us</a>
+        <div class="signup-link" data-id="signup-link">
+          Don't have an account yet?
+          <a href="/contact-us" data-id="contact-us-link">Contact us</a>
         </div>
       </div>
     </div>
@@ -135,7 +162,9 @@ export default {
       if (!this.username) {
         this.errors.username = 'Username is required.';
         isValid = false;
-      } else if (/^[\\w.-]+@[\\w-]+\\.[a-z]{2,4}$/i.test(this.username)) {
+      } else if (
+        !/^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(this.username)
+      ) {
         this.errors.username = 'Please enter a valid email address.';
         isValid = false;
       }
@@ -243,7 +272,6 @@ input[type='password'] {
   margin-top: 5px;
 }
 
-/* Password Toggle */
 .password-wrapper {
   display: flex;
   align-items: center;
