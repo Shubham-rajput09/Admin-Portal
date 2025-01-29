@@ -34,6 +34,7 @@ describe('ForgotPassword.vue', () => {
       expect(wrapper.find(`[data-id="${id}"]`).exists()).toBe(true);
     });
   });
+
   it('shows a message if captcha is not checked', async () => {
     await wrapper.setData({
       username: 'tester',

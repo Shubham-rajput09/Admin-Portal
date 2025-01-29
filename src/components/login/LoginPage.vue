@@ -272,7 +272,6 @@ input[type='password'] {
   margin-top: 5px;
 }
 
-/* Password Toggle */
 .password-wrapper {
   display: flex;
   align-items: center;
