@@ -1,11 +1,11 @@
 <template>
-  <div class="background-container">
+  <div class="background-container" data-id="background-container">
     <!-- Form Section -->
-    <div class="form-section" v-if="!showThankYou">
-      <form @submit.prevent="handleSubmit" novalidate>
+    <div class="form-section" v-if="!showThankYou" data-id="form-section">
+      <form @submit.prevent="handleSubmit" novalidate data-id="form">
         <!-- First Name and Last Name -->
-        <div class="input-row">
-          <div class="input-group">
+        <div class="input-row" data-id="name-input-row">
+          <div class="input-group" data-id="first-name-group">
             <label for="firstName">First Name</label>
             <input
               id="firstName"
@@ -14,12 +14,17 @@
               placeholder="First Name"
               aria-label="First Name"
               @blur="validateField('firstName')"
+              data-id="first-name-input"
             />
-            <p v-if="errors.firstName" class="error-message">
+            <p
+              v-if="errors.firstName"
+              class="error-message"
+              data-id="first-name-error"
+            >
               {{ errors.firstName }}
             </p>
           </div>
-          <div class="input-group">
+          <div class="input-group" data-id="last-name-group">
             <label for="lastName">Last Name</label>
             <input
               id="lastName"
@@ -28,16 +33,21 @@
               placeholder="Last Name"
               aria-label="Last Name"
               @blur="validateField('lastName')"
+              data-id="last-name-input"
             />
-            <p v-if="errors.lastName" class="error-message">
+            <p
+              v-if="errors.lastName"
+              class="error-message"
+              data-id="last-name-error"
+            >
               {{ errors.lastName }}
             </p>
           </div>
         </div>
 
         <!-- Company Name and Employees -->
-        <div class="input-row">
-          <div class="input-group">
+        <div class="input-row" data-id="company-input-row">
+          <div class="input-group" data-id="company-name-group">
             <label for="companyName">Company Name</label>
             <input
               id="companyName"
@@ -46,23 +56,30 @@
               placeholder="Company Name"
               aria-label="Company Name"
               @blur="validateField('companyName')"
+              data-id="company-name-input"
             />
-            <p v-if="errors.companyName" class="error-message">
+            <p
+              v-if="errors.companyName"
+              class="error-message"
+              data-id="company-name-error"
+            >
               {{ errors.companyName }}
             </p>
           </div>
-          <div class="input-group">
+          <div class="input-group" data-id="employees-group">
             <label for="employees">Employees (optional)</label>
             <select
               id="employees"
               v-model="formData.employees"
               aria-label="Employees"
+              data-id="employees-select"
             >
               <option value="" disabled>Select</option>
               <option
                 v-for="(option, index) in employeeOptions"
                 :key="index"
                 :value="option"
+                :data-id="`employee-option-${index}`"
               >
                 {{ option }}
               </option>
@@ -71,8 +88,8 @@
         </div>
 
         <!-- Email and Phone Number -->
-        <div class="input-row">
-          <div class="input-group">
+        <div class="input-row" data-id="contact-input-row">
+          <div class="input-group" data-id="email-group">
             <label for="email">Email</label>
             <input
               id="email"
@@ -81,17 +98,21 @@
               placeholder="Email"
               aria-label="Email"
               @blur="validateField('email')"
+              data-id="email-input"
             />
-            <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
+            <p v-if="errors.email" class="error-message" data-id="email-error">
+              {{ errors.email }}
+            </p>
           </div>
-          <div class="input-group">
+          <div class="input-group" data-id="phone-number-group">
             <label for="phoneNumber">Phone Number</label>
-            <div class="phone-input">
+            <div class="phone-input" data-id="phone-input">
               <select
                 id="dialingCode"
                 v-model="formData.countryCode"
                 aria-label="Dialing Code"
                 required
+                data-id="dialing-code-select"
               >
                 <option selected disabled value=""></option>
                 <option
@@ -100,6 +121,7 @@
                   :value="country.value"
                   :data-country-code="country.code"
                   :data-country-name="country.name"
+                  :data-id="`dialing-code-option-${index}`"
                 >
                   {{ country.name }} ({{ country.value }})
                 </option>
@@ -111,17 +133,22 @@
                 placeholder="Phone Number"
                 aria-label="Phone Number"
                 @blur="validateField('phoneNumber')"
+                data-id="phone-number-input"
               />
             </div>
-            <p v-if="errors.phoneNumber" class="error-message">
+            <p
+              v-if="errors.phoneNumber"
+              class="error-message"
+              data-id="phone-number-error"
+            >
               {{ errors.phoneNumber }}
             </p>
           </div>
         </div>
 
         <!-- Interest and Country/Region -->
-        <div class="input-row">
-          <div class="input-group">
+        <div class="input-row" data-id="interest-country-row">
+          <div class="input-group" data-id="interest-group">
             <label for="interest">What are you interested in?</label>
             <select
               id="interest"
@@ -129,21 +156,27 @@
               required
               aria-label="Interest"
               @blur="validateField('interest')"
+              data-id="interest-select"
             >
               <option value="" disabled>Select</option>
               <option
                 v-for="(interest, index) in interestOptions"
                 :key="index"
                 :value="interest"
+                :data-id="`interest-option-${index}`"
               >
                 {{ interest }}
               </option>
             </select>
-            <p v-if="errors.interest" class="error-message">
+            <p
+              v-if="errors.interest"
+              class="error-message"
+              data-id="interest-error"
+            >
               {{ errors.interest }}
             </p>
           </div>
-          <div class="input-group">
+          <div class="input-group" data-id="country-group">
             <label for="country">Country/Region</label>
             <select
               id="country"
@@ -151,52 +184,76 @@
               required
               aria-label="Country"
               @blur="validateField('country')"
+              data-id="country-select"
             >
               <option value="" disabled>Select</option>
               <option
                 v-for="(country, index) in countryOptions"
                 :key="index"
                 :value="country"
+                :data-id="`country-option-${index}`"
               >
                 {{ country }}
               </option>
             </select>
-            <p v-if="errors.country" class="error-message">
+            <p
+              v-if="errors.country"
+              class="error-message"
+              data-id="country-error"
+            >
               {{ errors.country }}
             </p>
           </div>
         </div>
 
         <!-- Consent Checkbox -->
-        <div class="checkbox-group">
+        <div class="checkbox-group" data-id="consent-group">
           <input
             id="consent"
             type="checkbox"
             v-model="formData.consent"
             aria-label="Consent Checkbox"
+            data-id="consent-checkbox"
           />
-          <label for="consent">
+          <label for="consent" data-id="consent-label">
             By checking this box, you agree to be contacted via phone and email
             regarding your interest in our products and services. We will treat
             your data in accordance with our
-            <a href="/privacy-policy" target="_blank">privacy policy</a>.
+            <a
+              href="/privacy-policy"
+              target="_blank"
+              data-id="privacy-policy-link"
+              >privacy policy</a
+            >.
           </label>
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="submit-button">Submit</button>
+        <button type="submit" class="submit-button" data-id="submit-button">
+          Submit
+        </button>
       </form>
     </div>
 
     <!-- Thank You Section -->
-    <div class="thank-you-section" v-if="showThankYou">
-      <h2>Thanks for Reaching Out!</h2>
-      <p>
+    <div
+      class="thank-you-section"
+      v-if="showThankYou"
+      data-id="thank-you-section"
+    >
+      <h2 data-id="thank-you-message">Thanks for Reaching Out!</h2>
+      <p data-id="thank-you-description">
         We'll get back to you as soon as we can. In the meantime, feel free to
         explore more about Vonage and how we're making communications more
         flexible, intelligent, and personal so our customers can stay.
       </p>
-      <button class="go-back-button" @click="resetForm">Go Back</button>
+      <button
+        class="go-back-button"
+        @click="resetForm"
+        data-id="go-back-button"
+      >
+        Go Back
+      </button>
     </div>
   </div>
 </template>

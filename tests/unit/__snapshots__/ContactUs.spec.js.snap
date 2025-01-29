@@ -1,0 +1,1133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactUs.vue matches snapshot after form reset 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <div class="form-section" data-id="form-section">
+    <form novalidate="" data-id="form">
+      <!-- First Name and Last Name -->
+      <div class="input-row" data-id="name-input-row">
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
+          <!--v-if-->
+        </div>
+      </div><!-- Company Name and Employees -->
+      <div class="input-row" data-id="company-input-row">
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="employee-option-0" value="1-10">1-10</option>
+            <option data-id="employee-option-1" value="11-50">11-50</option>
+            <option data-id="employee-option-2" value="51-200">51-200</option>
+            <option data-id="employee-option-3" value="201-500">201-500</option>
+            <option data-id="employee-option-4" value="500+">500+</option>
+          </select></div>
+      </div><!-- Email and Phone Number -->
+      <div class="input-row" data-id="contact-input-row">
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+              <option selected="" disabled="" value=""></option>
+              <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
+              <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
+              <option data-country-code="DZ" data-country-name="Algeria" data-id="dialing-code-option-2" value="+213">Algeria (+213) </option>
+              <option data-country-code="AS" data-country-name="American Samoa" data-id="dialing-code-option-3" value="+1-684">American Samoa (+1-684) </option>
+              <option data-country-code="AD" data-country-name="Andorra" data-id="dialing-code-option-4" value="+376">Andorra (+376) </option>
+              <option data-country-code="AO" data-country-name="Angola" data-id="dialing-code-option-5" value="+244">Angola (+244) </option>
+              <option data-country-code="AI" data-country-name="Anguilla" data-id="dialing-code-option-6" value="+1-264">Anguilla (+1-264) </option>
+              <option data-country-code="AG" data-country-name="Antigua and Barbuda" data-id="dialing-code-option-7" value="+1-268">Antigua and Barbuda (+1-268) </option>
+              <option data-country-code="AR" data-country-name="Argentina" data-id="dialing-code-option-8" value="+54">Argentina (+54) </option>
+              <option data-country-code="AM" data-country-name="Armenia" data-id="dialing-code-option-9" value="+374">Armenia (+374) </option>
+              <option data-country-code="AU" data-country-name="Australia" data-id="dialing-code-option-10" value="+61">Australia (+61) </option>
+              <option data-country-code="AT" data-country-name="Austria" data-id="dialing-code-option-11" value="+43">Austria (+43) </option>
+              <option data-country-code="AZ" data-country-name="Azerbaijan" data-id="dialing-code-option-12" value="+994">Azerbaijan (+994) </option>
+              <option data-country-code="BS" data-country-name="Bahamas" data-id="dialing-code-option-13" value="+1-242">Bahamas (+1-242) </option>
+              <option data-country-code="BH" data-country-name="Bahrain" data-id="dialing-code-option-14" value="+973">Bahrain (+973) </option>
+              <option data-country-code="BD" data-country-name="Bangladesh" data-id="dialing-code-option-15" value="+880">Bangladesh (+880) </option>
+              <option data-country-code="BB" data-country-name="Barbados" data-id="dialing-code-option-16" value="+1-246">Barbados (+1-246) </option>
+              <option data-country-code="BY" data-country-name="Belarus" data-id="dialing-code-option-17" value="+375">Belarus (+375) </option>
+              <option data-country-code="BE" data-country-name="Belgium" data-id="dialing-code-option-18" value="+32">Belgium (+32) </option>
+              <option data-country-code="BZ" data-country-name="Belize" data-id="dialing-code-option-19" value="+501">Belize (+501) </option>
+              <option data-country-code="BJ" data-country-name="Benin" data-id="dialing-code-option-20" value="+229">Benin (+229) </option>
+              <option data-country-code="BM" data-country-name="Bermuda" data-id="dialing-code-option-21" value="+1-441">Bermuda (+1-441) </option>
+              <option data-country-code="BT" data-country-name="Bhutan" data-id="dialing-code-option-22" value="+975">Bhutan (+975) </option>
+              <option data-country-code="BO" data-country-name="Bolivia" data-id="dialing-code-option-23" value="+591">Bolivia (+591) </option>
+              <option data-country-code="BA" data-country-name="Bosnia and Herzegovina" data-id="dialing-code-option-24" value="+387">Bosnia and Herzegovina (+387) </option>
+              <option data-country-code="BW" data-country-name="Botswana" data-id="dialing-code-option-25" value="+267">Botswana (+267) </option>
+              <option data-country-code="BR" data-country-name="Brazil" data-id="dialing-code-option-26" value="+55">Brazil (+55) </option>
+              <option data-country-code="BN" data-country-name="Brunei" data-id="dialing-code-option-27" value="+673">Brunei (+673) </option>
+              <option data-country-code="BG" data-country-name="Bulgaria" data-id="dialing-code-option-28" value="+359">Bulgaria (+359) </option>
+              <option data-country-code="BF" data-country-name="Burkina Faso" data-id="dialing-code-option-29" value="+226">Burkina Faso (+226) </option>
+              <option data-country-code="BI" data-country-name="Burundi" data-id="dialing-code-option-30" value="+257">Burundi (+257) </option>
+              <option data-country-code="KH" data-country-name="Cambodia" data-id="dialing-code-option-31" value="+855">Cambodia (+855) </option>
+              <option data-country-code="CM" data-country-name="Cameroon" data-id="dialing-code-option-32" value="+237">Cameroon (+237) </option>
+              <option data-country-code="CA" data-country-name="Canada" data-id="dialing-code-option-33" value="+1">Canada (+1) </option>
+              <option data-country-code="CV" data-country-name="Cape Verde" data-id="dialing-code-option-34" value="+238">Cape Verde (+238) </option>
+              <option data-country-code="KY" data-country-name="Cayman Islands" data-id="dialing-code-option-35" value="+1-345">Cayman Islands (+1-345) </option>
+              <option data-country-code="CF" data-country-name="Central African Republic" data-id="dialing-code-option-36" value="+236">Central African Republic (+236) </option>
+              <option data-country-code="TD" data-country-name="Chad" data-id="dialing-code-option-37" value="+235">Chad (+235) </option>
+              <option data-country-code="CL" data-country-name="Chile" data-id="dialing-code-option-38" value="+56">Chile (+56) </option>
+              <option data-country-code="CN" data-country-name="China" data-id="dialing-code-option-39" value="+86">China (+86) </option>
+              <option data-country-code="CO" data-country-name="Colombia" data-id="dialing-code-option-40" value="+57">Colombia (+57) </option>
+              <option data-country-code="KM" data-country-name="Comoros" data-id="dialing-code-option-41" value="+269">Comoros (+269) </option>
+              <option data-country-code="CG" data-country-name="Congo" data-id="dialing-code-option-42" value="+242">Congo (+242) </option>
+              <option data-country-code="CD" data-country-name="Congo (DRC)" data-id="dialing-code-option-43" value="+243">Congo (DRC) (+243) </option>
+              <option data-country-code="CR" data-country-name="Costa Rica" data-id="dialing-code-option-44" value="+506">Costa Rica (+506) </option>
+              <option data-country-code="HR" data-country-name="Croatia" data-id="dialing-code-option-45" value="+385">Croatia (+385) </option>
+              <option data-country-code="CU" data-country-name="Cuba" data-id="dialing-code-option-46" value="+53">Cuba (+53) </option>
+              <option data-country-code="CY" data-country-name="Cyprus" data-id="dialing-code-option-47" value="+357">Cyprus (+357) </option>
+              <option data-country-code="CZ" data-country-name="Czech Republic" data-id="dialing-code-option-48" value="+420">Czech Republic (+420) </option>
+              <option data-country-code="DK" data-country-name="Denmark" data-id="dialing-code-option-49" value="+45">Denmark (+45) </option>
+              <option data-country-code="DJ" data-country-name="Djibouti" data-id="dialing-code-option-50" value="+253">Djibouti (+253) </option>
+              <option data-country-code="DM" data-country-name="Dominica" data-id="dialing-code-option-51" value="+1-767">Dominica (+1-767) </option>
+              <option data-country-code="DO" data-country-name="Dominican Republic" data-id="dialing-code-option-52" value="+1-809">Dominican Republic (+1-809) </option>
+              <option data-country-code="EC" data-country-name="Ecuador" data-id="dialing-code-option-53" value="+593">Ecuador (+593) </option>
+              <option data-country-code="EG" data-country-name="Egypt" data-id="dialing-code-option-54" value="+20">Egypt (+20) </option>
+              <option data-country-code="SV" data-country-name="El Salvador" data-id="dialing-code-option-55" value="+503">El Salvador (+503) </option>
+              <option data-country-code="GQ" data-country-name="Equatorial Guinea" data-id="dialing-code-option-56" value="+240">Equatorial Guinea (+240) </option>
+              <option data-country-code="ER" data-country-name="Eritrea" data-id="dialing-code-option-57" value="+291">Eritrea (+291) </option>
+              <option data-country-code="EE" data-country-name="Estonia" data-id="dialing-code-option-58" value="+372">Estonia (+372) </option>
+              <option data-country-code="SZ" data-country-name="Eswatini" data-id="dialing-code-option-59" value="+268">Eswatini (+268) </option>
+              <option data-country-code="ET" data-country-name="Ethiopia" data-id="dialing-code-option-60" value="+251">Ethiopia (+251) </option>
+              <option data-country-code="FJ" data-country-name="Fiji" data-id="dialing-code-option-61" value="+679">Fiji (+679) </option>
+              <option data-country-code="FI" data-country-name="Finland" data-id="dialing-code-option-62" value="+358">Finland (+358) </option>
+              <option data-country-code="FR" data-country-name="France" data-id="dialing-code-option-63" value="+33">France (+33) </option>
+              <option data-country-code="GA" data-country-name="Gabon" data-id="dialing-code-option-64" value="+241">Gabon (+241) </option>
+              <option data-country-code="GM" data-country-name="Gambia" data-id="dialing-code-option-65" value="+220">Gambia (+220) </option>
+              <option data-country-code="GE" data-country-name="Georgia" data-id="dialing-code-option-66" value="+995">Georgia (+995) </option>
+              <option data-country-code="DE" data-country-name="Germany" data-id="dialing-code-option-67" value="+49">Germany (+49) </option>
+              <option data-country-code="GH" data-country-name="Ghana" data-id="dialing-code-option-68" value="+233">Ghana (+233) </option>
+              <option data-country-code="GR" data-country-name="Greece" data-id="dialing-code-option-69" value="+30">Greece (+30) </option>
+              <option data-country-code="GD" data-country-name="Grenada" data-id="dialing-code-option-70" value="+1-473">Grenada (+1-473) </option>
+              <option data-country-code="GT" data-country-name="Guatemala" data-id="dialing-code-option-71" value="+502">Guatemala (+502) </option>
+              <option data-country-code="GN" data-country-name="Guinea" data-id="dialing-code-option-72" value="+224">Guinea (+224) </option>
+              <option data-country-code="GW" data-country-name="Guinea-Bissau" data-id="dialing-code-option-73" value="+245">Guinea-Bissau (+245) </option>
+              <option data-country-code="GY" data-country-name="Guyana" data-id="dialing-code-option-74" value="+592">Guyana (+592) </option>
+              <option data-country-code="HT" data-country-name="Haiti" data-id="dialing-code-option-75" value="+509">Haiti (+509) </option>
+              <option data-country-code="HN" data-country-name="Honduras" data-id="dialing-code-option-76" value="+504">Honduras (+504) </option>
+              <option data-country-code="HK" data-country-name="Hong Kong" data-id="dialing-code-option-77" value="+852">Hong Kong (+852) </option>
+              <option data-country-code="HU" data-country-name="Hungary" data-id="dialing-code-option-78" value="+36">Hungary (+36) </option>
+              <option data-country-code="IS" data-country-name="Iceland" data-id="dialing-code-option-79" value="+354">Iceland (+354) </option>
+              <option data-country-code="IN" data-country-name="India" data-id="dialing-code-option-80" value="+91">India (+91) </option>
+              <option data-country-code="ID" data-country-name="Indonesia" data-id="dialing-code-option-81" value="+62">Indonesia (+62) </option>
+              <option data-country-code="IR" data-country-name="Iran" data-id="dialing-code-option-82" value="+98">Iran (+98) </option>
+              <option data-country-code="IQ" data-country-name="Iraq" data-id="dialing-code-option-83" value="+964">Iraq (+964) </option>
+              <option data-country-code="IE" data-country-name="Ireland" data-id="dialing-code-option-84" value="+353">Ireland (+353) </option>
+              <option data-country-code="IL" data-country-name="Israel" data-id="dialing-code-option-85" value="+972">Israel (+972) </option>
+              <option data-country-code="IT" data-country-name="Italy" data-id="dialing-code-option-86" value="+39">Italy (+39) </option>
+              <option data-country-code="JM" data-country-name="Jamaica" data-id="dialing-code-option-87" value="+1-876">Jamaica (+1-876) </option>
+              <option data-country-code="JP" data-country-name="Japan" data-id="dialing-code-option-88" value="+81">Japan (+81) </option>
+              <option data-country-code="JO" data-country-name="Jordan" data-id="dialing-code-option-89" value="+962">Jordan (+962) </option>
+              <option data-country-code="KZ" data-country-name="Kazakhstan" data-id="dialing-code-option-90" value="+7">Kazakhstan (+7) </option>
+              <option data-country-code="KE" data-country-name="Kenya" data-id="dialing-code-option-91" value="+254">Kenya (+254) </option>
+              <option data-country-code="KI" data-country-name="Kiribati" data-id="dialing-code-option-92" value="+686">Kiribati (+686) </option>
+              <option data-country-code="KP" data-country-name="North Korea" data-id="dialing-code-option-93" value="+850">North Korea (+850) </option>
+              <option data-country-code="KR" data-country-name="South Korea" data-id="dialing-code-option-94" value="+82">South Korea (+82) </option>
+              <option data-country-code="KW" data-country-name="Kuwait" data-id="dialing-code-option-95" value="+965">Kuwait (+965) </option>
+              <option data-country-code="KG" data-country-name="Kyrgyzstan" data-id="dialing-code-option-96" value="+996">Kyrgyzstan (+996) </option>
+              <option data-country-code="LA" data-country-name="Laos" data-id="dialing-code-option-97" value="+856">Laos (+856) </option>
+              <option data-country-code="LV" data-country-name="Latvia" data-id="dialing-code-option-98" value="+371">Latvia (+371) </option>
+              <option data-country-code="LB" data-country-name="Lebanon" data-id="dialing-code-option-99" value="+961">Lebanon (+961) </option>
+              <option data-country-code="LS" data-country-name="Lesotho" data-id="dialing-code-option-100" value="+266">Lesotho (+266) </option>
+              <option data-country-code="LR" data-country-name="Liberia" data-id="dialing-code-option-101" value="+231">Liberia (+231) </option>
+              <option data-country-code="LY" data-country-name="Libya" data-id="dialing-code-option-102" value="+218">Libya (+218) </option>
+              <option data-country-code="LI" data-country-name="Liechtenstein" data-id="dialing-code-option-103" value="+423">Liechtenstein (+423) </option>
+              <option data-country-code="LT" data-country-name="Lithuania" data-id="dialing-code-option-104" value="+370">Lithuania (+370) </option>
+              <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
+              <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
+              <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
+          <!--v-if-->
+        </div>
+      </div><!-- Interest and Country/Region -->
+      <div class="input-row" data-id="interest-country-row">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="interest-option-0" value="Product">Product</option>
+            <option data-id="interest-option-1" value="Service">Service</option>
+            <option data-id="interest-option-2" value="Other">Other</option>
+          </select>
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="country-option-0" value="Argentina">Argentina</option>
+            <option data-id="country-option-1" value="Australia">Australia</option>
+            <option data-id="country-option-2" value="Austria">Austria</option>
+            <option data-id="country-option-3" value="Bangladesh">Bangladesh</option>
+            <option data-id="country-option-4" value="Belgium">Belgium</option>
+            <option data-id="country-option-5" value="Bhutan">Bhutan</option>
+            <option data-id="country-option-6" value="Brazil">Brazil</option>
+            <option data-id="country-option-7" value="Canada">Canada</option>
+            <option data-id="country-option-8" value="China">China</option>
+            <option data-id="country-option-9" value="Czech Republic">Czech Republic</option>
+            <option data-id="country-option-10" value="Denmark">Denmark</option>
+            <option data-id="country-option-11" value="Egypt">Egypt</option>
+            <option data-id="country-option-12" value="Finland">Finland</option>
+            <option data-id="country-option-13" value="France">France</option>
+            <option data-id="country-option-14" value="Germany">Germany</option>
+            <option data-id="country-option-15" value="Greece">Greece</option>
+            <option data-id="country-option-16" value="Hungary">Hungary</option>
+            <option data-id="country-option-17" value="India">India</option>
+            <option data-id="country-option-18" value="Indonesia">Indonesia</option>
+            <option data-id="country-option-19" value="Ireland">Ireland</option>
+            <option data-id="country-option-20" value="Israel">Israel</option>
+            <option data-id="country-option-21" value="Italy">Italy</option>
+            <option data-id="country-option-22" value="Japan">Japan</option>
+            <option data-id="country-option-23" value="Kazakhstan">Kazakhstan</option>
+            <option data-id="country-option-24" value="Kenya">Kenya</option>
+            <option data-id="country-option-25" value="Malaysia">Malaysia</option>
+            <option data-id="country-option-26" value="Maldives">Maldives</option>
+            <option data-id="country-option-27" value="Mexico">Mexico</option>
+            <option data-id="country-option-28" value="Nepal">Nepal</option>
+            <option data-id="country-option-29" value="Netherlands">Netherlands</option>
+            <option data-id="country-option-30" value="New Zealand">New Zealand</option>
+            <option data-id="country-option-31" value="Nigeria">Nigeria</option>
+            <option data-id="country-option-32" value="Norway">Norway</option>
+            <option data-id="country-option-33" value="Pakistan">Pakistan</option>
+            <option data-id="country-option-34" value="Philippines">Philippines</option>
+            <option data-id="country-option-35" value="Poland">Poland</option>
+            <option data-id="country-option-36" value="Portugal">Portugal</option>
+            <option data-id="country-option-37" value="Russia">Russia</option>
+            <option data-id="country-option-38" value="Saudi Arabia">Saudi Arabia</option>
+            <option data-id="country-option-39" value="Scotland">Scotland</option>
+            <option data-id="country-option-40" value="Singapore">Singapore</option>
+            <option data-id="country-option-41" value="South Africa">South Africa</option>
+            <option data-id="country-option-42" value="South Korea">South Korea</option>
+            <option data-id="country-option-43" value="Spain">Spain</option>
+            <option data-id="country-option-44" value="Sri Lanka">Sri Lanka</option>
+            <option data-id="country-option-45" value="Sweden">Sweden</option>
+            <option data-id="country-option-46" value="Switzerland">Switzerland</option>
+            <option data-id="country-option-47" value="Thailand">Thailand</option>
+            <option data-id="country-option-48" value="Turkey">Turkey</option>
+            <option data-id="country-option-49" value="UAE">UAE</option>
+            <option data-id="country-option-50" value="UK">UK</option>
+            <option data-id="country-option-51" value="Ukraine">Ukraine</option>
+            <option data-id="country-option-52" value="USA">USA</option>
+            <option data-id="country-option-53" value="Uzbekistan">Uzbekistan</option>
+            <option data-id="country-option-54" value="Vietnam">Vietnam</option>
+            <option data-id="country-option-55" value="Wales">Wales</option>
+          </select>
+          <!--v-if-->
+        </div>
+      </div><!-- Consent Checkbox -->
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+    </form>
+  </div><!-- Thank You Section -->
+  <!--v-if-->
+</div>
+`;
+
+exports[`ContactUs.vue matches snapshot after invalid email is entered 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <div class="form-section" data-id="form-section">
+    <form novalidate="" data-id="form">
+      <!-- First Name and Last Name -->
+      <div class="input-row" data-id="name-input-row">
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
+          <p class="error-message" data-id="first-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
+          <p class="error-message" data-id="last-name-error">This field is required.</p>
+        </div>
+      </div><!-- Company Name and Employees -->
+      <div class="input-row" data-id="company-input-row">
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
+          <p class="error-message" data-id="company-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="employee-option-0" value="1-10">1-10</option>
+            <option data-id="employee-option-1" value="11-50">11-50</option>
+            <option data-id="employee-option-2" value="51-200">51-200</option>
+            <option data-id="employee-option-3" value="201-500">201-500</option>
+            <option data-id="employee-option-4" value="500+">500+</option>
+          </select></div>
+      </div><!-- Email and Phone Number -->
+      <div class="input-row" data-id="contact-input-row">
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
+          <p class="error-message" data-id="email-error">Please enter a valid email address.</p>
+        </div>
+        <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+              <option selected="" disabled="" value=""></option>
+              <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
+              <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
+              <option data-country-code="DZ" data-country-name="Algeria" data-id="dialing-code-option-2" value="+213">Algeria (+213) </option>
+              <option data-country-code="AS" data-country-name="American Samoa" data-id="dialing-code-option-3" value="+1-684">American Samoa (+1-684) </option>
+              <option data-country-code="AD" data-country-name="Andorra" data-id="dialing-code-option-4" value="+376">Andorra (+376) </option>
+              <option data-country-code="AO" data-country-name="Angola" data-id="dialing-code-option-5" value="+244">Angola (+244) </option>
+              <option data-country-code="AI" data-country-name="Anguilla" data-id="dialing-code-option-6" value="+1-264">Anguilla (+1-264) </option>
+              <option data-country-code="AG" data-country-name="Antigua and Barbuda" data-id="dialing-code-option-7" value="+1-268">Antigua and Barbuda (+1-268) </option>
+              <option data-country-code="AR" data-country-name="Argentina" data-id="dialing-code-option-8" value="+54">Argentina (+54) </option>
+              <option data-country-code="AM" data-country-name="Armenia" data-id="dialing-code-option-9" value="+374">Armenia (+374) </option>
+              <option data-country-code="AU" data-country-name="Australia" data-id="dialing-code-option-10" value="+61">Australia (+61) </option>
+              <option data-country-code="AT" data-country-name="Austria" data-id="dialing-code-option-11" value="+43">Austria (+43) </option>
+              <option data-country-code="AZ" data-country-name="Azerbaijan" data-id="dialing-code-option-12" value="+994">Azerbaijan (+994) </option>
+              <option data-country-code="BS" data-country-name="Bahamas" data-id="dialing-code-option-13" value="+1-242">Bahamas (+1-242) </option>
+              <option data-country-code="BH" data-country-name="Bahrain" data-id="dialing-code-option-14" value="+973">Bahrain (+973) </option>
+              <option data-country-code="BD" data-country-name="Bangladesh" data-id="dialing-code-option-15" value="+880">Bangladesh (+880) </option>
+              <option data-country-code="BB" data-country-name="Barbados" data-id="dialing-code-option-16" value="+1-246">Barbados (+1-246) </option>
+              <option data-country-code="BY" data-country-name="Belarus" data-id="dialing-code-option-17" value="+375">Belarus (+375) </option>
+              <option data-country-code="BE" data-country-name="Belgium" data-id="dialing-code-option-18" value="+32">Belgium (+32) </option>
+              <option data-country-code="BZ" data-country-name="Belize" data-id="dialing-code-option-19" value="+501">Belize (+501) </option>
+              <option data-country-code="BJ" data-country-name="Benin" data-id="dialing-code-option-20" value="+229">Benin (+229) </option>
+              <option data-country-code="BM" data-country-name="Bermuda" data-id="dialing-code-option-21" value="+1-441">Bermuda (+1-441) </option>
+              <option data-country-code="BT" data-country-name="Bhutan" data-id="dialing-code-option-22" value="+975">Bhutan (+975) </option>
+              <option data-country-code="BO" data-country-name="Bolivia" data-id="dialing-code-option-23" value="+591">Bolivia (+591) </option>
+              <option data-country-code="BA" data-country-name="Bosnia and Herzegovina" data-id="dialing-code-option-24" value="+387">Bosnia and Herzegovina (+387) </option>
+              <option data-country-code="BW" data-country-name="Botswana" data-id="dialing-code-option-25" value="+267">Botswana (+267) </option>
+              <option data-country-code="BR" data-country-name="Brazil" data-id="dialing-code-option-26" value="+55">Brazil (+55) </option>
+              <option data-country-code="BN" data-country-name="Brunei" data-id="dialing-code-option-27" value="+673">Brunei (+673) </option>
+              <option data-country-code="BG" data-country-name="Bulgaria" data-id="dialing-code-option-28" value="+359">Bulgaria (+359) </option>
+              <option data-country-code="BF" data-country-name="Burkina Faso" data-id="dialing-code-option-29" value="+226">Burkina Faso (+226) </option>
+              <option data-country-code="BI" data-country-name="Burundi" data-id="dialing-code-option-30" value="+257">Burundi (+257) </option>
+              <option data-country-code="KH" data-country-name="Cambodia" data-id="dialing-code-option-31" value="+855">Cambodia (+855) </option>
+              <option data-country-code="CM" data-country-name="Cameroon" data-id="dialing-code-option-32" value="+237">Cameroon (+237) </option>
+              <option data-country-code="CA" data-country-name="Canada" data-id="dialing-code-option-33" value="+1">Canada (+1) </option>
+              <option data-country-code="CV" data-country-name="Cape Verde" data-id="dialing-code-option-34" value="+238">Cape Verde (+238) </option>
+              <option data-country-code="KY" data-country-name="Cayman Islands" data-id="dialing-code-option-35" value="+1-345">Cayman Islands (+1-345) </option>
+              <option data-country-code="CF" data-country-name="Central African Republic" data-id="dialing-code-option-36" value="+236">Central African Republic (+236) </option>
+              <option data-country-code="TD" data-country-name="Chad" data-id="dialing-code-option-37" value="+235">Chad (+235) </option>
+              <option data-country-code="CL" data-country-name="Chile" data-id="dialing-code-option-38" value="+56">Chile (+56) </option>
+              <option data-country-code="CN" data-country-name="China" data-id="dialing-code-option-39" value="+86">China (+86) </option>
+              <option data-country-code="CO" data-country-name="Colombia" data-id="dialing-code-option-40" value="+57">Colombia (+57) </option>
+              <option data-country-code="KM" data-country-name="Comoros" data-id="dialing-code-option-41" value="+269">Comoros (+269) </option>
+              <option data-country-code="CG" data-country-name="Congo" data-id="dialing-code-option-42" value="+242">Congo (+242) </option>
+              <option data-country-code="CD" data-country-name="Congo (DRC)" data-id="dialing-code-option-43" value="+243">Congo (DRC) (+243) </option>
+              <option data-country-code="CR" data-country-name="Costa Rica" data-id="dialing-code-option-44" value="+506">Costa Rica (+506) </option>
+              <option data-country-code="HR" data-country-name="Croatia" data-id="dialing-code-option-45" value="+385">Croatia (+385) </option>
+              <option data-country-code="CU" data-country-name="Cuba" data-id="dialing-code-option-46" value="+53">Cuba (+53) </option>
+              <option data-country-code="CY" data-country-name="Cyprus" data-id="dialing-code-option-47" value="+357">Cyprus (+357) </option>
+              <option data-country-code="CZ" data-country-name="Czech Republic" data-id="dialing-code-option-48" value="+420">Czech Republic (+420) </option>
+              <option data-country-code="DK" data-country-name="Denmark" data-id="dialing-code-option-49" value="+45">Denmark (+45) </option>
+              <option data-country-code="DJ" data-country-name="Djibouti" data-id="dialing-code-option-50" value="+253">Djibouti (+253) </option>
+              <option data-country-code="DM" data-country-name="Dominica" data-id="dialing-code-option-51" value="+1-767">Dominica (+1-767) </option>
+              <option data-country-code="DO" data-country-name="Dominican Republic" data-id="dialing-code-option-52" value="+1-809">Dominican Republic (+1-809) </option>
+              <option data-country-code="EC" data-country-name="Ecuador" data-id="dialing-code-option-53" value="+593">Ecuador (+593) </option>
+              <option data-country-code="EG" data-country-name="Egypt" data-id="dialing-code-option-54" value="+20">Egypt (+20) </option>
+              <option data-country-code="SV" data-country-name="El Salvador" data-id="dialing-code-option-55" value="+503">El Salvador (+503) </option>
+              <option data-country-code="GQ" data-country-name="Equatorial Guinea" data-id="dialing-code-option-56" value="+240">Equatorial Guinea (+240) </option>
+              <option data-country-code="ER" data-country-name="Eritrea" data-id="dialing-code-option-57" value="+291">Eritrea (+291) </option>
+              <option data-country-code="EE" data-country-name="Estonia" data-id="dialing-code-option-58" value="+372">Estonia (+372) </option>
+              <option data-country-code="SZ" data-country-name="Eswatini" data-id="dialing-code-option-59" value="+268">Eswatini (+268) </option>
+              <option data-country-code="ET" data-country-name="Ethiopia" data-id="dialing-code-option-60" value="+251">Ethiopia (+251) </option>
+              <option data-country-code="FJ" data-country-name="Fiji" data-id="dialing-code-option-61" value="+679">Fiji (+679) </option>
+              <option data-country-code="FI" data-country-name="Finland" data-id="dialing-code-option-62" value="+358">Finland (+358) </option>
+              <option data-country-code="FR" data-country-name="France" data-id="dialing-code-option-63" value="+33">France (+33) </option>
+              <option data-country-code="GA" data-country-name="Gabon" data-id="dialing-code-option-64" value="+241">Gabon (+241) </option>
+              <option data-country-code="GM" data-country-name="Gambia" data-id="dialing-code-option-65" value="+220">Gambia (+220) </option>
+              <option data-country-code="GE" data-country-name="Georgia" data-id="dialing-code-option-66" value="+995">Georgia (+995) </option>
+              <option data-country-code="DE" data-country-name="Germany" data-id="dialing-code-option-67" value="+49">Germany (+49) </option>
+              <option data-country-code="GH" data-country-name="Ghana" data-id="dialing-code-option-68" value="+233">Ghana (+233) </option>
+              <option data-country-code="GR" data-country-name="Greece" data-id="dialing-code-option-69" value="+30">Greece (+30) </option>
+              <option data-country-code="GD" data-country-name="Grenada" data-id="dialing-code-option-70" value="+1-473">Grenada (+1-473) </option>
+              <option data-country-code="GT" data-country-name="Guatemala" data-id="dialing-code-option-71" value="+502">Guatemala (+502) </option>
+              <option data-country-code="GN" data-country-name="Guinea" data-id="dialing-code-option-72" value="+224">Guinea (+224) </option>
+              <option data-country-code="GW" data-country-name="Guinea-Bissau" data-id="dialing-code-option-73" value="+245">Guinea-Bissau (+245) </option>
+              <option data-country-code="GY" data-country-name="Guyana" data-id="dialing-code-option-74" value="+592">Guyana (+592) </option>
+              <option data-country-code="HT" data-country-name="Haiti" data-id="dialing-code-option-75" value="+509">Haiti (+509) </option>
+              <option data-country-code="HN" data-country-name="Honduras" data-id="dialing-code-option-76" value="+504">Honduras (+504) </option>
+              <option data-country-code="HK" data-country-name="Hong Kong" data-id="dialing-code-option-77" value="+852">Hong Kong (+852) </option>
+              <option data-country-code="HU" data-country-name="Hungary" data-id="dialing-code-option-78" value="+36">Hungary (+36) </option>
+              <option data-country-code="IS" data-country-name="Iceland" data-id="dialing-code-option-79" value="+354">Iceland (+354) </option>
+              <option data-country-code="IN" data-country-name="India" data-id="dialing-code-option-80" value="+91">India (+91) </option>
+              <option data-country-code="ID" data-country-name="Indonesia" data-id="dialing-code-option-81" value="+62">Indonesia (+62) </option>
+              <option data-country-code="IR" data-country-name="Iran" data-id="dialing-code-option-82" value="+98">Iran (+98) </option>
+              <option data-country-code="IQ" data-country-name="Iraq" data-id="dialing-code-option-83" value="+964">Iraq (+964) </option>
+              <option data-country-code="IE" data-country-name="Ireland" data-id="dialing-code-option-84" value="+353">Ireland (+353) </option>
+              <option data-country-code="IL" data-country-name="Israel" data-id="dialing-code-option-85" value="+972">Israel (+972) </option>
+              <option data-country-code="IT" data-country-name="Italy" data-id="dialing-code-option-86" value="+39">Italy (+39) </option>
+              <option data-country-code="JM" data-country-name="Jamaica" data-id="dialing-code-option-87" value="+1-876">Jamaica (+1-876) </option>
+              <option data-country-code="JP" data-country-name="Japan" data-id="dialing-code-option-88" value="+81">Japan (+81) </option>
+              <option data-country-code="JO" data-country-name="Jordan" data-id="dialing-code-option-89" value="+962">Jordan (+962) </option>
+              <option data-country-code="KZ" data-country-name="Kazakhstan" data-id="dialing-code-option-90" value="+7">Kazakhstan (+7) </option>
+              <option data-country-code="KE" data-country-name="Kenya" data-id="dialing-code-option-91" value="+254">Kenya (+254) </option>
+              <option data-country-code="KI" data-country-name="Kiribati" data-id="dialing-code-option-92" value="+686">Kiribati (+686) </option>
+              <option data-country-code="KP" data-country-name="North Korea" data-id="dialing-code-option-93" value="+850">North Korea (+850) </option>
+              <option data-country-code="KR" data-country-name="South Korea" data-id="dialing-code-option-94" value="+82">South Korea (+82) </option>
+              <option data-country-code="KW" data-country-name="Kuwait" data-id="dialing-code-option-95" value="+965">Kuwait (+965) </option>
+              <option data-country-code="KG" data-country-name="Kyrgyzstan" data-id="dialing-code-option-96" value="+996">Kyrgyzstan (+996) </option>
+              <option data-country-code="LA" data-country-name="Laos" data-id="dialing-code-option-97" value="+856">Laos (+856) </option>
+              <option data-country-code="LV" data-country-name="Latvia" data-id="dialing-code-option-98" value="+371">Latvia (+371) </option>
+              <option data-country-code="LB" data-country-name="Lebanon" data-id="dialing-code-option-99" value="+961">Lebanon (+961) </option>
+              <option data-country-code="LS" data-country-name="Lesotho" data-id="dialing-code-option-100" value="+266">Lesotho (+266) </option>
+              <option data-country-code="LR" data-country-name="Liberia" data-id="dialing-code-option-101" value="+231">Liberia (+231) </option>
+              <option data-country-code="LY" data-country-name="Libya" data-id="dialing-code-option-102" value="+218">Libya (+218) </option>
+              <option data-country-code="LI" data-country-name="Liechtenstein" data-id="dialing-code-option-103" value="+423">Liechtenstein (+423) </option>
+              <option data-country-code="LT" data-country-name="Lithuania" data-id="dialing-code-option-104" value="+370">Lithuania (+370) </option>
+              <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
+              <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
+              <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
+          <p class="error-message" data-id="phone-number-error">This field is required.</p>
+        </div>
+      </div><!-- Interest and Country/Region -->
+      <div class="input-row" data-id="interest-country-row">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="interest-option-0" value="Product">Product</option>
+            <option data-id="interest-option-1" value="Service">Service</option>
+            <option data-id="interest-option-2" value="Other">Other</option>
+          </select>
+          <p class="error-message" data-id="interest-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="country-option-0" value="Argentina">Argentina</option>
+            <option data-id="country-option-1" value="Australia">Australia</option>
+            <option data-id="country-option-2" value="Austria">Austria</option>
+            <option data-id="country-option-3" value="Bangladesh">Bangladesh</option>
+            <option data-id="country-option-4" value="Belgium">Belgium</option>
+            <option data-id="country-option-5" value="Bhutan">Bhutan</option>
+            <option data-id="country-option-6" value="Brazil">Brazil</option>
+            <option data-id="country-option-7" value="Canada">Canada</option>
+            <option data-id="country-option-8" value="China">China</option>
+            <option data-id="country-option-9" value="Czech Republic">Czech Republic</option>
+            <option data-id="country-option-10" value="Denmark">Denmark</option>
+            <option data-id="country-option-11" value="Egypt">Egypt</option>
+            <option data-id="country-option-12" value="Finland">Finland</option>
+            <option data-id="country-option-13" value="France">France</option>
+            <option data-id="country-option-14" value="Germany">Germany</option>
+            <option data-id="country-option-15" value="Greece">Greece</option>
+            <option data-id="country-option-16" value="Hungary">Hungary</option>
+            <option data-id="country-option-17" value="India">India</option>
+            <option data-id="country-option-18" value="Indonesia">Indonesia</option>
+            <option data-id="country-option-19" value="Ireland">Ireland</option>
+            <option data-id="country-option-20" value="Israel">Israel</option>
+            <option data-id="country-option-21" value="Italy">Italy</option>
+            <option data-id="country-option-22" value="Japan">Japan</option>
+            <option data-id="country-option-23" value="Kazakhstan">Kazakhstan</option>
+            <option data-id="country-option-24" value="Kenya">Kenya</option>
+            <option data-id="country-option-25" value="Malaysia">Malaysia</option>
+            <option data-id="country-option-26" value="Maldives">Maldives</option>
+            <option data-id="country-option-27" value="Mexico">Mexico</option>
+            <option data-id="country-option-28" value="Nepal">Nepal</option>
+            <option data-id="country-option-29" value="Netherlands">Netherlands</option>
+            <option data-id="country-option-30" value="New Zealand">New Zealand</option>
+            <option data-id="country-option-31" value="Nigeria">Nigeria</option>
+            <option data-id="country-option-32" value="Norway">Norway</option>
+            <option data-id="country-option-33" value="Pakistan">Pakistan</option>
+            <option data-id="country-option-34" value="Philippines">Philippines</option>
+            <option data-id="country-option-35" value="Poland">Poland</option>
+            <option data-id="country-option-36" value="Portugal">Portugal</option>
+            <option data-id="country-option-37" value="Russia">Russia</option>
+            <option data-id="country-option-38" value="Saudi Arabia">Saudi Arabia</option>
+            <option data-id="country-option-39" value="Scotland">Scotland</option>
+            <option data-id="country-option-40" value="Singapore">Singapore</option>
+            <option data-id="country-option-41" value="South Africa">South Africa</option>
+            <option data-id="country-option-42" value="South Korea">South Korea</option>
+            <option data-id="country-option-43" value="Spain">Spain</option>
+            <option data-id="country-option-44" value="Sri Lanka">Sri Lanka</option>
+            <option data-id="country-option-45" value="Sweden">Sweden</option>
+            <option data-id="country-option-46" value="Switzerland">Switzerland</option>
+            <option data-id="country-option-47" value="Thailand">Thailand</option>
+            <option data-id="country-option-48" value="Turkey">Turkey</option>
+            <option data-id="country-option-49" value="UAE">UAE</option>
+            <option data-id="country-option-50" value="UK">UK</option>
+            <option data-id="country-option-51" value="Ukraine">Ukraine</option>
+            <option data-id="country-option-52" value="USA">USA</option>
+            <option data-id="country-option-53" value="Uzbekistan">Uzbekistan</option>
+            <option data-id="country-option-54" value="Vietnam">Vietnam</option>
+            <option data-id="country-option-55" value="Wales">Wales</option>
+          </select>
+          <p class="error-message" data-id="country-error">This field is required.</p>
+        </div>
+      </div><!-- Consent Checkbox -->
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+    </form>
+  </div><!-- Thank You Section -->
+  <!--v-if-->
+</div>
+`;
+
+exports[`ContactUs.vue matches snapshot after invalid phone number is entered 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <div class="form-section" data-id="form-section">
+    <form novalidate="" data-id="form">
+      <!-- First Name and Last Name -->
+      <div class="input-row" data-id="name-input-row">
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
+          <p class="error-message" data-id="first-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
+          <p class="error-message" data-id="last-name-error">This field is required.</p>
+        </div>
+      </div><!-- Company Name and Employees -->
+      <div class="input-row" data-id="company-input-row">
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
+          <p class="error-message" data-id="company-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="employee-option-0" value="1-10">1-10</option>
+            <option data-id="employee-option-1" value="11-50">11-50</option>
+            <option data-id="employee-option-2" value="51-200">51-200</option>
+            <option data-id="employee-option-3" value="201-500">201-500</option>
+            <option data-id="employee-option-4" value="500+">500+</option>
+          </select></div>
+      </div><!-- Email and Phone Number -->
+      <div class="input-row" data-id="contact-input-row">
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
+          <p class="error-message" data-id="email-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+              <option selected="" disabled="" value=""></option>
+              <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
+              <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
+              <option data-country-code="DZ" data-country-name="Algeria" data-id="dialing-code-option-2" value="+213">Algeria (+213) </option>
+              <option data-country-code="AS" data-country-name="American Samoa" data-id="dialing-code-option-3" value="+1-684">American Samoa (+1-684) </option>
+              <option data-country-code="AD" data-country-name="Andorra" data-id="dialing-code-option-4" value="+376">Andorra (+376) </option>
+              <option data-country-code="AO" data-country-name="Angola" data-id="dialing-code-option-5" value="+244">Angola (+244) </option>
+              <option data-country-code="AI" data-country-name="Anguilla" data-id="dialing-code-option-6" value="+1-264">Anguilla (+1-264) </option>
+              <option data-country-code="AG" data-country-name="Antigua and Barbuda" data-id="dialing-code-option-7" value="+1-268">Antigua and Barbuda (+1-268) </option>
+              <option data-country-code="AR" data-country-name="Argentina" data-id="dialing-code-option-8" value="+54">Argentina (+54) </option>
+              <option data-country-code="AM" data-country-name="Armenia" data-id="dialing-code-option-9" value="+374">Armenia (+374) </option>
+              <option data-country-code="AU" data-country-name="Australia" data-id="dialing-code-option-10" value="+61">Australia (+61) </option>
+              <option data-country-code="AT" data-country-name="Austria" data-id="dialing-code-option-11" value="+43">Austria (+43) </option>
+              <option data-country-code="AZ" data-country-name="Azerbaijan" data-id="dialing-code-option-12" value="+994">Azerbaijan (+994) </option>
+              <option data-country-code="BS" data-country-name="Bahamas" data-id="dialing-code-option-13" value="+1-242">Bahamas (+1-242) </option>
+              <option data-country-code="BH" data-country-name="Bahrain" data-id="dialing-code-option-14" value="+973">Bahrain (+973) </option>
+              <option data-country-code="BD" data-country-name="Bangladesh" data-id="dialing-code-option-15" value="+880">Bangladesh (+880) </option>
+              <option data-country-code="BB" data-country-name="Barbados" data-id="dialing-code-option-16" value="+1-246">Barbados (+1-246) </option>
+              <option data-country-code="BY" data-country-name="Belarus" data-id="dialing-code-option-17" value="+375">Belarus (+375) </option>
+              <option data-country-code="BE" data-country-name="Belgium" data-id="dialing-code-option-18" value="+32">Belgium (+32) </option>
+              <option data-country-code="BZ" data-country-name="Belize" data-id="dialing-code-option-19" value="+501">Belize (+501) </option>
+              <option data-country-code="BJ" data-country-name="Benin" data-id="dialing-code-option-20" value="+229">Benin (+229) </option>
+              <option data-country-code="BM" data-country-name="Bermuda" data-id="dialing-code-option-21" value="+1-441">Bermuda (+1-441) </option>
+              <option data-country-code="BT" data-country-name="Bhutan" data-id="dialing-code-option-22" value="+975">Bhutan (+975) </option>
+              <option data-country-code="BO" data-country-name="Bolivia" data-id="dialing-code-option-23" value="+591">Bolivia (+591) </option>
+              <option data-country-code="BA" data-country-name="Bosnia and Herzegovina" data-id="dialing-code-option-24" value="+387">Bosnia and Herzegovina (+387) </option>
+              <option data-country-code="BW" data-country-name="Botswana" data-id="dialing-code-option-25" value="+267">Botswana (+267) </option>
+              <option data-country-code="BR" data-country-name="Brazil" data-id="dialing-code-option-26" value="+55">Brazil (+55) </option>
+              <option data-country-code="BN" data-country-name="Brunei" data-id="dialing-code-option-27" value="+673">Brunei (+673) </option>
+              <option data-country-code="BG" data-country-name="Bulgaria" data-id="dialing-code-option-28" value="+359">Bulgaria (+359) </option>
+              <option data-country-code="BF" data-country-name="Burkina Faso" data-id="dialing-code-option-29" value="+226">Burkina Faso (+226) </option>
+              <option data-country-code="BI" data-country-name="Burundi" data-id="dialing-code-option-30" value="+257">Burundi (+257) </option>
+              <option data-country-code="KH" data-country-name="Cambodia" data-id="dialing-code-option-31" value="+855">Cambodia (+855) </option>
+              <option data-country-code="CM" data-country-name="Cameroon" data-id="dialing-code-option-32" value="+237">Cameroon (+237) </option>
+              <option data-country-code="CA" data-country-name="Canada" data-id="dialing-code-option-33" value="+1">Canada (+1) </option>
+              <option data-country-code="CV" data-country-name="Cape Verde" data-id="dialing-code-option-34" value="+238">Cape Verde (+238) </option>
+              <option data-country-code="KY" data-country-name="Cayman Islands" data-id="dialing-code-option-35" value="+1-345">Cayman Islands (+1-345) </option>
+              <option data-country-code="CF" data-country-name="Central African Republic" data-id="dialing-code-option-36" value="+236">Central African Republic (+236) </option>
+              <option data-country-code="TD" data-country-name="Chad" data-id="dialing-code-option-37" value="+235">Chad (+235) </option>
+              <option data-country-code="CL" data-country-name="Chile" data-id="dialing-code-option-38" value="+56">Chile (+56) </option>
+              <option data-country-code="CN" data-country-name="China" data-id="dialing-code-option-39" value="+86">China (+86) </option>
+              <option data-country-code="CO" data-country-name="Colombia" data-id="dialing-code-option-40" value="+57">Colombia (+57) </option>
+              <option data-country-code="KM" data-country-name="Comoros" data-id="dialing-code-option-41" value="+269">Comoros (+269) </option>
+              <option data-country-code="CG" data-country-name="Congo" data-id="dialing-code-option-42" value="+242">Congo (+242) </option>
+              <option data-country-code="CD" data-country-name="Congo (DRC)" data-id="dialing-code-option-43" value="+243">Congo (DRC) (+243) </option>
+              <option data-country-code="CR" data-country-name="Costa Rica" data-id="dialing-code-option-44" value="+506">Costa Rica (+506) </option>
+              <option data-country-code="HR" data-country-name="Croatia" data-id="dialing-code-option-45" value="+385">Croatia (+385) </option>
+              <option data-country-code="CU" data-country-name="Cuba" data-id="dialing-code-option-46" value="+53">Cuba (+53) </option>
+              <option data-country-code="CY" data-country-name="Cyprus" data-id="dialing-code-option-47" value="+357">Cyprus (+357) </option>
+              <option data-country-code="CZ" data-country-name="Czech Republic" data-id="dialing-code-option-48" value="+420">Czech Republic (+420) </option>
+              <option data-country-code="DK" data-country-name="Denmark" data-id="dialing-code-option-49" value="+45">Denmark (+45) </option>
+              <option data-country-code="DJ" data-country-name="Djibouti" data-id="dialing-code-option-50" value="+253">Djibouti (+253) </option>
+              <option data-country-code="DM" data-country-name="Dominica" data-id="dialing-code-option-51" value="+1-767">Dominica (+1-767) </option>
+              <option data-country-code="DO" data-country-name="Dominican Republic" data-id="dialing-code-option-52" value="+1-809">Dominican Republic (+1-809) </option>
+              <option data-country-code="EC" data-country-name="Ecuador" data-id="dialing-code-option-53" value="+593">Ecuador (+593) </option>
+              <option data-country-code="EG" data-country-name="Egypt" data-id="dialing-code-option-54" value="+20">Egypt (+20) </option>
+              <option data-country-code="SV" data-country-name="El Salvador" data-id="dialing-code-option-55" value="+503">El Salvador (+503) </option>
+              <option data-country-code="GQ" data-country-name="Equatorial Guinea" data-id="dialing-code-option-56" value="+240">Equatorial Guinea (+240) </option>
+              <option data-country-code="ER" data-country-name="Eritrea" data-id="dialing-code-option-57" value="+291">Eritrea (+291) </option>
+              <option data-country-code="EE" data-country-name="Estonia" data-id="dialing-code-option-58" value="+372">Estonia (+372) </option>
+              <option data-country-code="SZ" data-country-name="Eswatini" data-id="dialing-code-option-59" value="+268">Eswatini (+268) </option>
+              <option data-country-code="ET" data-country-name="Ethiopia" data-id="dialing-code-option-60" value="+251">Ethiopia (+251) </option>
+              <option data-country-code="FJ" data-country-name="Fiji" data-id="dialing-code-option-61" value="+679">Fiji (+679) </option>
+              <option data-country-code="FI" data-country-name="Finland" data-id="dialing-code-option-62" value="+358">Finland (+358) </option>
+              <option data-country-code="FR" data-country-name="France" data-id="dialing-code-option-63" value="+33">France (+33) </option>
+              <option data-country-code="GA" data-country-name="Gabon" data-id="dialing-code-option-64" value="+241">Gabon (+241) </option>
+              <option data-country-code="GM" data-country-name="Gambia" data-id="dialing-code-option-65" value="+220">Gambia (+220) </option>
+              <option data-country-code="GE" data-country-name="Georgia" data-id="dialing-code-option-66" value="+995">Georgia (+995) </option>
+              <option data-country-code="DE" data-country-name="Germany" data-id="dialing-code-option-67" value="+49">Germany (+49) </option>
+              <option data-country-code="GH" data-country-name="Ghana" data-id="dialing-code-option-68" value="+233">Ghana (+233) </option>
+              <option data-country-code="GR" data-country-name="Greece" data-id="dialing-code-option-69" value="+30">Greece (+30) </option>
+              <option data-country-code="GD" data-country-name="Grenada" data-id="dialing-code-option-70" value="+1-473">Grenada (+1-473) </option>
+              <option data-country-code="GT" data-country-name="Guatemala" data-id="dialing-code-option-71" value="+502">Guatemala (+502) </option>
+              <option data-country-code="GN" data-country-name="Guinea" data-id="dialing-code-option-72" value="+224">Guinea (+224) </option>
+              <option data-country-code="GW" data-country-name="Guinea-Bissau" data-id="dialing-code-option-73" value="+245">Guinea-Bissau (+245) </option>
+              <option data-country-code="GY" data-country-name="Guyana" data-id="dialing-code-option-74" value="+592">Guyana (+592) </option>
+              <option data-country-code="HT" data-country-name="Haiti" data-id="dialing-code-option-75" value="+509">Haiti (+509) </option>
+              <option data-country-code="HN" data-country-name="Honduras" data-id="dialing-code-option-76" value="+504">Honduras (+504) </option>
+              <option data-country-code="HK" data-country-name="Hong Kong" data-id="dialing-code-option-77" value="+852">Hong Kong (+852) </option>
+              <option data-country-code="HU" data-country-name="Hungary" data-id="dialing-code-option-78" value="+36">Hungary (+36) </option>
+              <option data-country-code="IS" data-country-name="Iceland" data-id="dialing-code-option-79" value="+354">Iceland (+354) </option>
+              <option data-country-code="IN" data-country-name="India" data-id="dialing-code-option-80" value="+91">India (+91) </option>
+              <option data-country-code="ID" data-country-name="Indonesia" data-id="dialing-code-option-81" value="+62">Indonesia (+62) </option>
+              <option data-country-code="IR" data-country-name="Iran" data-id="dialing-code-option-82" value="+98">Iran (+98) </option>
+              <option data-country-code="IQ" data-country-name="Iraq" data-id="dialing-code-option-83" value="+964">Iraq (+964) </option>
+              <option data-country-code="IE" data-country-name="Ireland" data-id="dialing-code-option-84" value="+353">Ireland (+353) </option>
+              <option data-country-code="IL" data-country-name="Israel" data-id="dialing-code-option-85" value="+972">Israel (+972) </option>
+              <option data-country-code="IT" data-country-name="Italy" data-id="dialing-code-option-86" value="+39">Italy (+39) </option>
+              <option data-country-code="JM" data-country-name="Jamaica" data-id="dialing-code-option-87" value="+1-876">Jamaica (+1-876) </option>
+              <option data-country-code="JP" data-country-name="Japan" data-id="dialing-code-option-88" value="+81">Japan (+81) </option>
+              <option data-country-code="JO" data-country-name="Jordan" data-id="dialing-code-option-89" value="+962">Jordan (+962) </option>
+              <option data-country-code="KZ" data-country-name="Kazakhstan" data-id="dialing-code-option-90" value="+7">Kazakhstan (+7) </option>
+              <option data-country-code="KE" data-country-name="Kenya" data-id="dialing-code-option-91" value="+254">Kenya (+254) </option>
+              <option data-country-code="KI" data-country-name="Kiribati" data-id="dialing-code-option-92" value="+686">Kiribati (+686) </option>
+              <option data-country-code="KP" data-country-name="North Korea" data-id="dialing-code-option-93" value="+850">North Korea (+850) </option>
+              <option data-country-code="KR" data-country-name="South Korea" data-id="dialing-code-option-94" value="+82">South Korea (+82) </option>
+              <option data-country-code="KW" data-country-name="Kuwait" data-id="dialing-code-option-95" value="+965">Kuwait (+965) </option>
+              <option data-country-code="KG" data-country-name="Kyrgyzstan" data-id="dialing-code-option-96" value="+996">Kyrgyzstan (+996) </option>
+              <option data-country-code="LA" data-country-name="Laos" data-id="dialing-code-option-97" value="+856">Laos (+856) </option>
+              <option data-country-code="LV" data-country-name="Latvia" data-id="dialing-code-option-98" value="+371">Latvia (+371) </option>
+              <option data-country-code="LB" data-country-name="Lebanon" data-id="dialing-code-option-99" value="+961">Lebanon (+961) </option>
+              <option data-country-code="LS" data-country-name="Lesotho" data-id="dialing-code-option-100" value="+266">Lesotho (+266) </option>
+              <option data-country-code="LR" data-country-name="Liberia" data-id="dialing-code-option-101" value="+231">Liberia (+231) </option>
+              <option data-country-code="LY" data-country-name="Libya" data-id="dialing-code-option-102" value="+218">Libya (+218) </option>
+              <option data-country-code="LI" data-country-name="Liechtenstein" data-id="dialing-code-option-103" value="+423">Liechtenstein (+423) </option>
+              <option data-country-code="LT" data-country-name="Lithuania" data-id="dialing-code-option-104" value="+370">Lithuania (+370) </option>
+              <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
+              <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
+              <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
+          <p class="error-message" data-id="phone-number-error">Please enter a valid phone number.</p>
+        </div>
+      </div><!-- Interest and Country/Region -->
+      <div class="input-row" data-id="interest-country-row">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="interest-option-0" value="Product">Product</option>
+            <option data-id="interest-option-1" value="Service">Service</option>
+            <option data-id="interest-option-2" value="Other">Other</option>
+          </select>
+          <p class="error-message" data-id="interest-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="country-option-0" value="Argentina">Argentina</option>
+            <option data-id="country-option-1" value="Australia">Australia</option>
+            <option data-id="country-option-2" value="Austria">Austria</option>
+            <option data-id="country-option-3" value="Bangladesh">Bangladesh</option>
+            <option data-id="country-option-4" value="Belgium">Belgium</option>
+            <option data-id="country-option-5" value="Bhutan">Bhutan</option>
+            <option data-id="country-option-6" value="Brazil">Brazil</option>
+            <option data-id="country-option-7" value="Canada">Canada</option>
+            <option data-id="country-option-8" value="China">China</option>
+            <option data-id="country-option-9" value="Czech Republic">Czech Republic</option>
+            <option data-id="country-option-10" value="Denmark">Denmark</option>
+            <option data-id="country-option-11" value="Egypt">Egypt</option>
+            <option data-id="country-option-12" value="Finland">Finland</option>
+            <option data-id="country-option-13" value="France">France</option>
+            <option data-id="country-option-14" value="Germany">Germany</option>
+            <option data-id="country-option-15" value="Greece">Greece</option>
+            <option data-id="country-option-16" value="Hungary">Hungary</option>
+            <option data-id="country-option-17" value="India">India</option>
+            <option data-id="country-option-18" value="Indonesia">Indonesia</option>
+            <option data-id="country-option-19" value="Ireland">Ireland</option>
+            <option data-id="country-option-20" value="Israel">Israel</option>
+            <option data-id="country-option-21" value="Italy">Italy</option>
+            <option data-id="country-option-22" value="Japan">Japan</option>
+            <option data-id="country-option-23" value="Kazakhstan">Kazakhstan</option>
+            <option data-id="country-option-24" value="Kenya">Kenya</option>
+            <option data-id="country-option-25" value="Malaysia">Malaysia</option>
+            <option data-id="country-option-26" value="Maldives">Maldives</option>
+            <option data-id="country-option-27" value="Mexico">Mexico</option>
+            <option data-id="country-option-28" value="Nepal">Nepal</option>
+            <option data-id="country-option-29" value="Netherlands">Netherlands</option>
+            <option data-id="country-option-30" value="New Zealand">New Zealand</option>
+            <option data-id="country-option-31" value="Nigeria">Nigeria</option>
+            <option data-id="country-option-32" value="Norway">Norway</option>
+            <option data-id="country-option-33" value="Pakistan">Pakistan</option>
+            <option data-id="country-option-34" value="Philippines">Philippines</option>
+            <option data-id="country-option-35" value="Poland">Poland</option>
+            <option data-id="country-option-36" value="Portugal">Portugal</option>
+            <option data-id="country-option-37" value="Russia">Russia</option>
+            <option data-id="country-option-38" value="Saudi Arabia">Saudi Arabia</option>
+            <option data-id="country-option-39" value="Scotland">Scotland</option>
+            <option data-id="country-option-40" value="Singapore">Singapore</option>
+            <option data-id="country-option-41" value="South Africa">South Africa</option>
+            <option data-id="country-option-42" value="South Korea">South Korea</option>
+            <option data-id="country-option-43" value="Spain">Spain</option>
+            <option data-id="country-option-44" value="Sri Lanka">Sri Lanka</option>
+            <option data-id="country-option-45" value="Sweden">Sweden</option>
+            <option data-id="country-option-46" value="Switzerland">Switzerland</option>
+            <option data-id="country-option-47" value="Thailand">Thailand</option>
+            <option data-id="country-option-48" value="Turkey">Turkey</option>
+            <option data-id="country-option-49" value="UAE">UAE</option>
+            <option data-id="country-option-50" value="UK">UK</option>
+            <option data-id="country-option-51" value="Ukraine">Ukraine</option>
+            <option data-id="country-option-52" value="USA">USA</option>
+            <option data-id="country-option-53" value="Uzbekistan">Uzbekistan</option>
+            <option data-id="country-option-54" value="Vietnam">Vietnam</option>
+            <option data-id="country-option-55" value="Wales">Wales</option>
+          </select>
+          <p class="error-message" data-id="country-error">This field is required.</p>
+        </div>
+      </div><!-- Consent Checkbox -->
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+    </form>
+  </div><!-- Thank You Section -->
+  <!--v-if-->
+</div>
+`;
+
+exports[`ContactUs.vue matches snapshot after showing validation errors 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <div class="form-section" data-id="form-section">
+    <form novalidate="" data-id="form">
+      <!-- First Name and Last Name -->
+      <div class="input-row" data-id="name-input-row">
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
+          <p class="error-message" data-id="first-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
+          <p class="error-message" data-id="last-name-error">This field is required.</p>
+        </div>
+      </div><!-- Company Name and Employees -->
+      <div class="input-row" data-id="company-input-row">
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
+          <p class="error-message" data-id="company-name-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="employee-option-0" value="1-10">1-10</option>
+            <option data-id="employee-option-1" value="11-50">11-50</option>
+            <option data-id="employee-option-2" value="51-200">51-200</option>
+            <option data-id="employee-option-3" value="201-500">201-500</option>
+            <option data-id="employee-option-4" value="500+">500+</option>
+          </select></div>
+      </div><!-- Email and Phone Number -->
+      <div class="input-row" data-id="contact-input-row">
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
+          <p class="error-message" data-id="email-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+              <option selected="" disabled="" value=""></option>
+              <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
+              <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
+              <option data-country-code="DZ" data-country-name="Algeria" data-id="dialing-code-option-2" value="+213">Algeria (+213) </option>
+              <option data-country-code="AS" data-country-name="American Samoa" data-id="dialing-code-option-3" value="+1-684">American Samoa (+1-684) </option>
+              <option data-country-code="AD" data-country-name="Andorra" data-id="dialing-code-option-4" value="+376">Andorra (+376) </option>
+              <option data-country-code="AO" data-country-name="Angola" data-id="dialing-code-option-5" value="+244">Angola (+244) </option>
+              <option data-country-code="AI" data-country-name="Anguilla" data-id="dialing-code-option-6" value="+1-264">Anguilla (+1-264) </option>
+              <option data-country-code="AG" data-country-name="Antigua and Barbuda" data-id="dialing-code-option-7" value="+1-268">Antigua and Barbuda (+1-268) </option>
+              <option data-country-code="AR" data-country-name="Argentina" data-id="dialing-code-option-8" value="+54">Argentina (+54) </option>
+              <option data-country-code="AM" data-country-name="Armenia" data-id="dialing-code-option-9" value="+374">Armenia (+374) </option>
+              <option data-country-code="AU" data-country-name="Australia" data-id="dialing-code-option-10" value="+61">Australia (+61) </option>
+              <option data-country-code="AT" data-country-name="Austria" data-id="dialing-code-option-11" value="+43">Austria (+43) </option>
+              <option data-country-code="AZ" data-country-name="Azerbaijan" data-id="dialing-code-option-12" value="+994">Azerbaijan (+994) </option>
+              <option data-country-code="BS" data-country-name="Bahamas" data-id="dialing-code-option-13" value="+1-242">Bahamas (+1-242) </option>
+              <option data-country-code="BH" data-country-name="Bahrain" data-id="dialing-code-option-14" value="+973">Bahrain (+973) </option>
+              <option data-country-code="BD" data-country-name="Bangladesh" data-id="dialing-code-option-15" value="+880">Bangladesh (+880) </option>
+              <option data-country-code="BB" data-country-name="Barbados" data-id="dialing-code-option-16" value="+1-246">Barbados (+1-246) </option>
+              <option data-country-code="BY" data-country-name="Belarus" data-id="dialing-code-option-17" value="+375">Belarus (+375) </option>
+              <option data-country-code="BE" data-country-name="Belgium" data-id="dialing-code-option-18" value="+32">Belgium (+32) </option>
+              <option data-country-code="BZ" data-country-name="Belize" data-id="dialing-code-option-19" value="+501">Belize (+501) </option>
+              <option data-country-code="BJ" data-country-name="Benin" data-id="dialing-code-option-20" value="+229">Benin (+229) </option>
+              <option data-country-code="BM" data-country-name="Bermuda" data-id="dialing-code-option-21" value="+1-441">Bermuda (+1-441) </option>
+              <option data-country-code="BT" data-country-name="Bhutan" data-id="dialing-code-option-22" value="+975">Bhutan (+975) </option>
+              <option data-country-code="BO" data-country-name="Bolivia" data-id="dialing-code-option-23" value="+591">Bolivia (+591) </option>
+              <option data-country-code="BA" data-country-name="Bosnia and Herzegovina" data-id="dialing-code-option-24" value="+387">Bosnia and Herzegovina (+387) </option>
+              <option data-country-code="BW" data-country-name="Botswana" data-id="dialing-code-option-25" value="+267">Botswana (+267) </option>
+              <option data-country-code="BR" data-country-name="Brazil" data-id="dialing-code-option-26" value="+55">Brazil (+55) </option>
+              <option data-country-code="BN" data-country-name="Brunei" data-id="dialing-code-option-27" value="+673">Brunei (+673) </option>
+              <option data-country-code="BG" data-country-name="Bulgaria" data-id="dialing-code-option-28" value="+359">Bulgaria (+359) </option>
+              <option data-country-code="BF" data-country-name="Burkina Faso" data-id="dialing-code-option-29" value="+226">Burkina Faso (+226) </option>
+              <option data-country-code="BI" data-country-name="Burundi" data-id="dialing-code-option-30" value="+257">Burundi (+257) </option>
+              <option data-country-code="KH" data-country-name="Cambodia" data-id="dialing-code-option-31" value="+855">Cambodia (+855) </option>
+              <option data-country-code="CM" data-country-name="Cameroon" data-id="dialing-code-option-32" value="+237">Cameroon (+237) </option>
+              <option data-country-code="CA" data-country-name="Canada" data-id="dialing-code-option-33" value="+1">Canada (+1) </option>
+              <option data-country-code="CV" data-country-name="Cape Verde" data-id="dialing-code-option-34" value="+238">Cape Verde (+238) </option>
+              <option data-country-code="KY" data-country-name="Cayman Islands" data-id="dialing-code-option-35" value="+1-345">Cayman Islands (+1-345) </option>
+              <option data-country-code="CF" data-country-name="Central African Republic" data-id="dialing-code-option-36" value="+236">Central African Republic (+236) </option>
+              <option data-country-code="TD" data-country-name="Chad" data-id="dialing-code-option-37" value="+235">Chad (+235) </option>
+              <option data-country-code="CL" data-country-name="Chile" data-id="dialing-code-option-38" value="+56">Chile (+56) </option>
+              <option data-country-code="CN" data-country-name="China" data-id="dialing-code-option-39" value="+86">China (+86) </option>
+              <option data-country-code="CO" data-country-name="Colombia" data-id="dialing-code-option-40" value="+57">Colombia (+57) </option>
+              <option data-country-code="KM" data-country-name="Comoros" data-id="dialing-code-option-41" value="+269">Comoros (+269) </option>
+              <option data-country-code="CG" data-country-name="Congo" data-id="dialing-code-option-42" value="+242">Congo (+242) </option>
+              <option data-country-code="CD" data-country-name="Congo (DRC)" data-id="dialing-code-option-43" value="+243">Congo (DRC) (+243) </option>
+              <option data-country-code="CR" data-country-name="Costa Rica" data-id="dialing-code-option-44" value="+506">Costa Rica (+506) </option>
+              <option data-country-code="HR" data-country-name="Croatia" data-id="dialing-code-option-45" value="+385">Croatia (+385) </option>
+              <option data-country-code="CU" data-country-name="Cuba" data-id="dialing-code-option-46" value="+53">Cuba (+53) </option>
+              <option data-country-code="CY" data-country-name="Cyprus" data-id="dialing-code-option-47" value="+357">Cyprus (+357) </option>
+              <option data-country-code="CZ" data-country-name="Czech Republic" data-id="dialing-code-option-48" value="+420">Czech Republic (+420) </option>
+              <option data-country-code="DK" data-country-name="Denmark" data-id="dialing-code-option-49" value="+45">Denmark (+45) </option>
+              <option data-country-code="DJ" data-country-name="Djibouti" data-id="dialing-code-option-50" value="+253">Djibouti (+253) </option>
+              <option data-country-code="DM" data-country-name="Dominica" data-id="dialing-code-option-51" value="+1-767">Dominica (+1-767) </option>
+              <option data-country-code="DO" data-country-name="Dominican Republic" data-id="dialing-code-option-52" value="+1-809">Dominican Republic (+1-809) </option>
+              <option data-country-code="EC" data-country-name="Ecuador" data-id="dialing-code-option-53" value="+593">Ecuador (+593) </option>
+              <option data-country-code="EG" data-country-name="Egypt" data-id="dialing-code-option-54" value="+20">Egypt (+20) </option>
+              <option data-country-code="SV" data-country-name="El Salvador" data-id="dialing-code-option-55" value="+503">El Salvador (+503) </option>
+              <option data-country-code="GQ" data-country-name="Equatorial Guinea" data-id="dialing-code-option-56" value="+240">Equatorial Guinea (+240) </option>
+              <option data-country-code="ER" data-country-name="Eritrea" data-id="dialing-code-option-57" value="+291">Eritrea (+291) </option>
+              <option data-country-code="EE" data-country-name="Estonia" data-id="dialing-code-option-58" value="+372">Estonia (+372) </option>
+              <option data-country-code="SZ" data-country-name="Eswatini" data-id="dialing-code-option-59" value="+268">Eswatini (+268) </option>
+              <option data-country-code="ET" data-country-name="Ethiopia" data-id="dialing-code-option-60" value="+251">Ethiopia (+251) </option>
+              <option data-country-code="FJ" data-country-name="Fiji" data-id="dialing-code-option-61" value="+679">Fiji (+679) </option>
+              <option data-country-code="FI" data-country-name="Finland" data-id="dialing-code-option-62" value="+358">Finland (+358) </option>
+              <option data-country-code="FR" data-country-name="France" data-id="dialing-code-option-63" value="+33">France (+33) </option>
+              <option data-country-code="GA" data-country-name="Gabon" data-id="dialing-code-option-64" value="+241">Gabon (+241) </option>
+              <option data-country-code="GM" data-country-name="Gambia" data-id="dialing-code-option-65" value="+220">Gambia (+220) </option>
+              <option data-country-code="GE" data-country-name="Georgia" data-id="dialing-code-option-66" value="+995">Georgia (+995) </option>
+              <option data-country-code="DE" data-country-name="Germany" data-id="dialing-code-option-67" value="+49">Germany (+49) </option>
+              <option data-country-code="GH" data-country-name="Ghana" data-id="dialing-code-option-68" value="+233">Ghana (+233) </option>
+              <option data-country-code="GR" data-country-name="Greece" data-id="dialing-code-option-69" value="+30">Greece (+30) </option>
+              <option data-country-code="GD" data-country-name="Grenada" data-id="dialing-code-option-70" value="+1-473">Grenada (+1-473) </option>
+              <option data-country-code="GT" data-country-name="Guatemala" data-id="dialing-code-option-71" value="+502">Guatemala (+502) </option>
+              <option data-country-code="GN" data-country-name="Guinea" data-id="dialing-code-option-72" value="+224">Guinea (+224) </option>
+              <option data-country-code="GW" data-country-name="Guinea-Bissau" data-id="dialing-code-option-73" value="+245">Guinea-Bissau (+245) </option>
+              <option data-country-code="GY" data-country-name="Guyana" data-id="dialing-code-option-74" value="+592">Guyana (+592) </option>
+              <option data-country-code="HT" data-country-name="Haiti" data-id="dialing-code-option-75" value="+509">Haiti (+509) </option>
+              <option data-country-code="HN" data-country-name="Honduras" data-id="dialing-code-option-76" value="+504">Honduras (+504) </option>
+              <option data-country-code="HK" data-country-name="Hong Kong" data-id="dialing-code-option-77" value="+852">Hong Kong (+852) </option>
+              <option data-country-code="HU" data-country-name="Hungary" data-id="dialing-code-option-78" value="+36">Hungary (+36) </option>
+              <option data-country-code="IS" data-country-name="Iceland" data-id="dialing-code-option-79" value="+354">Iceland (+354) </option>
+              <option data-country-code="IN" data-country-name="India" data-id="dialing-code-option-80" value="+91">India (+91) </option>
+              <option data-country-code="ID" data-country-name="Indonesia" data-id="dialing-code-option-81" value="+62">Indonesia (+62) </option>
+              <option data-country-code="IR" data-country-name="Iran" data-id="dialing-code-option-82" value="+98">Iran (+98) </option>
+              <option data-country-code="IQ" data-country-name="Iraq" data-id="dialing-code-option-83" value="+964">Iraq (+964) </option>
+              <option data-country-code="IE" data-country-name="Ireland" data-id="dialing-code-option-84" value="+353">Ireland (+353) </option>
+              <option data-country-code="IL" data-country-name="Israel" data-id="dialing-code-option-85" value="+972">Israel (+972) </option>
+              <option data-country-code="IT" data-country-name="Italy" data-id="dialing-code-option-86" value="+39">Italy (+39) </option>
+              <option data-country-code="JM" data-country-name="Jamaica" data-id="dialing-code-option-87" value="+1-876">Jamaica (+1-876) </option>
+              <option data-country-code="JP" data-country-name="Japan" data-id="dialing-code-option-88" value="+81">Japan (+81) </option>
+              <option data-country-code="JO" data-country-name="Jordan" data-id="dialing-code-option-89" value="+962">Jordan (+962) </option>
+              <option data-country-code="KZ" data-country-name="Kazakhstan" data-id="dialing-code-option-90" value="+7">Kazakhstan (+7) </option>
+              <option data-country-code="KE" data-country-name="Kenya" data-id="dialing-code-option-91" value="+254">Kenya (+254) </option>
+              <option data-country-code="KI" data-country-name="Kiribati" data-id="dialing-code-option-92" value="+686">Kiribati (+686) </option>
+              <option data-country-code="KP" data-country-name="North Korea" data-id="dialing-code-option-93" value="+850">North Korea (+850) </option>
+              <option data-country-code="KR" data-country-name="South Korea" data-id="dialing-code-option-94" value="+82">South Korea (+82) </option>
+              <option data-country-code="KW" data-country-name="Kuwait" data-id="dialing-code-option-95" value="+965">Kuwait (+965) </option>
+              <option data-country-code="KG" data-country-name="Kyrgyzstan" data-id="dialing-code-option-96" value="+996">Kyrgyzstan (+996) </option>
+              <option data-country-code="LA" data-country-name="Laos" data-id="dialing-code-option-97" value="+856">Laos (+856) </option>
+              <option data-country-code="LV" data-country-name="Latvia" data-id="dialing-code-option-98" value="+371">Latvia (+371) </option>
+              <option data-country-code="LB" data-country-name="Lebanon" data-id="dialing-code-option-99" value="+961">Lebanon (+961) </option>
+              <option data-country-code="LS" data-country-name="Lesotho" data-id="dialing-code-option-100" value="+266">Lesotho (+266) </option>
+              <option data-country-code="LR" data-country-name="Liberia" data-id="dialing-code-option-101" value="+231">Liberia (+231) </option>
+              <option data-country-code="LY" data-country-name="Libya" data-id="dialing-code-option-102" value="+218">Libya (+218) </option>
+              <option data-country-code="LI" data-country-name="Liechtenstein" data-id="dialing-code-option-103" value="+423">Liechtenstein (+423) </option>
+              <option data-country-code="LT" data-country-name="Lithuania" data-id="dialing-code-option-104" value="+370">Lithuania (+370) </option>
+              <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
+              <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
+              <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
+          <p class="error-message" data-id="phone-number-error">This field is required.</p>
+        </div>
+      </div><!-- Interest and Country/Region -->
+      <div class="input-row" data-id="interest-country-row">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="interest-option-0" value="Product">Product</option>
+            <option data-id="interest-option-1" value="Service">Service</option>
+            <option data-id="interest-option-2" value="Other">Other</option>
+          </select>
+          <p class="error-message" data-id="interest-error">This field is required.</p>
+        </div>
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="country-option-0" value="Argentina">Argentina</option>
+            <option data-id="country-option-1" value="Australia">Australia</option>
+            <option data-id="country-option-2" value="Austria">Austria</option>
+            <option data-id="country-option-3" value="Bangladesh">Bangladesh</option>
+            <option data-id="country-option-4" value="Belgium">Belgium</option>
+            <option data-id="country-option-5" value="Bhutan">Bhutan</option>
+            <option data-id="country-option-6" value="Brazil">Brazil</option>
+            <option data-id="country-option-7" value="Canada">Canada</option>
+            <option data-id="country-option-8" value="China">China</option>
+            <option data-id="country-option-9" value="Czech Republic">Czech Republic</option>
+            <option data-id="country-option-10" value="Denmark">Denmark</option>
+            <option data-id="country-option-11" value="Egypt">Egypt</option>
+            <option data-id="country-option-12" value="Finland">Finland</option>
+            <option data-id="country-option-13" value="France">France</option>
+            <option data-id="country-option-14" value="Germany">Germany</option>
+            <option data-id="country-option-15" value="Greece">Greece</option>
+            <option data-id="country-option-16" value="Hungary">Hungary</option>
+            <option data-id="country-option-17" value="India">India</option>
+            <option data-id="country-option-18" value="Indonesia">Indonesia</option>
+            <option data-id="country-option-19" value="Ireland">Ireland</option>
+            <option data-id="country-option-20" value="Israel">Israel</option>
+            <option data-id="country-option-21" value="Italy">Italy</option>
+            <option data-id="country-option-22" value="Japan">Japan</option>
+            <option data-id="country-option-23" value="Kazakhstan">Kazakhstan</option>
+            <option data-id="country-option-24" value="Kenya">Kenya</option>
+            <option data-id="country-option-25" value="Malaysia">Malaysia</option>
+            <option data-id="country-option-26" value="Maldives">Maldives</option>
+            <option data-id="country-option-27" value="Mexico">Mexico</option>
+            <option data-id="country-option-28" value="Nepal">Nepal</option>
+            <option data-id="country-option-29" value="Netherlands">Netherlands</option>
+            <option data-id="country-option-30" value="New Zealand">New Zealand</option>
+            <option data-id="country-option-31" value="Nigeria">Nigeria</option>
+            <option data-id="country-option-32" value="Norway">Norway</option>
+            <option data-id="country-option-33" value="Pakistan">Pakistan</option>
+            <option data-id="country-option-34" value="Philippines">Philippines</option>
+            <option data-id="country-option-35" value="Poland">Poland</option>
+            <option data-id="country-option-36" value="Portugal">Portugal</option>
+            <option data-id="country-option-37" value="Russia">Russia</option>
+            <option data-id="country-option-38" value="Saudi Arabia">Saudi Arabia</option>
+            <option data-id="country-option-39" value="Scotland">Scotland</option>
+            <option data-id="country-option-40" value="Singapore">Singapore</option>
+            <option data-id="country-option-41" value="South Africa">South Africa</option>
+            <option data-id="country-option-42" value="South Korea">South Korea</option>
+            <option data-id="country-option-43" value="Spain">Spain</option>
+            <option data-id="country-option-44" value="Sri Lanka">Sri Lanka</option>
+            <option data-id="country-option-45" value="Sweden">Sweden</option>
+            <option data-id="country-option-46" value="Switzerland">Switzerland</option>
+            <option data-id="country-option-47" value="Thailand">Thailand</option>
+            <option data-id="country-option-48" value="Turkey">Turkey</option>
+            <option data-id="country-option-49" value="UAE">UAE</option>
+            <option data-id="country-option-50" value="UK">UK</option>
+            <option data-id="country-option-51" value="Ukraine">Ukraine</option>
+            <option data-id="country-option-52" value="USA">USA</option>
+            <option data-id="country-option-53" value="Uzbekistan">Uzbekistan</option>
+            <option data-id="country-option-54" value="Vietnam">Vietnam</option>
+            <option data-id="country-option-55" value="Wales">Wales</option>
+          </select>
+          <p class="error-message" data-id="country-error">This field is required.</p>
+        </div>
+      </div><!-- Consent Checkbox -->
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+    </form>
+  </div><!-- Thank You Section -->
+  <!--v-if-->
+</div>
+`;
+
+exports[`ContactUs.vue matches snapshot after successful form submission 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <!--v-if-->
+  <!-- Thank You Section -->
+  <div class="thank-you-section" data-id="thank-you-section">
+    <h2 data-id="thank-you-message">Thanks for Reaching Out!</h2>
+    <p data-id="thank-you-description"> We'll get back to you as soon as we can. In the meantime, feel free to explore more about Vonage and how we're making communications more flexible, intelligent, and personal so our customers can stay. </p><button class="go-back-button" data-id="go-back-button">Go Back</button>
+  </div>
+</div>
+`;
+
+exports[`ContactUs.vue matches the initial snapshot 1`] = `
+<div class="background-container" data-id="background-container">
+  <!-- Form Section -->
+  <div class="form-section" data-id="form-section">
+    <form novalidate="" data-id="form">
+      <!-- First Name and Last Name -->
+      <div class="input-row" data-id="name-input-row">
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
+          <!--v-if-->
+        </div>
+      </div><!-- Company Name and Employees -->
+      <div class="input-row" data-id="company-input-row">
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="employee-option-0" value="1-10">1-10</option>
+            <option data-id="employee-option-1" value="11-50">11-50</option>
+            <option data-id="employee-option-2" value="51-200">51-200</option>
+            <option data-id="employee-option-3" value="201-500">201-500</option>
+            <option data-id="employee-option-4" value="500+">500+</option>
+          </select></div>
+      </div><!-- Email and Phone Number -->
+      <div class="input-row" data-id="contact-input-row">
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+              <option selected="" disabled="" value=""></option>
+              <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
+              <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
+              <option data-country-code="DZ" data-country-name="Algeria" data-id="dialing-code-option-2" value="+213">Algeria (+213) </option>
+              <option data-country-code="AS" data-country-name="American Samoa" data-id="dialing-code-option-3" value="+1-684">American Samoa (+1-684) </option>
+              <option data-country-code="AD" data-country-name="Andorra" data-id="dialing-code-option-4" value="+376">Andorra (+376) </option>
+              <option data-country-code="AO" data-country-name="Angola" data-id="dialing-code-option-5" value="+244">Angola (+244) </option>
+              <option data-country-code="AI" data-country-name="Anguilla" data-id="dialing-code-option-6" value="+1-264">Anguilla (+1-264) </option>
+              <option data-country-code="AG" data-country-name="Antigua and Barbuda" data-id="dialing-code-option-7" value="+1-268">Antigua and Barbuda (+1-268) </option>
+              <option data-country-code="AR" data-country-name="Argentina" data-id="dialing-code-option-8" value="+54">Argentina (+54) </option>
+              <option data-country-code="AM" data-country-name="Armenia" data-id="dialing-code-option-9" value="+374">Armenia (+374) </option>
+              <option data-country-code="AU" data-country-name="Australia" data-id="dialing-code-option-10" value="+61">Australia (+61) </option>
+              <option data-country-code="AT" data-country-name="Austria" data-id="dialing-code-option-11" value="+43">Austria (+43) </option>
+              <option data-country-code="AZ" data-country-name="Azerbaijan" data-id="dialing-code-option-12" value="+994">Azerbaijan (+994) </option>
+              <option data-country-code="BS" data-country-name="Bahamas" data-id="dialing-code-option-13" value="+1-242">Bahamas (+1-242) </option>
+              <option data-country-code="BH" data-country-name="Bahrain" data-id="dialing-code-option-14" value="+973">Bahrain (+973) </option>
+              <option data-country-code="BD" data-country-name="Bangladesh" data-id="dialing-code-option-15" value="+880">Bangladesh (+880) </option>
+              <option data-country-code="BB" data-country-name="Barbados" data-id="dialing-code-option-16" value="+1-246">Barbados (+1-246) </option>
+              <option data-country-code="BY" data-country-name="Belarus" data-id="dialing-code-option-17" value="+375">Belarus (+375) </option>
+              <option data-country-code="BE" data-country-name="Belgium" data-id="dialing-code-option-18" value="+32">Belgium (+32) </option>
+              <option data-country-code="BZ" data-country-name="Belize" data-id="dialing-code-option-19" value="+501">Belize (+501) </option>
+              <option data-country-code="BJ" data-country-name="Benin" data-id="dialing-code-option-20" value="+229">Benin (+229) </option>
+              <option data-country-code="BM" data-country-name="Bermuda" data-id="dialing-code-option-21" value="+1-441">Bermuda (+1-441) </option>
+              <option data-country-code="BT" data-country-name="Bhutan" data-id="dialing-code-option-22" value="+975">Bhutan (+975) </option>
+              <option data-country-code="BO" data-country-name="Bolivia" data-id="dialing-code-option-23" value="+591">Bolivia (+591) </option>
+              <option data-country-code="BA" data-country-name="Bosnia and Herzegovina" data-id="dialing-code-option-24" value="+387">Bosnia and Herzegovina (+387) </option>
+              <option data-country-code="BW" data-country-name="Botswana" data-id="dialing-code-option-25" value="+267">Botswana (+267) </option>
+              <option data-country-code="BR" data-country-name="Brazil" data-id="dialing-code-option-26" value="+55">Brazil (+55) </option>
+              <option data-country-code="BN" data-country-name="Brunei" data-id="dialing-code-option-27" value="+673">Brunei (+673) </option>
+              <option data-country-code="BG" data-country-name="Bulgaria" data-id="dialing-code-option-28" value="+359">Bulgaria (+359) </option>
+              <option data-country-code="BF" data-country-name="Burkina Faso" data-id="dialing-code-option-29" value="+226">Burkina Faso (+226) </option>
+              <option data-country-code="BI" data-country-name="Burundi" data-id="dialing-code-option-30" value="+257">Burundi (+257) </option>
+              <option data-country-code="KH" data-country-name="Cambodia" data-id="dialing-code-option-31" value="+855">Cambodia (+855) </option>
+              <option data-country-code="CM" data-country-name="Cameroon" data-id="dialing-code-option-32" value="+237">Cameroon (+237) </option>
+              <option data-country-code="CA" data-country-name="Canada" data-id="dialing-code-option-33" value="+1">Canada (+1) </option>
+              <option data-country-code="CV" data-country-name="Cape Verde" data-id="dialing-code-option-34" value="+238">Cape Verde (+238) </option>
+              <option data-country-code="KY" data-country-name="Cayman Islands" data-id="dialing-code-option-35" value="+1-345">Cayman Islands (+1-345) </option>
+              <option data-country-code="CF" data-country-name="Central African Republic" data-id="dialing-code-option-36" value="+236">Central African Republic (+236) </option>
+              <option data-country-code="TD" data-country-name="Chad" data-id="dialing-code-option-37" value="+235">Chad (+235) </option>
+              <option data-country-code="CL" data-country-name="Chile" data-id="dialing-code-option-38" value="+56">Chile (+56) </option>
+              <option data-country-code="CN" data-country-name="China" data-id="dialing-code-option-39" value="+86">China (+86) </option>
+              <option data-country-code="CO" data-country-name="Colombia" data-id="dialing-code-option-40" value="+57">Colombia (+57) </option>
+              <option data-country-code="KM" data-country-name="Comoros" data-id="dialing-code-option-41" value="+269">Comoros (+269) </option>
+              <option data-country-code="CG" data-country-name="Congo" data-id="dialing-code-option-42" value="+242">Congo (+242) </option>
+              <option data-country-code="CD" data-country-name="Congo (DRC)" data-id="dialing-code-option-43" value="+243">Congo (DRC) (+243) </option>
+              <option data-country-code="CR" data-country-name="Costa Rica" data-id="dialing-code-option-44" value="+506">Costa Rica (+506) </option>
+              <option data-country-code="HR" data-country-name="Croatia" data-id="dialing-code-option-45" value="+385">Croatia (+385) </option>
+              <option data-country-code="CU" data-country-name="Cuba" data-id="dialing-code-option-46" value="+53">Cuba (+53) </option>
+              <option data-country-code="CY" data-country-name="Cyprus" data-id="dialing-code-option-47" value="+357">Cyprus (+357) </option>
+              <option data-country-code="CZ" data-country-name="Czech Republic" data-id="dialing-code-option-48" value="+420">Czech Republic (+420) </option>
+              <option data-country-code="DK" data-country-name="Denmark" data-id="dialing-code-option-49" value="+45">Denmark (+45) </option>
+              <option data-country-code="DJ" data-country-name="Djibouti" data-id="dialing-code-option-50" value="+253">Djibouti (+253) </option>
+              <option data-country-code="DM" data-country-name="Dominica" data-id="dialing-code-option-51" value="+1-767">Dominica (+1-767) </option>
+              <option data-country-code="DO" data-country-name="Dominican Republic" data-id="dialing-code-option-52" value="+1-809">Dominican Republic (+1-809) </option>
+              <option data-country-code="EC" data-country-name="Ecuador" data-id="dialing-code-option-53" value="+593">Ecuador (+593) </option>
+              <option data-country-code="EG" data-country-name="Egypt" data-id="dialing-code-option-54" value="+20">Egypt (+20) </option>
+              <option data-country-code="SV" data-country-name="El Salvador" data-id="dialing-code-option-55" value="+503">El Salvador (+503) </option>
+              <option data-country-code="GQ" data-country-name="Equatorial Guinea" data-id="dialing-code-option-56" value="+240">Equatorial Guinea (+240) </option>
+              <option data-country-code="ER" data-country-name="Eritrea" data-id="dialing-code-option-57" value="+291">Eritrea (+291) </option>
+              <option data-country-code="EE" data-country-name="Estonia" data-id="dialing-code-option-58" value="+372">Estonia (+372) </option>
+              <option data-country-code="SZ" data-country-name="Eswatini" data-id="dialing-code-option-59" value="+268">Eswatini (+268) </option>
+              <option data-country-code="ET" data-country-name="Ethiopia" data-id="dialing-code-option-60" value="+251">Ethiopia (+251) </option>
+              <option data-country-code="FJ" data-country-name="Fiji" data-id="dialing-code-option-61" value="+679">Fiji (+679) </option>
+              <option data-country-code="FI" data-country-name="Finland" data-id="dialing-code-option-62" value="+358">Finland (+358) </option>
+              <option data-country-code="FR" data-country-name="France" data-id="dialing-code-option-63" value="+33">France (+33) </option>
+              <option data-country-code="GA" data-country-name="Gabon" data-id="dialing-code-option-64" value="+241">Gabon (+241) </option>
+              <option data-country-code="GM" data-country-name="Gambia" data-id="dialing-code-option-65" value="+220">Gambia (+220) </option>
+              <option data-country-code="GE" data-country-name="Georgia" data-id="dialing-code-option-66" value="+995">Georgia (+995) </option>
+              <option data-country-code="DE" data-country-name="Germany" data-id="dialing-code-option-67" value="+49">Germany (+49) </option>
+              <option data-country-code="GH" data-country-name="Ghana" data-id="dialing-code-option-68" value="+233">Ghana (+233) </option>
+              <option data-country-code="GR" data-country-name="Greece" data-id="dialing-code-option-69" value="+30">Greece (+30) </option>
+              <option data-country-code="GD" data-country-name="Grenada" data-id="dialing-code-option-70" value="+1-473">Grenada (+1-473) </option>
+              <option data-country-code="GT" data-country-name="Guatemala" data-id="dialing-code-option-71" value="+502">Guatemala (+502) </option>
+              <option data-country-code="GN" data-country-name="Guinea" data-id="dialing-code-option-72" value="+224">Guinea (+224) </option>
+              <option data-country-code="GW" data-country-name="Guinea-Bissau" data-id="dialing-code-option-73" value="+245">Guinea-Bissau (+245) </option>
+              <option data-country-code="GY" data-country-name="Guyana" data-id="dialing-code-option-74" value="+592">Guyana (+592) </option>
+              <option data-country-code="HT" data-country-name="Haiti" data-id="dialing-code-option-75" value="+509">Haiti (+509) </option>
+              <option data-country-code="HN" data-country-name="Honduras" data-id="dialing-code-option-76" value="+504">Honduras (+504) </option>
+              <option data-country-code="HK" data-country-name="Hong Kong" data-id="dialing-code-option-77" value="+852">Hong Kong (+852) </option>
+              <option data-country-code="HU" data-country-name="Hungary" data-id="dialing-code-option-78" value="+36">Hungary (+36) </option>
+              <option data-country-code="IS" data-country-name="Iceland" data-id="dialing-code-option-79" value="+354">Iceland (+354) </option>
+              <option data-country-code="IN" data-country-name="India" data-id="dialing-code-option-80" value="+91">India (+91) </option>
+              <option data-country-code="ID" data-country-name="Indonesia" data-id="dialing-code-option-81" value="+62">Indonesia (+62) </option>
+              <option data-country-code="IR" data-country-name="Iran" data-id="dialing-code-option-82" value="+98">Iran (+98) </option>
+              <option data-country-code="IQ" data-country-name="Iraq" data-id="dialing-code-option-83" value="+964">Iraq (+964) </option>
+              <option data-country-code="IE" data-country-name="Ireland" data-id="dialing-code-option-84" value="+353">Ireland (+353) </option>
+              <option data-country-code="IL" data-country-name="Israel" data-id="dialing-code-option-85" value="+972">Israel (+972) </option>
+              <option data-country-code="IT" data-country-name="Italy" data-id="dialing-code-option-86" value="+39">Italy (+39) </option>
+              <option data-country-code="JM" data-country-name="Jamaica" data-id="dialing-code-option-87" value="+1-876">Jamaica (+1-876) </option>
+              <option data-country-code="JP" data-country-name="Japan" data-id="dialing-code-option-88" value="+81">Japan (+81) </option>
+              <option data-country-code="JO" data-country-name="Jordan" data-id="dialing-code-option-89" value="+962">Jordan (+962) </option>
+              <option data-country-code="KZ" data-country-name="Kazakhstan" data-id="dialing-code-option-90" value="+7">Kazakhstan (+7) </option>
+              <option data-country-code="KE" data-country-name="Kenya" data-id="dialing-code-option-91" value="+254">Kenya (+254) </option>
+              <option data-country-code="KI" data-country-name="Kiribati" data-id="dialing-code-option-92" value="+686">Kiribati (+686) </option>
+              <option data-country-code="KP" data-country-name="North Korea" data-id="dialing-code-option-93" value="+850">North Korea (+850) </option>
+              <option data-country-code="KR" data-country-name="South Korea" data-id="dialing-code-option-94" value="+82">South Korea (+82) </option>
+              <option data-country-code="KW" data-country-name="Kuwait" data-id="dialing-code-option-95" value="+965">Kuwait (+965) </option>
+              <option data-country-code="KG" data-country-name="Kyrgyzstan" data-id="dialing-code-option-96" value="+996">Kyrgyzstan (+996) </option>
+              <option data-country-code="LA" data-country-name="Laos" data-id="dialing-code-option-97" value="+856">Laos (+856) </option>
+              <option data-country-code="LV" data-country-name="Latvia" data-id="dialing-code-option-98" value="+371">Latvia (+371) </option>
+              <option data-country-code="LB" data-country-name="Lebanon" data-id="dialing-code-option-99" value="+961">Lebanon (+961) </option>
+              <option data-country-code="LS" data-country-name="Lesotho" data-id="dialing-code-option-100" value="+266">Lesotho (+266) </option>
+              <option data-country-code="LR" data-country-name="Liberia" data-id="dialing-code-option-101" value="+231">Liberia (+231) </option>
+              <option data-country-code="LY" data-country-name="Libya" data-id="dialing-code-option-102" value="+218">Libya (+218) </option>
+              <option data-country-code="LI" data-country-name="Liechtenstein" data-id="dialing-code-option-103" value="+423">Liechtenstein (+423) </option>
+              <option data-country-code="LT" data-country-name="Lithuania" data-id="dialing-code-option-104" value="+370">Lithuania (+370) </option>
+              <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
+              <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
+              <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
+          <!--v-if-->
+        </div>
+      </div><!-- Interest and Country/Region -->
+      <div class="input-row" data-id="interest-country-row">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="interest-option-0" value="Product">Product</option>
+            <option data-id="interest-option-1" value="Service">Service</option>
+            <option data-id="interest-option-2" value="Other">Other</option>
+          </select>
+          <!--v-if-->
+        </div>
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+            <option disabled="" value="">Select</option>
+            <option data-id="country-option-0" value="Argentina">Argentina</option>
+            <option data-id="country-option-1" value="Australia">Australia</option>
+            <option data-id="country-option-2" value="Austria">Austria</option>
+            <option data-id="country-option-3" value="Bangladesh">Bangladesh</option>
+            <option data-id="country-option-4" value="Belgium">Belgium</option>
+            <option data-id="country-option-5" value="Bhutan">Bhutan</option>
+            <option data-id="country-option-6" value="Brazil">Brazil</option>
+            <option data-id="country-option-7" value="Canada">Canada</option>
+            <option data-id="country-option-8" value="China">China</option>
+            <option data-id="country-option-9" value="Czech Republic">Czech Republic</option>
+            <option data-id="country-option-10" value="Denmark">Denmark</option>
+            <option data-id="country-option-11" value="Egypt">Egypt</option>
+            <option data-id="country-option-12" value="Finland">Finland</option>
+            <option data-id="country-option-13" value="France">France</option>
+            <option data-id="country-option-14" value="Germany">Germany</option>
+            <option data-id="country-option-15" value="Greece">Greece</option>
+            <option data-id="country-option-16" value="Hungary">Hungary</option>
+            <option data-id="country-option-17" value="India">India</option>
+            <option data-id="country-option-18" value="Indonesia">Indonesia</option>
+            <option data-id="country-option-19" value="Ireland">Ireland</option>
+            <option data-id="country-option-20" value="Israel">Israel</option>
+            <option data-id="country-option-21" value="Italy">Italy</option>
+            <option data-id="country-option-22" value="Japan">Japan</option>
+            <option data-id="country-option-23" value="Kazakhstan">Kazakhstan</option>
+            <option data-id="country-option-24" value="Kenya">Kenya</option>
+            <option data-id="country-option-25" value="Malaysia">Malaysia</option>
+            <option data-id="country-option-26" value="Maldives">Maldives</option>
+            <option data-id="country-option-27" value="Mexico">Mexico</option>
+            <option data-id="country-option-28" value="Nepal">Nepal</option>
+            <option data-id="country-option-29" value="Netherlands">Netherlands</option>
+            <option data-id="country-option-30" value="New Zealand">New Zealand</option>
+            <option data-id="country-option-31" value="Nigeria">Nigeria</option>
+            <option data-id="country-option-32" value="Norway">Norway</option>
+            <option data-id="country-option-33" value="Pakistan">Pakistan</option>
+            <option data-id="country-option-34" value="Philippines">Philippines</option>
+            <option data-id="country-option-35" value="Poland">Poland</option>
+            <option data-id="country-option-36" value="Portugal">Portugal</option>
+            <option data-id="country-option-37" value="Russia">Russia</option>
+            <option data-id="country-option-38" value="Saudi Arabia">Saudi Arabia</option>
+            <option data-id="country-option-39" value="Scotland">Scotland</option>
+            <option data-id="country-option-40" value="Singapore">Singapore</option>
+            <option data-id="country-option-41" value="South Africa">South Africa</option>
+            <option data-id="country-option-42" value="South Korea">South Korea</option>
+            <option data-id="country-option-43" value="Spain">Spain</option>
+            <option data-id="country-option-44" value="Sri Lanka">Sri Lanka</option>
+            <option data-id="country-option-45" value="Sweden">Sweden</option>
+            <option data-id="country-option-46" value="Switzerland">Switzerland</option>
+            <option data-id="country-option-47" value="Thailand">Thailand</option>
+            <option data-id="country-option-48" value="Turkey">Turkey</option>
+            <option data-id="country-option-49" value="UAE">UAE</option>
+            <option data-id="country-option-50" value="UK">UK</option>
+            <option data-id="country-option-51" value="Ukraine">Ukraine</option>
+            <option data-id="country-option-52" value="USA">USA</option>
+            <option data-id="country-option-53" value="Uzbekistan">Uzbekistan</option>
+            <option data-id="country-option-54" value="Vietnam">Vietnam</option>
+            <option data-id="country-option-55" value="Wales">Wales</option>
+          </select>
+          <!--v-if-->
+        </div>
+      </div><!-- Consent Checkbox -->
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+    </form>
+  </div><!-- Thank You Section -->
+  <!--v-if-->
+</div>
+`;
