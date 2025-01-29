@@ -119,7 +119,9 @@ export default {
       });
     },
     handleDropdownOption(optionKey) {
-      console.log('Selected Option:', optionKey);
+      if (optionKey === 'add') {
+        this.$router.push('/add-bulk');
+      }
     },
     handleSelectedOptions(selected) {
       this.selectedOptions = selected;
