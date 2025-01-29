@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import LoginPage from '@/components/login/LoginPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
+// Create a mock router
 const router = createRouter({
   history: createWebHistory(),
   routes: [{ path: '/dashboard', name: 'Dashboard' }],

@@ -30,12 +30,10 @@ describe('ForgotPassword.vue', () => {
       'cancel-button',
       'forgot-username-link',
     ];
-
     dataIds.forEach((id) => {
       expect(wrapper.find(`[data-id="${id}"]`).exists()).toBe(true);
     });
   });
-
   it('shows a message if captcha is not checked', async () => {
     await wrapper.setData({
       username: 'tester',

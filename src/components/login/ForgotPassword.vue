@@ -100,7 +100,6 @@ export default {
 </script>
 
 <style scoped>
-/* Styles remain unchanged */
 * {
   margin: 0;
   padding: 0;
