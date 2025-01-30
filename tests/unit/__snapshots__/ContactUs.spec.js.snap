@@ -217,7 +217,7 @@ exports[`ContactUs.vue matches snapshot after form reset 1`] = `
           <!--v-if-->
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
@@ -441,7 +441,7 @@ exports[`ContactUs.vue matches snapshot after invalid email is entered 1`] = `
           <p class="error-message" data-id="country-error">This field is required.</p>
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
@@ -665,7 +665,7 @@ exports[`ContactUs.vue matches snapshot after invalid phone number is entered 1`
           <p class="error-message" data-id="country-error">This field is required.</p>
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
@@ -889,7 +889,7 @@ exports[`ContactUs.vue matches snapshot after showing validation errors 1`] = `
           <p class="error-message" data-id="country-error">This field is required.</p>
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
@@ -903,7 +903,7 @@ exports[`ContactUs.vue matches snapshot after successful form submission 1`] = `
   <!-- Thank You Section -->
   <div class="thank-you-section" data-id="thank-you-section">
     <h2 data-id="thank-you-message">Thanks for Reaching Out!</h2>
-    <p data-id="thank-you-description"> We'll get back to you as soon as we can. In the meantime, feel free to explore more about Vonage and how we're making communications more flexible, intelligent, and personal so our customers can stay. </p><button class="go-back-button" data-id="go-back-button">Go Back</button>
+    <p data-id="thank-you-description"> We'll get back to you as soon as we can. In the meantime, feel free to explore more about Vonage and how we're making communications more flexible, intelligent, and personal so our customers can stay. </p><button class="go-back-button" data-id="go-back-button"> Go Back </button>
   </div>
 </div>
 `;
@@ -1125,7 +1125,7 @@ exports[`ContactUs.vue matches the initial snapshot 1`] = `
           <!--v-if-->
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button type="submit" class="submit-button" data-id="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->

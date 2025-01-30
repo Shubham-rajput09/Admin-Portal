@@ -5,8 +5,8 @@ exports[`LoginPage.vue matches the snapshot 1`] = `
   <!-- Left Section -->
   <div class="left-section" data-id="left-section"><img src="/assets/illustration.png" alt="Collaboration Illustration" class="illustration-full" data-id="illustration"></div><!-- Right Section -->
   <div class="right-section" data-id="right-section">
-    <div class="login-container" data-id="login-container"><img src="/assets/vonage-icon.jpg" alt="Vonage Logo" class="logo" data-id="logo">
-      <h2 data-id="login-heading"> Log in to Vonage Business Communications </h2><!-- Login Form -->
+    <div class="login-container" data-id="login-container"><img src="/assets/vonage-icon.jpg" alt="Vonage Logo" class="logo" data-id="logo"><!-- Toggle between Login and Signup -->
+      <h2 data-id="form-heading">Log in to Vonage Business Communications</h2><!-- Login Form -->
       <form data-id="login-form">
         <!-- Username Input -->
         <div class="input-group" data-id="username-input-group"><label for="username" data-id="username-label">Username</label><input id="username" data-id="username" type="text" placeholder="Enter your username">
@@ -18,8 +18,9 @@ exports[`LoginPage.vue matches the snapshot 1`] = `
         </div><!-- Remember Me and Forgot Password -->
         <div class="remember-section" data-id="remember-section"><input type="checkbox" data-id="remember-me" id="rememberMe"><label for="rememberMe" data-id="remember-label">Remember me</label><a href="#" class="forgot-link" data-id="forgot-password-link"> Forgot password? </a></div><!-- Login Button --><button type="submit" class="login-button" disabled="" data-id="login-button"> Login </button><!-- Divider -->
         <div class="divider" data-id="divider"><span>OR</span></div><!-- Single Sign-On Button --><button type="button" class="sso-button" data-id="sso-button"> Log in with Single Sign-On </button>
-      </form><!-- Sign Up Link -->
-      <div class="signup-link" data-id="signup-link"> Don't have an account yet? <a href="/contact-us" data-id="contact-us-link">Contact us</a></div>
+      </form><!-- Toggle Link and Contact Us Button -->
+      <div class="signup-link" data-id="signup-link">Don't have an account yet? <a href="#" data-id="toggle-form-link">Sign up</a></div><!-- Contact Us Button -->
+      <div class="contact-us-section" data-id="contact-us-section"><button type="button" class="contact-us-button" data-id="contact-us-button"> Contact Us </button></div>
     </div>
   </div>
 </div>
