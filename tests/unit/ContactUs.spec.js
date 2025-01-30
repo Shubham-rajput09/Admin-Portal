@@ -79,10 +79,10 @@ describe('ContactUs.vue', () => {
         consent: true,
       },
     });
-
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
     await wrapper.find('[data-id="go-back-button"]').trigger('click');
   });
+
   it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });

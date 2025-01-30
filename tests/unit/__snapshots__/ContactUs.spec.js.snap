@@ -1,5 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+
 exports[`ContactUs.vue matches the snapshot 1`] = `
 <div class="background-container" data-id="background-container">
   <!-- Form Section -->
