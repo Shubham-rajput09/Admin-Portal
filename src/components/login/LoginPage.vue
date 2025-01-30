@@ -25,7 +25,7 @@
         </h2>
 
         <!-- Login Form -->
-        <form @submit.prevent="handleLogin" data-id="login-form">
+        <form @submit.prevent="handleSubmit" data-id="login-form">
           <!-- Username Input -->
           <div class="input-group" data-id="username-input-group">
             <label for="username" data-id="username-label">Username</label>
@@ -36,13 +36,9 @@
               v-model="username"
               placeholder="Enter your username"
             />
-            <p
-              v-if="errors.username"
-              class="error-message"
-              data-id="username-error"
-            >
-              {{ errors.username }}
-            </p>
+            <span v-if="errors.username" class="error-message">{{
+              errors.username
+            }}</span>
           </div>
 
           <!-- Password Input with Toggle -->
@@ -68,13 +64,9 @@
                 ></i>
               </span>
             </div>
-            <p
-              v-if="errors.password"
-              class="error-message"
-              data-id="password-error"
-            >
-              {{ errors.password }}
-            </p>
+            <span v-if="errors.password" class="error-message">{{
+              errors.password
+            }}</span>
           </div>
 
           <!-- Remember Me and Forgot Password -->
@@ -100,8 +92,9 @@
           <button
             type="submit"
             class="login-button"
-            :disabled="!isFormValid"
+            :disabled="!isValid"
             data-id="login-button"
+            @click="handleSubmit"
           >
             Login
           </button>
@@ -126,72 +119,60 @@
     </div>
   </div>
 </template>
-
 <script>
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import { useForm, useField } from 'vee-validate';
+import { loginSchema } from './validationSchema';
+
 export default {
   name: 'LoginPage',
-  data() {
-    return {
-      username: '',
-      password: '',
-      rememberMe: false,
-      showPassword: false, // State for password visibility toggle
-      errors: {
-        username: '',
-        password: '',
-      },
+  setup() {
+    const router = useRouter();
+    const { errors, validate } = useForm({
+      validationSchema: loginSchema,
+    });
+
+    const { value: username } = useField('username');
+    const { value: password } = useField('password');
+    const rememberMe = ref(false);
+    const showPassword = ref(false);
+    const isValid = ref(false);
+
+    watch([username, password], async () => {
+      const isFormValid = await validate();
+      isValid.value = isFormValid.valid;
+    });
+
+    const togglePasswordVisibility = () => {
+      showPassword.value = !showPassword.value;
     };
-  },
-  computed: {
-    isFormValid() {
-      return this.username.trim() !== '' && this.password.trim() !== '';
-    },
-  },
-  methods: {
-    togglePasswordVisibility() {
-      this.showPassword = !this.showPassword;
-    },
-    validateInputs() {
-      let isValid = true;
 
-      // Reset errors
-      this.errors.username = '';
-      this.errors.password = '';
-
-      // Username validation
-      if (!this.username) {
-        this.errors.username = 'Username is required.';
-        isValid = false;
-      } else if (
-        !/^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(this.username)
-      ) {
-        this.errors.username = 'Please enter a valid email address.';
-        isValid = false;
-      }
-
-      // Password validation
-      if (!this.password) {
-        this.errors.password = 'Password is required.';
-        isValid = false;
-      } else if (this.password.length < 6) {
-        this.errors.password = 'Password must be at least 6 characters.';
-        isValid = false;
-      }
-      return isValid;
-    },
-    handleLogin() {
-      const isValid = this.validateInputs();
-      if (!isValid) {
+    const handleSubmit = async () => {
+      const result = await validate();
+      if (!result.valid) {
+        console.log('Validation failed', result.errors);
         return;
       }
-      this.$router.push('/dashboard');
-    },
+      console.log('Logged in successfully!');
+      router.push('/dashboard');
+    };
+
+    return {
+      username,
+      password,
+      rememberMe,
+      showPassword,
+      errors,
+      isValid,
+      togglePasswordVisibility,
+      handleSubmit,
+    };
   },
 };
 </script>
 
 <style scoped>
-/* General Layout */
 .login-page {
   display: flex;
   height: 100vh;
@@ -259,19 +240,16 @@ input[type='text'],
 input[type='password'] {
   width: 100%;
   padding: 10px;
-  padding-right: 40px; /* Add space for the eye icon */
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   box-sizing: border-box; /* Ensure padding is included in the width */
 }
-
 .error-message {
   color: red;
   font-size: 12px;
   margin-top: 5px;
 }
-
 .password-wrapper {
   display: flex;
   align-items: center;

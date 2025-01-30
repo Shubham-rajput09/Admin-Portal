@@ -34,8 +34,10 @@
     "lint-staged": "^15.4.3",
     "pinia": "^2.3.0",
     "prettier": "^3.4.2",
+    "vee-validate": "^4.15.0",
     "vue": "^3.2.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
