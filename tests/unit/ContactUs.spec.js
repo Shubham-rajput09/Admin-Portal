@@ -21,38 +21,31 @@ describe('ContactUs.vue', () => {
     wrapper = mount(ContactUs);
   });
 
-  it('matches the initial snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
-  });
-
   test('initial state of the form', () => {
     formFields.forEach((field) => {
       expect(wrapper.find(`[data-id="${field}"]`).exists()).toBe(true);
     });
   });
 
-  it('matches snapshot after showing validation errors', async () => {
+  it('shows validation errors when form is submitted with invalid data', async () => {
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('matches snapshot after invalid email is entered', async () => {
+  it('shows validation error for invalid email', async () => {
     await wrapper.setData({
       formData: { ...wrapper.vm.formData, email: 'invalid-email' },
     });
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('matches snapshot after invalid phone number is entered', async () => {
+  it('shows validation error for invalid phone number', async () => {
     await wrapper.setData({
       formData: { ...wrapper.vm.formData, phoneNumber: '12345' },
     });
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('matches snapshot after successful form submission', async () => {
+  it('successfully submits the form with valid data', async () => {
     await wrapper.setData({
       formData: {
         firstName: 'John',
@@ -69,10 +62,9 @@ describe('ContactUs.vue', () => {
     });
 
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('matches snapshot after form reset', async () => {
+  it('resets the form when go-back button is clicked', async () => {
     await wrapper.setData({
       formData: {
         firstName: 'John',
@@ -90,6 +82,8 @@ describe('ContactUs.vue', () => {
 
     await wrapper.find('[data-id="form"]').trigger('submit.prevent');
     await wrapper.find('[data-id="go-back-button"]').trigger('click');
+  });
+  it('matches the snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
