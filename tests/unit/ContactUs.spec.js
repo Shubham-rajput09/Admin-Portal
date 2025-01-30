@@ -60,8 +60,7 @@ describe('ContactUs.vue', () => {
         consent: true,
       },
     });
-
-    await wrapper.find('[data-id="form"]').trigger('submit.prevent');
+    await wrapper.find('[data-id="submit-button"]').trigger('click');
   });
 
   it('resets the form when go-back button is clicked', async () => {
