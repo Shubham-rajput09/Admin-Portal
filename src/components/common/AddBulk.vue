@@ -71,7 +71,7 @@ export default {
   name: 'AddBulk',
 };
 </script>
-<style>
+<style scoped>
 .content {
   font-family: Arial, sans-serif;
   color: #333;

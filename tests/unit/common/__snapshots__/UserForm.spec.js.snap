@@ -11,7 +11,7 @@ exports[`UserForm.vue matches snapshot 1`] = `
       <div class="form-group"><label for="username">Username*</label><input id="username" type="text" placeholder="Enter username" required="" data-id="username" class="full-width-input"></div>
       <div class="form-group"><label for="email">Email*</label><input id="email" type="email" placeholder="Enter email" required="" data-id="email" class="full-width-input"></div>
       <div class="form-group"><label for="confirmEmail">Confirm Email*</label><input id="confirmEmail" type="email" placeholder="Confirm email" required="" data-id="confirmEmail" class="full-width-input"></div><!-- Select Group(s) Dropdown -->
-      <div class="form-group"><label for="groups">Select Group(s)</label><select data-id="groups" id="groups" class="full-width-input">
+      <div class="form-group"><label for="groups">Select Group(s)</label><select data-id="groups" id="groups" class="select-group">
           <option value="">Select Group(s)</option>
           <option data-id="group1" value="group1">Group 1</option>
           <option data-id="group2" value="group2">Group 2</option>
@@ -21,7 +21,7 @@ exports[`UserForm.vue matches snapshot 1`] = `
     <div class="divider"><span></span></div><!-- Settings and Permissions Section -->
     <div class="section">
       <h2>Settings and Permissions</h2>
-      <div class="form-group"><label for="userType">User Type*</label><select data-id="userType" id="userType" required="">
+      <div class="user-type"><select data-id="userType" id="userType" required="">
           <option data-id="" value="">Select User Type</option>
           <option data-id="accountAdmin" value="accountAdmin">V Account Administrator</option>
           <option data-id="billingAdmin" value="billingAdmin">Billing Admin</option>

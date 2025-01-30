@@ -60,7 +60,11 @@
         :buttonName="changeSuperUserButton"
         class="change-user-button"
       />
-      <PrimaryButton :buttonName="addNewButton" class="add-new-button" />
+      <PrimaryButton
+        @click="handleAddNewClick"
+        :buttonName="addNewButton"
+        class="add-new-button"
+      />
     </div>
   </div>
 </template>
@@ -125,6 +129,9 @@ export default {
     },
     handleSelectedOptions(selected) {
       this.selectedOptions = selected;
+    },
+    handleAddNewClick() {
+      return this.$router.push('/add-new');
     },
   },
 };
