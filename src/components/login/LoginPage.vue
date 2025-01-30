@@ -164,10 +164,7 @@
                 :aria-label="showPassword ? 'Hide password' : 'Show password'"
                 data-id="toggle-password"
               >
-                <i
-                  :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
-                  data-id="password-icon"
-                ></i>
+                <i :class="passwordIconClass" data-id="password-icon"></i>
               </span>
             </div>
             <p
@@ -292,6 +289,10 @@ export default {
           this.password === this.confirmPassword
         );
       }
+    },
+    // Computed property for the password icon class
+    passwordIconClass() {
+      return this.showPassword ? 'fa fa-eye' : 'fa fa-eye-slash';
     },
   },
   methods: {
