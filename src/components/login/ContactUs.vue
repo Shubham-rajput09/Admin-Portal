@@ -229,7 +229,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="submit-button" data-id="submit-button">
+        <button data-id="submit-button" type="submit" class="submit-button">
           Submit
         </button>
       </form>
