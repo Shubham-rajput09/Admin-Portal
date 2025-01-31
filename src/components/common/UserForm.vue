@@ -28,7 +28,7 @@
             data-id="groups"
             id="groups"
             v-model="form.groups"
-            class="full-width-input"
+            class="select-group"
           >
             <option value="">Select Group(s)</option>
             <option
@@ -50,8 +50,7 @@
       <!-- Settings and Permissions Section -->
       <div class="section">
         <h2>Settings and Permissions</h2>
-        <div class="form-group">
-          <label for="userType">User Type*</label>
+        <div class="user-type">
           <select
             data-id="userType"
             id="userType"
@@ -232,7 +231,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Reset margin and padding for the body */
 body {
   background-color: #f5f5f5;
@@ -242,39 +241,43 @@ body {
   box-sizing: border-box;
 }
 
-/* Center the form-container */
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Full height to center vertically */
-  background-color: #f5f5f5;
-  padding: 20px; /* Add padding for small screens */
-}
-
 .form-container {
   max-width: 800px;
   width: 100%; /* Make it responsive */
   padding: 20px;
   border-radius: 8px;
+  margin-left: 400px;
 }
-
+.select-group {
+  height: 45px;
+  width: 180px;
+  margin-top: 10px;
+}
 .section {
   margin-bottom: 20px;
 }
 .full-width-input {
-  width: 100%;
-  max-width: 100%;
+  width: 500px;
+  height: 20px;
+  color: black;
+  border: 1px solid rgba(9, 8, 8, 0.64);
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 h2 {
   font-size: 1.5rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
 .form-group {
   margin-bottom: 15px;
+}
+.user-type {
+  margin-top: 25px;
+  width: 80px;
 }
 
 label {

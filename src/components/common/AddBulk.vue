@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <h2>Add Users</h2>
+      <h1>Add Users</h1>
       <p class="subtext">
         Enter the details below for up to 25 users. Be sure to use the email
         address where you'd like them to receive any communication, including
@@ -14,29 +14,41 @@
         >
       </div>
       <div class="form-container">
-        <input
-          type="text"
-          data-id="first-name"
-          placeholder="First Name"
-          class="input-field"
-        />
-        <input
-          type="text"
-          data-id="last-name"
-          placeholder="Last Name"
-          class="input-field"
-        />
-        <input
-          type="email"
-          data-id="email"
-          placeholder="Email Address"
-          class="input-field"
-        />
-        <select data-id="select-role" class="input-field">
-          <option value="" disabled selected>Select an Option</option>
-          <option value="admin">Admin</option>
-          <option value="user">User</option>
-        </select>
+        <div class="input-container">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            data-id="first-name"
+            placeholder="First Name"
+            class="input-field"
+          />
+        </div>
+        <div class="input-container">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            data-id="last-name"
+            placeholder="Last Name"
+            class="input-field"
+          />
+        </div>
+        <div class="input-container">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            data-id="email"
+            placeholder="Email Address"
+            class="input-field"
+          />
+        </div>
+        <div class="input-container">
+          <label for="select-role">User Type</label>
+          <select data-id="select-role" class="input-field">
+            <option value="" disabled selected>Select an Option</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+        </div>
         <button data-id="add-user-btn" class="add-user-btn" disabled>
           Add User
         </button>
@@ -59,16 +71,13 @@ export default {
   name: 'AddBulk',
 };
 </script>
-
 <style scoped>
-/* General Content Styles */
-/* General Content Styles */
 .content {
   font-family: Arial, sans-serif;
   color: #333;
   padding: 20px;
-  width: 100%; /* Ensure it spans the full width */
-  max-width: none; /* Remove max-width restriction */
+  width: 100%;
+  max-width: none;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -76,58 +85,81 @@ export default {
   margin: 0 auto;
 }
 
-.content h2 {
-  font-size: 24px;
+.content h1 {
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 18px;
+  text-align: left;
+  margin-left: 80px;
 }
-
 .subtext {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 16px;
+  color: #070000;
+  margin-bottom: 30px;
+  text-align: left;
+  margin-left: 80px;
+  font-weight: bold;
 }
-
-/* Checkbox Styles */
 .email-checkbox {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
+  margin-left: 75px;
 }
 
 .email-checkbox input[type='checkbox'] {
   margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 4px solid black;
+  accent-color: #070000;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .email-checkbox label {
-  font-size: 14px;
-  color: #333;
+  font-size: 16px;
+  font-weight: normal;
+  color: #0e0000;
+  margin-bottom: 10px;
 }
-
-/* Wrapper Styles */
 .wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Full height of the viewport */
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 20px;
 }
 
-/* Form Styles */
 .form-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-left: 50px;
+  justify-content: flex-start;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  margin-left: 25px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 15px;
+  color: #787272;
 }
 
 .input-field {
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #1b1919;
+  border-radius: 6px;
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
@@ -135,27 +167,38 @@ export default {
 
 .input-field:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #070000;
 }
 
 .add-user-btn {
-  padding: 10px 15px;
-  background-color: #ccc;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #070000;
   color: white;
   border: none;
-  border-radius: 4px;
-  cursor: not-allowed;
-  font-size: 14px;
-  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  width: auto;
+  align-self: center;
+  margin-top: 25px;
+  margin-left: 30px;
 }
 
-/* Empty State Styles */
 .empty-state {
   text-align: center;
   margin-top: 50px;
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 8px;
+  height: 300px;
+  width: 1280px;
+  margin-left: 75px;
+}
+.empty-state p {
+  font-weight: bold;
+  color: #0b0a0a;
+  font-size: 16px;
 }
 
 .empty-circle {
@@ -174,57 +217,19 @@ export default {
   opacity: 0.8;
 }
 
-.empty-state p {
-  font-size: 14px;
-  color: #666;
-}
-
-/* Responsive Media Queries */
-
 @media (max-width: 768px) {
-  .content {
+  .form-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  .add-user-btn {
+    width: 100%;
     padding: 10px;
-  }
-
-  .form-container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
-  }
-
-  .add-user-btn {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-
-  .empty-circle {
-    width: 60px;
-    height: 60px;
-  }
-
-  .empty-circle img {
-    width: 30px;
-  }
-
-  .empty-state p {
-    font-size: 12px;
-  }
-}
-@media (max-width: 480px) {
-  .content h2 {
-    font-size: 20px;
-  }
-
-  .subtext {
-    font-size: 12px;
-  }
-
-  .form-container {
-    grid-template-columns: 1fr;
-  }
-
-  .add-user-btn {
-    padding: 8px 10px;
-    font-size: 12px;
   }
 }
 </style>

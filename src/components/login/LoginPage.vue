@@ -20,12 +20,21 @@
           data-id="logo"
         />
 
-        <h2 data-id="login-heading">
-          Log in to Vonage Business Communications
+        <!-- Toggle between Login and Signup -->
+        <h2 data-id="form-heading">
+          {{
+            isLoginForm
+              ? 'Log in to Vonage Business Communications'
+              : 'Sign up for Vonage Business Communications'
+          }}
         </h2>
 
         <!-- Login Form -->
-        <form @submit.prevent="handleSubmit" data-id="login-form">
+        <form
+          v-if="isLoginForm"
+          @submit.prevent="handleLogin"
+          data-id="login-form"
+        >
           <!-- Username Input -->
           <div class="input-group" data-id="username-input-group">
             <label for="username" data-id="username-label">Username</label>
@@ -36,9 +45,13 @@
               v-model="username"
               placeholder="Enter your username"
             />
-            <span v-if="errors.username" class="error-message">{{
-              errors.username
-            }}</span>
+            <p
+              v-if="errors.username"
+              class="error-message"
+              data-id="username-error"
+            >
+              {{ errors.username }}
+            </p>
           </div>
 
           <!-- Password Input with Toggle -->
@@ -64,9 +77,13 @@
                 ></i>
               </span>
             </div>
-            <span v-if="errors.password" class="error-message">{{
-              errors.password
-            }}</span>
+            <p
+              v-if="errors.password"
+              class="error-message"
+              data-id="password-error"
+            >
+              {{ errors.password }}
+            </p>
           </div>
 
           <!-- Remember Me and Forgot Password -->
@@ -92,9 +109,8 @@
           <button
             type="submit"
             class="login-button"
-            :disabled="!isValid"
+            :disabled="!isFormValid"
             data-id="login-button"
-            @click="handleSubmit"
           >
             Login
           </button>
@@ -110,69 +126,256 @@
           </button>
         </form>
 
-        <!-- Sign Up Link -->
+        <!-- Signup Form -->
+        <form v-else @submit.prevent="handleSignup" data-id="signup-form">
+          <!-- Username Input -->
+          <div class="input-group" data-id="username-input-group">
+            <label for="username" data-id="username-label">Username</label>
+            <input
+              id="username"
+              data-id="username"
+              type="text"
+              v-model="username"
+              placeholder="Enter your username"
+            />
+            <p
+              v-if="errors.username"
+              class="error-message"
+              data-id="username-error"
+            >
+              {{ errors.username }}
+            </p>
+          </div>
+
+          <!-- Password Input with Toggle -->
+          <div class="input-group" data-id="password-input-group">
+            <label for="password" data-id="password-label">Password</label>
+            <div class="password-wrapper" data-id="password-wrapper">
+              <input
+                id="password"
+                data-id="password"
+                :type="showPassword ? 'text' : 'password'"
+                v-model="password"
+                placeholder="Enter your password"
+              />
+              <span
+                class="toggle-password"
+                @click="togglePasswordVisibility"
+                :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                data-id="toggle-password"
+              >
+                <i :class="passwordIconClass" data-id="password-icon"></i>
+              </span>
+            </div>
+            <p
+              v-if="errors.password"
+              class="error-message"
+              data-id="password-error"
+            >
+              {{ errors.password }}
+            </p>
+          </div>
+
+          <!-- Confirm Password Input -->
+          <div class="input-group" data-id="confirm-password-input-group">
+            <label for="confirmPassword" data-id="confirm-password-label"
+              >Confirm Password</label
+            >
+            <div class="password-wrapper" data-id="password-wrapper">
+              <input
+                id="confirmPassword"
+                data-id="confirm-password"
+                :type="showPassword ? 'text' : 'password'"
+                v-model="confirmPassword"
+                placeholder="Confirm your password"
+              />
+              <span
+                class="toggle-password"
+                @click="togglePasswordVisibility"
+                :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                data-id="toggle-password"
+              >
+                <i
+                  :class="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                  data-id="password-icon"
+                ></i>
+              </span>
+            </div>
+            <p
+              v-if="errors.confirmPassword"
+              class="error-message"
+              data-id="confirm-password-error"
+            >
+              {{ errors.confirmPassword }}
+            </p>
+          </div>
+
+          <!-- Signup Button -->
+          <button
+            type="submit"
+            class="login-button"
+            :disabled="!isFormValid"
+            data-id="signup-button"
+          >
+            Sign Up
+          </button>
+
+          <!-- Divider -->
+          <div class="divider" data-id="divider">
+            <span>OR</span>
+          </div>
+
+          <!-- Single Sign-On Button -->
+          <button type="button" class="sso-button" data-id="sso-button">
+            Sign up with Single Sign-On
+          </button>
+        </form>
+
+        <!-- Toggle Link and Contact Us Button -->
         <div class="signup-link" data-id="signup-link">
-          Don't have an account yet?
-          <a href="/contact-us" data-id="contact-us-link">Contact us</a>
+          {{
+            isLoginForm
+              ? "Don't have an account yet?"
+              : 'Already have an account?'
+          }}
+          <a href="#" @click.prevent="toggleForm" data-id="toggle-form-link">
+            {{ isLoginForm ? 'Sign up' : 'Log in' }}
+          </a>
+        </div>
+
+        <!-- Contact Us Button -->
+        <div class="contact-us-section" data-id="contact-us-section">
+          <button
+            type="button"
+            class="contact-us-button"
+            @click="$router.push('/contact-us')"
+            data-id="contact-us-button"
+          >
+            Contact Us
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-import { ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import { useForm, useField } from 'vee-validate';
-import { loginSchema } from './validationSchema';
 
+<script>
 export default {
   name: 'LoginPage',
-  setup() {
-    const router = useRouter();
-    const { errors, validate } = useForm({
-      validationSchema: loginSchema,
-    });
-
-    const { value: username } = useField('username');
-    const { value: password } = useField('password');
-    const rememberMe = ref(false);
-    const showPassword = ref(false);
-    const isValid = ref(false);
-
-    watch([username, password], async () => {
-      const isFormValid = await validate();
-      isValid.value = isFormValid.valid;
-    });
-
-    const togglePasswordVisibility = () => {
-      showPassword.value = !showPassword.value;
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '', // New field for signup form
+      rememberMe: false,
+      showPassword: false,
+      isLoginForm: true, // Tracks whether to show login or signup form
+      errors: {
+        username: '',
+        password: '',
+        confirmPassword: '',
+      },
     };
+  },
+  computed: {
+    isFormValid() {
+      if (this.isLoginForm) {
+        return this.username.trim() !== '' && this.password.trim() !== '';
+      } else {
+        return (
+          this.username.trim() !== '' &&
+          this.password.trim() !== '' &&
+          this.confirmPassword.trim() !== '' &&
+          this.password === this.confirmPassword
+        );
+      }
+    },
+    // Computed property for the password icon class
+    passwordIconClass() {
+      return this.showPassword ? 'fa fa-eye' : 'fa fa-eye-slash';
+    },
+  },
+  methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
+    toggleForm() {
+      this.isLoginForm = !this.isLoginForm;
+      this.resetForm();
+    },
+    resetForm() {
+      this.username = '';
+      this.password = '';
+      this.confirmPassword = '';
+      this.errors = {
+        username: '',
+        password: '',
+        confirmPassword: '',
+      };
+    },
+    validateInputs() {
+      let isValid = true;
 
-    const handleSubmit = async () => {
-      const result = await validate();
-      if (!result.valid) {
-        console.log('Validation failed', result.errors);
+      // Reset errors
+      this.errors.username = '';
+      this.errors.password = '';
+      this.errors.confirmPassword = '';
+
+      // Username validation
+      if (!this.username) {
+        this.errors.username = 'Username is required.';
+        isValid = false;
+      } else if (
+        !/^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(this.username)
+      ) {
+        this.errors.username = 'Please enter a valid email address.';
+        isValid = false;
+      }
+
+      // Password validation
+      if (!this.password) {
+        this.errors.password = 'Password is required.';
+        isValid = false;
+      } else if (this.password.length < 6) {
+        this.errors.password = 'Password must be at least 6 characters.';
+        isValid = false;
+      }
+
+      // Confirm password validation (only for signup form)
+      if (!this.isLoginForm) {
+        if (!this.confirmPassword) {
+          this.errors.confirmPassword = 'Please confirm your password.';
+          isValid = false;
+        } else if (this.password !== this.confirmPassword) {
+          this.errors.confirmPassword = 'Passwords do not match.';
+          isValid = false;
+        }
+      }
+
+      return isValid;
+    },
+    handleLogin() {
+      const isValid = this.validateInputs();
+      if (!isValid) {
         return;
       }
-      console.log('Logged in successfully!');
-      router.push('/dashboard');
-    };
-
-    return {
-      username,
-      password,
-      rememberMe,
-      showPassword,
-      errors,
-      isValid,
-      togglePasswordVisibility,
-      handleSubmit,
-    };
+      this.$router.push('/dashboard');
+    },
+    handleSignup() {
+      const isValid = this.validateInputs();
+      if (!isValid) {
+        return;
+      }
+      // Handle signup logic here
+      console.log('Signup successful!');
+      this.$router.push('/dashboard');
+    },
   },
 };
 </script>
-
+11:00
 <style scoped>
+/* General Layout */
 .login-page {
   display: flex;
   height: 100vh;
@@ -196,7 +399,28 @@ export default {
   height: 100%;
   object-fit: cover;
 }
+.contact-us-section {
+  margin-top: 20px;
+  text-align: center;
+}
 
+.contact-us-button {
+  background-color: transparent;
+  color: #6c5ce7;
+  border: 1px solid #6c5ce7;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-us-button:hover {
+  background-color: #6c5ce7;
+  color: #fff;
+}
 /* Right Section */
 .right-section {
   flex: 1;
@@ -240,16 +464,19 @@ input[type='text'],
 input[type='password'] {
   width: 100%;
   padding: 10px;
+  padding-right: 40px; /* Add space for the eye icon */
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   box-sizing: border-box; /* Ensure padding is included in the width */
 }
+
 .error-message {
   color: red;
   font-size: 12px;
   margin-top: 5px;
 }
+
 .password-wrapper {
   display: flex;
   align-items: center;
@@ -274,13 +501,17 @@ input[type='password'] {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
+}
+
+.remember-section label {
+  margin-left: 5px; /* Adjust spacing between checkbox and label */
 }
 
 .forgot-link {
   font-size: 12px;
   color: #6c5ce7;
   text-decoration: none;
+  margin-left: auto;
 }
 
 .forgot-link:hover {
