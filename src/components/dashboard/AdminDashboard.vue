@@ -12,6 +12,7 @@
 import LeftNavigation from '@/components/dashboard/left-navigation/LeftNavigation.vue';
 import AdminBody from '@/components/dashboard/body/AdminBody.vue';
 import DashboardHeader from '@/components/dashboard/header/DashboardHeader.vue';
+import { useSelectedOptionStore } from '@/stores/selectedOption';
 
 export default {
   name: 'AdminDashboard',
@@ -20,6 +21,15 @@ export default {
     AdminBody,
     LeftNavigation,
   },
+
+  computed: {
+    selectedOptionLabel() {
+      return useSelectedOptionStore().selectedOptionLabel;
+    },
+    useSelectedOptionStore() {
+      return useSelectedOptionStore();
+    },
+  },
 };
 </script>
 
@@ -27,5 +37,14 @@ export default {
 #admin-dashboard {
   display: flex;
   flex-direction: row;
+}
+#admin-body {
+  background: #f2f2f2;
+  flex: 1;
+  height: 100vh;
+}
+.main {
+  height: 100vh;
+  padding: 24px 32px;
 }
 </style>

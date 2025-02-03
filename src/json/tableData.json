@@ -1,70 +1,77 @@
 {
   "userColumn": [
-    { "key": "account", "label": "Account" },
-    { "key": "companyName", "label": "Company Name" },
-    { "key": "accountType", "label": "Account Type" },
-    { "key": "parentId", "label": "Parent ID" },
-    { "key": "contact", "label": "Contact" },
-    { "key": "contactPhone", "label": "Contact Phone" },
-    { "key": "status", "label": "Status" },
-    { "key": "country", "label": "Country" },
-    { "key": "customerSignature", "label": "Customer Signature" }
+    { "key": "user", "label": "User" },
+    { "key": "extension", "label": "Extension" },
+    { "key": "phoneNo", "label": "Phone Number" },
+    { "key": "groups", "label": "Groups" },
+    { "key": "email", "label": "Email" },
+    { "key": "userName", "label": "User Name" },
+    { "key": "userType", "label": "UserType" }
   ],
+
   "userData": [
     {
-      "account": "ACC12345",
-      "companyName": "Tech Solutions Inc.",
-      "accountType": "Enterprise",
-      "parentId": "PID9876",
-      "contact": "John Doe",
-      "contactPhone": "(555) 123-4567",
-      "status": "Active",
-      "country": "USA",
-      "customerSignature": "John Doe"
+      "user": "John Doe",
+      "extension": "101",
+      "phoneNo": "+1234567890",
+      "groups": "Sales, Support",
+      "email": "john.doe@example.com",
+      "userName": "johndoe",
+      "userType": "Superuser"
     },
     {
-      "account": "ACC23456",
-      "companyName": "Green Innovations",
-      "accountType": "Individual",
-      "parentId": "PID1234",
-      "contact": "Jane Smith",
-      "contactPhone": "(555) 987-6543",
-      "status": "Inactive",
-      "country": "Canada",
-      "customerSignature": "Jane Smith"
+      "user": "Jane Smith",
+      "extension": "102",
+      "phoneNo": "+1234567891",
+      "groups": "Billing",
+      "email": "jane.smith@example.com",
+      "userName": "janesmith",
+      "userType": "Billing Administrator"
     },
     {
-      "account": "ACC34567",
-      "companyName": "Global Enterprises",
-      "accountType": "Enterprise",
-      "parentId": "PID5678",
-      "contact": "Emily Johnson",
-      "contactPhone": "(555) 246-8101",
-      "status": "Active",
-      "country": "UK",
-      "customerSignature": "Emily Johnson"
+      "user": "Alice Johnson",
+      "extension": "103",
+      "phoneNo": "+1234567892",
+      "groups": "Call Queue",
+      "email": "alice.johnson@example.com",
+      "userName": "alicejohnson",
+      "userType": "Call Queue Administrator"
     },
     {
-      "account": "ACC45678",
-      "companyName": "FutureTech",
-      "accountType": "Startup",
-      "parentId": "PID6789",
-      "contact": "Michael Lee",
-      "contactPhone": "(555) 369-2580",
-      "status": "Active",
-      "country": "Germany",
-      "customerSignature": "Michael Lee"
+      "user": "Bob Brown",
+      "extension": "104",
+      "phoneNo": "+1234567893",
+      "groups": "Reports",
+      "email": "bob.brown@example.com",
+      "userName": "bobbrown",
+      "userType": "Reports Administrator"
     },
     {
-      "account": "ACC56789",
-      "companyName": "Alpha Ventures",
-      "accountType": "Individual",
-      "parentId": "PID7890",
-      "contact": "Sarah Miller",
-      "contactPhone": "(555) 753-1594",
-      "status": "Inactive",
-      "country": "Australia",
-      "customerSignature": "Sarah Miller"
+      "user": "Charlie White",
+      "extension": "105",
+      "phoneNo": "+1234567894",
+      "groups": "HR",
+      "email": "charlie.white@example.com",
+      "userName": "charliewhite",
+      "userType": "User Administrator"
+    },
+    {
+      "user": "Dave Black",
+      "extension": "106",
+      "phoneNo": "+1234567895",
+      "groups": "Engineering",
+      "email": "dave.black@example.com",
+      "userName": "daveblack",
+      "userType": "End User"
+    },
+    {
+      "user": "Eve Green",
+      "extension": "107",
+      "phoneNo": "+1234567896",
+      "groups": "Marketing",
+      "email": "eve.green@example.com",
+      "userName": "evegreen",
+      "userType": "End User No Dashboard"
     }
   ],
   "auditColumn": [
@@ -91,6 +98,120 @@
       "itemChanged": "2020-03-01",
       "itemLocation": "PID1234",
       "changeSummary": "Jane Smith"
+    }
+  ],
+  "groupColumn": [
+    { "key": "groupName", "label": "Group Name" },
+    { "key": "description", "label": "Descripton" }
+  ],
+  "groupData": [
+    {
+      "groupName": "Sales",
+      "description": "Handles customer acquisition and sales processes."
+    },
+    {
+      "groupName": "Support",
+      "description": "Provides customer support and troubleshooting assistance."
+    },
+    {
+      "groupName": "Billing",
+      "description": "Manages invoicing, payments, and financial records."
+    },
+    {
+      "groupName": "Call Queue",
+      "description": "Manages inbound call distribution and queue management."
+    },
+    {
+      "groupName": "Reports",
+      "description": "Generates and manages business reports and analytics."
+    },
+    {
+      "groupName": "HR",
+      "description": "Handles employee relations, recruitment, and payroll."
+    },
+    {
+      "groupName": "Engineering",
+      "description": "Responsible for product development and technical solutions."
+    },
+    {
+      "groupName": "Marketing",
+      "description": "Develops marketing strategies and manages campaigns."
+    }
+  ],
+  "permissionColumn": [
+    { "key": "userType", "label": "User Type" },
+    { "key": "count", "label": "Count" }
+  ],
+  "permissionData": [
+    {
+      "userType": "Superuser",
+      "count": 1
+    },
+    {
+      "userType": "Billing Administrator",
+      "count": 1
+    },
+    {
+      "userType": "Call Queue Administrator",
+      "count": 1
+    },
+    {
+      "userType": "Reports Administrator",
+      "count": 1
+    },
+    {
+      "userType": "User Administrator",
+      "count": 1
+    },
+    {
+      "userType": "End User",
+      "count": 1
+    },
+    {
+      "userType": "End User No Dashboard",
+      "count": 1
+    }
+  ],
+  "extensionType": [
+    { "key": "extension", "label": "Extension" },
+    { "key": "user", "label": "User" },
+    { "key": "phoneNumber", "label": "Phone Number" },
+    { "key": "outboundCallerId", "label": "Outbound Caller ID" },
+    { "key": "extensionType", "label": "Extension Type" },
+    { "key": "location", "label": "Location" }
+  ],
+  "extensionData": [
+    {
+      "extension": "1001",
+      "user": "John Doe",
+      "phoneNumber": "+1-555-0101",
+      "outboundCallerId": "+1-800-123-4567",
+      "extensionType": "Direct",
+      "location": "Head Office"
+    },
+    {
+      "extension": "1002",
+      "user": "Jane Smith",
+      "phoneNumber": "+1-555-0102",
+      "outboundCallerId": "+1-800-123-4568",
+      "extensionType": "Direct",
+      "location": "Branch Office"
+    },
+    {
+      "extension": "2001",
+      "user": "Mike Johnson",
+      "phoneNumber": "+1-555-0201",
+      "outboundCallerId": "+1-800-123-4570",
+      "extensionType": "Shared",
+      "location": "Remote"
+    },
+    {
+      "extension": "3001",
+      "user": "Emily Davis",
+      "phoneNumber": "+1-555-0301",
+      "outboundCallerId": "+1-800-123-4575",
+      "extensionType": "VoIP",
+      "location": "Customer Support"
     }
   ]
 }

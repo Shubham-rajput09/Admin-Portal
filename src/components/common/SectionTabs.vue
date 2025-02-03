@@ -2,52 +2,48 @@
   <div>
     <div class="navbar">
       <div
-        :class="['navbar-item', { active: selected === 'user' }]"
-        @click="selectTab('user')"
+        v-for="(tab, index) in sectionTabs"
+        :key="tab.name"
+        :class="['navbar-item', { active: selected === tab.name }]"
+        @click="selectTab(tab.name, index)"
       >
-        Users
-      </div>
-      <div
-        :class="['navbar-item', { active: selected === 'auditLog' }]"
-        @click="selectTab('auditLog')"
-      >
-        Audit Log
+        {{ tab.label }}
       </div>
     </div>
     <hr class="underline" />
-    <SearchFilterBar />
-    <DataTable :columns="filteredColumns" :data="filteredData" />
   </div>
 </template>
 
 <script>
-import DataTable from './DataTable.vue';
-import tableData from '@/json/tableData.json';
-import SearchFilterBar from './SearchFilterBar.vue';
+import { useSelectedOptionStore } from '@/stores/selectedOption';
 
 export default {
   name: 'SectionTabs',
-  components: { SearchFilterBar, DataTable },
+  props: {
+    sectionTabs: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      selected: 'user',
+      selected: this.sectionTabs.length ? this.sectionTabs[0].name : ' ',
     };
   },
   computed: {
-    filteredColumns() {
-      return this.selected === 'user'
-        ? tableData.userColumn
-        : tableData.auditColumn;
-    },
-    filteredData() {
-      return this.selected === 'user'
-        ? tableData.userData
-        : tableData.auditData;
+    selectedTab() {
+      return (
+        this.selected ||
+        (this.sectionTabs.length ? this.sectionTabs[0].name : '')
+      );
     },
   },
   methods: {
-    selectTab(tab) {
+    selectTab(tab, index) {
       this.selected = tab;
+      const selectedOptionStore = useSelectedOptionStore();
+      selectedOptionStore.setSelectedPageHeaderIndex(index);
+      console.log(selectedOptionStore.selectedPageHeaderIndex);
     },
   },
 };
@@ -84,7 +80,7 @@ export default {
 }
 
 .navbar-item.active::after {
-  background-color: black; /* Underline color when active */
+  background-color: black;
 }
 .underline {
   margin-top: 4px;
