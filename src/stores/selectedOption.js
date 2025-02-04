@@ -7,6 +7,7 @@ import {
 export const useSelectedOptionStore = defineStore('selectedOption', {
   state: () => ({
     selectedOption: 'USERS',
+    selectedPageHeaderIndex: '0',
   }),
 
   getters: {
@@ -19,6 +20,10 @@ export const useSelectedOptionStore = defineStore('selectedOption', {
       if (selectedOptionKeys.includes(option)) {
         this.selectedOption = option;
       }
+    },
+    setSelectedPageHeaderIndex(index) {
+      console.log('changed');
+      this.selectedPageHeaderIndex = index;
     },
   },
 });

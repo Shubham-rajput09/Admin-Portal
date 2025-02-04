@@ -1,0 +1,10 @@
+{
+  "usersSectionTab": [
+    { "name": "users", "label": "Users" },
+    { "name": "auditLog", "label": "Audit Log" }
+  ],
+  "permissionSectionTab": [
+    { "name": "userTypes", "label": "User Types" },
+    { "name": "permissions", "label": "Permissions" }
+  ]
+}
