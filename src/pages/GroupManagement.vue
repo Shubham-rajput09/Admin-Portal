@@ -2,22 +2,7 @@
   <div class="table-container">
     <div class="top-bar">
       <div class="search-container">
-        <button class="search-button" @click="toggleSearchInput">
-          <img
-            src="@/assets/search-icon.png"
-            alt="Search"
-            class="search-icon"
-          />
-          <span v-if="!isSearchInputVisible">Search</span>
-          <input
-            v-show="isSearchInputVisible"
-            class="search-input"
-            ref="searchInput"
-            v-model="searchText"
-            @blur="toggleSearchInput"
-            placeholder=""
-          />
-        </button>
+        <SearchButton placeholder="Search" button-text="Search" />
       </div>
 
       <div class="button-container">
@@ -45,10 +30,12 @@ import { useSelectedOptionStore } from '@/stores/selectedOption';
 import DataTable from '@/components/common/DataTable.vue';
 import tableData from '@/json/tableData.json';
 import PrimaryButton from '@/components/common/PrimaryButton.vue';
+import SearchButton from '@/components/common/SearchButton.vue';
 
 export default {
   name: 'AdminBody',
   components: {
+    SearchButton,
     PrimaryButton,
     DataTable,
   },
