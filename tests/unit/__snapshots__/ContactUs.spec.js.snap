@@ -217,7 +217,7 @@ exports[`ContactUs.vue matches the snapshot 1`] = `
           <!--v-if-->
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button data-id="submit-button" type="submit" class="submit-button">Submit</button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button data-id="submit-button" type="submit" class="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
