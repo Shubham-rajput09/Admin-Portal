@@ -322,22 +322,23 @@ export default {
       this.errors.confirmPassword = '';
 
       // Username validation
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!this.username) {
         this.errors.username = 'Username is required.';
         isValid = false;
-      } else if (
-        !/^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(this.username)
-      ) {
-        this.errors.username = 'Please enter a valid email address.';
+      } else if (!emailRegex.test(this.username)) {
+        this.errors.username = 'Please enter a valid username';
         isValid = false;
       }
 
       // Password validation
+      const passwordRegex =
+        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
       if (!this.password) {
         this.errors.password = 'Password is required.';
         isValid = false;
-      } else if (this.password.length < 6) {
-        this.errors.password = 'Password must be at least 6 characters.';
+      } else if (!passwordRegex.test(this.password)) {
+        this.errors.password = 'Enter a valid password';
         isValid = false;
       }
 
@@ -373,7 +374,7 @@ export default {
   },
 };
 </script>
-11:00
+
 <style scoped>
 /* General Layout */
 .login-page {
@@ -399,6 +400,7 @@ export default {
   height: 100%;
   object-fit: cover;
 }
+
 .contact-us-section {
   margin-top: 20px;
   text-align: center;
@@ -421,6 +423,7 @@ export default {
   background-color: #6c5ce7;
   color: #fff;
 }
+
 /* Right Section */
 .right-section {
   flex: 1;
@@ -563,6 +566,7 @@ input[type='password'] {
   margin: 20px 0;
   color: #888;
 }
+
 .divider::before,
 .divider::after {
   content: '';
