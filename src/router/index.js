@@ -6,6 +6,7 @@ import ContactUs from '@/components/login/ContactUs.vue';
 import ForgotPassword from '@/components/login/ForgotPassword.vue';
 import AddBulk from '@/components/common/AddBulk.vue';
 import UserForm from '@/components/common/UserForm.vue';
+import AddNewGroup from '@/components/common/AddNewGroup.vue';
 
 const routes = [
   { path: '/', component: LoginPage },
@@ -14,6 +15,7 @@ const routes = [
   { path: '/forgot-password', component: ForgotPassword },
   { path: '/add-bulk', component: AddBulk },
   { path: '/add-new', component: UserForm },
+  { path: '/add-new-group', component: AddNewGroup },
 ];
 
 const router = createRouter({

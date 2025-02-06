@@ -118,7 +118,9 @@ body {
   background: white;
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  text-align: center;
+  margin-left: 450px;
+  margin-top: 200px;
 }
 
 .title {
