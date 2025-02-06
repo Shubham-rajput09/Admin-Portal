@@ -37,13 +37,13 @@
         >
           <!-- Username Input -->
           <div class="input-group" data-id="username-input-group">
-            <label for="username" data-id="username-label">Username</label>
+            <label for="username" data-id="username-label">Email</label>
             <input
               id="username"
               data-id="username"
               type="text"
               v-model="username"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
             />
             <p
               v-if="errors.username"
@@ -130,13 +130,13 @@
         <form v-else @submit.prevent="handleSignup" data-id="signup-form">
           <!-- Username Input -->
           <div class="input-group" data-id="username-input-group">
-            <label for="username" data-id="username-label">Username</label>
+            <label for="username" data-id="username-label">Email</label>
             <input
               id="username"
               data-id="username"
               type="text"
               v-model="username"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
             />
             <p
               v-if="errors.username"
@@ -324,21 +324,22 @@ export default {
       // Username validation
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!this.username) {
-        this.errors.username = 'Username is required.';
+        this.errors.username = 'Email is required.';
         isValid = false;
       } else if (!emailRegex.test(this.username)) {
-        this.errors.username = 'Please enter a valid username';
+        this.errors.username = 'Please enter a valid email';
         isValid = false;
       }
 
-      // Password validation
+      // Password validation - min 8 character max 16 one upper case char, one lower case , one special and one digit
       const passwordRegex =
-        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
       if (!this.password) {
         this.errors.password = 'Password is required.';
         isValid = false;
       } else if (!passwordRegex.test(this.password)) {
-        this.errors.password = 'Enter a valid password';
+        this.errors.password =
+          'Password must be atleast 8 characters long, including one uppercase letter, one lowercase letter, one special character, and one digit';
         isValid = false;
       }
 
@@ -456,7 +457,7 @@ h2 {
   margin-bottom: 15px;
 }
 
-label {
+.input-group label {
   display: block;
   font-size: 14px;
   margin-bottom: 5px;
@@ -508,6 +509,9 @@ input[type='password'] {
 
 .remember-section label {
   margin-left: 5px; /* Adjust spacing between checkbox and label */
+  display: block;
+  font-size: 14px;
+  color: #555;
 }
 
 .forgot-link {
