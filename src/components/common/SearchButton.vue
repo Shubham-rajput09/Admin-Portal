@@ -19,7 +19,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: 'Search...',
+      default: 'Search.',
     },
     buttonText: {
       type: String,
@@ -58,12 +58,14 @@ export default {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  width: 200px;
+  height: 40px;
 }
 
 .search-icon {
   width: 16px;
   height: 16px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .search-input {

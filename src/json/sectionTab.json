@@ -6,5 +6,9 @@
   "permissionSectionTab": [
     { "name": "userTypes", "label": "User Types" },
     { "name": "permissions", "label": "Permissions" }
+  ],
+  "extensionTab": [
+    { "name": "extensions", "label": "Extensions" },
+    { "name": "auditLog", "label": "Audit Log" }
   ]
 }

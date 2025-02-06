@@ -92,36 +92,6 @@ export default {
   align-items: center;
 }
 
-.search-button {
-  padding: 10px 15px;
-  font-size: 0.9rem;
-  background-color: white;
-  color: #070000;
-  border: 1.3px solid;
-  border-radius: 6px;
-  cursor: pointer;
-  min-height: 15px;
-  width: 200px;
-  font-style: normal;
-  font-weight: lighter;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.search-icon {
-  margin-right: 10px;
-  width: 18px;
-}
-
-.search-input {
-  padding: 2px;
-  font-size: 0.9rem;
-  border: none;
-  outline: none;
-}
-
 .button-container {
   display: flex;
   gap: 5px;
