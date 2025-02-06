@@ -1,36 +1,44 @@
 <template>
-  <SectionTabs :sectionTabs="sectionTab.permissionSectionTab" />
-  <DataTable :columns="filteredColumns" :data="filteredData" />
+  <SectionTabs :sectionTabs="sectionTabs" />
+  <DataTable
+    v-if="store.selectedPageHeaderIndex == 0"
+    :columns="filteredColumns"
+    :data="filteredData"
+  />
+  <PermissionTable v-if="store.selectedPageHeaderIndex == 1" />
 </template>
 
 <script>
 import SectionTabs from '@/components/common/SectionTabs.vue';
-import { useSelectedOptionStore } from '@/stores/selectedOption';
 import DataTable from '@/components/common/DataTable.vue';
+import { useSelectedOptionStore } from '@/stores/selectedOption';
 import tableData from '@/json/tableData.json';
-import sectionTab from '@/json/sectionTab.json';
+import sectionTabsData from '@/json/sectionTab.json';
+import PermissionTable from '@/components/common/PermissionTable.vue';
 
 export default {
   name: 'AdminBody',
   components: {
     SectionTabs,
     DataTable,
+    PermissionTable,
   },
   data() {
     return {
+      store: useSelectedOptionStore(),
       tableData,
-      sectionTab,
+      sectionTabsData,
     };
   },
   computed: {
-    useSelectedOptionStore() {
-      return useSelectedOptionStore();
+    sectionTabs() {
+      return this.sectionTabsData.permissionSectionTab;
     },
     filteredColumns() {
-      return tableData.permissionColumn;
+      return this.tableData.permissionColumn;
     },
     filteredData() {
-      return tableData.permissionData;
+      return this.tableData.permissionData;
     },
   },
 };
