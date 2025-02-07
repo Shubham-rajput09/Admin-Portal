@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <form @submit.prevent="handleSubmit">
+    <form @submit="onSubmit">
       <!-- Basic Info Section -->
       <div class="section">
         <h2>Basic Info</h2>
@@ -10,27 +10,27 @@
           class="form-group"
         >
           <label :for="field.id">{{ field.label }}</label>
-          <input
+          <Field
             :id="field.id"
-            v-model="form[field.model]"
+            :name="field.model"
             :type="field.type"
             :placeholder="field.placeholder"
-            :required="field.required"
             :data-id="field.id"
+            :rules="field.validation"
             class="full-width-input"
           />
+          <ErrorMessage :name="field.model" class="error-msg" />
         </div>
-
         <!-- Select Group(s) Dropdown -->
         <div class="form-group">
           <label for="groups">Select Group(s)</label>
-          <select
+          <Field
+            as="select"
+            name="groups"
             data-id="groups"
             id="groups"
-            v-model="form.groups"
             class="select-group"
           >
-            <option value="">Select Group(s)</option>
             <option
               v-for="group in groups"
               :key="group.value"
@@ -39,10 +39,10 @@
             >
               {{ group.label }}
             </option>
-          </select>
+          </Field>
+          <ErrorMessage name="groups" class="error-msg" />
         </div>
       </div>
-
       <div class="divider">
         <span></span>
       </div>
@@ -51,12 +51,7 @@
       <div class="section">
         <h2>Settings and Permissions</h2>
         <div class="user-type">
-          <select
-            data-id="userType"
-            id="userType"
-            v-model="form.userType"
-            required
-          >
+          <Field as="select" name="userType" data-id="userType" id="userType">
             <option
               v-for="option in userTypeOptions"
               :key="option.value"
@@ -65,11 +60,11 @@
             >
               {{ option.text }}
             </option>
-          </select>
+          </Field>
         </div>
+        <ErrorMessage name="userType" class="error-msg" />
       </div>
 
-      <!-- User Type Section (Moved after Settings and Permissions) -->
       <div class="section">
         <div
           v-for="(label, key) in permissionFields"
@@ -77,14 +72,16 @@
           class="form-group"
         >
           <label>
-            <input
+            <Field
+              name="permissions"
+              :value="key"
               type="checkbox"
-              v-model="form.permissions[key]"
               :data-id="`permission-${key}`"
             />
             {{ label }}
           </label>
         </div>
+        <ErrorMessage name="permissions" class="error-msg" />
       </div>
 
       <div class="divider">
@@ -100,35 +97,68 @@
           class="form-group"
         >
           <label>
-            <input
+            <Field
               type="radio"
-              v-model="form.extensionOption"
+              name="extensionOption"
               :value="key"
               :data-id="`extension-${key}`"
             />
             {{ label }}
           </label>
         </div>
-
-        <div
-          data-id="notice"
-          v-if="form.extensionOption === 'purchase'"
-          class="notice"
-        >
-          You will be brought to the store to purchase an extension after saving
-          the user. Once you have purchased an extension, go to the Extensions
-          page to assign the extension to this user.
-        </div>
+        <ErrorMessage name="extensionOption" class="error-msg" />
       </div>
+
+      <div
+        data-id="notice"
+        v-if="form.extensionOption === 'purchase'"
+        class="notice"
+      >
+        You will be brought to the store to purchase an extension after saving
+        the user. Once you have purchased an extension, go to the Extensions
+        page to assign the extension to this user.
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
     </form>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      form: {
+import { defineComponent } from 'vue';
+import { Field, ErrorMessage, useForm } from 'vee-validate';
+import * as yup from 'yup';
+import { useToast } from 'vue-toastification';
+
+export default defineComponent({
+  components: { Field, ErrorMessage },
+  setup() {
+    const toast = useToast();
+    const schema = yup.object({
+      firstName: yup.string().required('First name is required'),
+      lastName: yup.string().required('Last name is required'),
+      username: yup.string().required('Username is required'),
+      email: yup
+        .string()
+        .email('Email is not valid')
+        .required('Email is required'),
+      confirmEmail: yup
+        .string()
+        .oneOf([yup.ref('email')], 'Email must match')
+        .required('Confirm email is required'),
+      groups: yup.string().required('Please select a group'),
+      userType: yup.string().required('Please select a user type'),
+      extensionOption: yup.string().required('Please select an extension'),
+      permissions: yup.array().min(1, 'Please select at least one permission'),
+    });
+
+    const {
+      handleSubmit,
+      values: form,
+      resetForm,
+    } = useForm({
+      validationSchema: schema,
+      initialValues: {
         firstName: '',
         lastName: '',
         username: '',
@@ -136,15 +166,23 @@ export default {
         confirmEmail: '',
         groups: '',
         userType: '',
-        permissions: {
-          serviceAnnouncements: false,
-          webAccess: true,
-          sendEmail: true,
-          manageCallerId: false,
-          manageCallBlocking: false,
-        },
         extensionOption: '',
+        permissions: [],
       },
+    });
+
+    const onSubmit = handleSubmit((values) => {
+      console.log(values);
+      toast.success('Form submitted successfully!', {
+        position: 'top-right',
+        timeout: 3000,
+      });
+      resetForm();
+    });
+
+    return {
+      form,
+      onSubmit,
       basicInfoFields: [
         {
           id: 'firstName',
@@ -188,6 +226,7 @@ export default {
         },
       ],
       groups: [
+        { value: '', label: 'Select Group' },
         { value: 'group1', label: 'Group 1' },
         { value: 'group2', label: 'Group 2' },
         { value: 'group3', label: 'Group 3' },
@@ -223,12 +262,7 @@ export default {
       },
     };
   },
-  methods: {
-    handleSubmit() {
-      console.log('Form submitted:', this.form);
-    },
-  },
-};
+});
 </script>
 
 <style scoped>
@@ -261,8 +295,15 @@ body {
   height: 20px;
   color: black;
   border: 1px solid rgba(9, 8, 8, 0.64);
-  margin-bottom: 10px;
   margin-top: 10px;
+}
+.submit-btn {
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 h2 {
@@ -273,6 +314,8 @@ h2 {
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 .user-type {
@@ -301,6 +344,7 @@ select {
   padding: 10px;
   border: 1px solid #d6b3b3;
   border-radius: 4px;
+  margin-bottom: 10px;
 }
 .divider {
   display: flex;
@@ -327,5 +371,10 @@ select {
   .form-container {
     padding: 10px;
   }
+}
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 </style>
