@@ -1,4 +1,8 @@
 <template>
+  <div class="form-header" data-id="form-header">
+    <div class="add-users">Add Users</div>
+    <button @click="goBack" class="cancel">Cancel</button>
+  </div>
   <div class="wrapper">
     <div class="content">
       <h1>Add Users</h1>
@@ -69,20 +73,55 @@
 <script>
 export default {
   name: 'AddBulk',
+  methods: {
+    goBack() {
+      this.$router.back();
+    },
+  },
 };
 </script>
 <style scoped>
+.form-header {
+  width: 100vw; /* Full width of the container */
+  height: 60px; /* Adjust this value for thickness */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-users {
+  font-size: 16px;
+  margin-left: 22px;
+  color: black;
+  font-weight: bold;
+}
+.cancel {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 1.5px solid;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background-color: transparent;
+  margin-right: 8px;
+}
 .content {
   font-family: Arial, sans-serif;
   color: #333;
   padding: 20px;
   width: 100%;
   max-width: none;
-  background-color: #fff;
+  background-color: #f5f5f5;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin: 0 auto;
+  margin-top: 45px;
 }
 
 .content h1 {
@@ -130,7 +169,8 @@ export default {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding-top: 20px;
+  padding-top: 5px;
+  background-color: #f5f5f5;
 }
 
 .form-container {
@@ -188,7 +228,7 @@ label {
 .empty-state {
   text-align: center;
   margin-top: 50px;
-  background-color: #f7f7f7;
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
   height: 300px;
