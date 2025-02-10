@@ -81,7 +81,11 @@
             {{ label }}
           </label>
         </div>
-        <ErrorMessage name="permissions" class="error-msg" />
+        <ErrorMessage
+          data-id="error-permissions"
+          name="permissions"
+          class="error-msg"
+        />
       </div>
 
       <div class="divider">
@@ -106,7 +110,11 @@
             {{ label }}
           </label>
         </div>
-        <ErrorMessage name="extensionOption" class="error-msg" />
+        <ErrorMessage
+          data-id="error"
+          name="extensionOption"
+          class="error-msg"
+        />
       </div>
 
       <div
