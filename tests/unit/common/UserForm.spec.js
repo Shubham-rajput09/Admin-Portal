@@ -183,4 +183,7 @@ describe('UserForm.vue', () => {
       'You will be brought to the store to purchase an extension after saving the user. Once you have purchased an extension, go to the Extensions page to assign the extension to this user.',
     );
   });
+  it('matches snapshot', () => {
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
