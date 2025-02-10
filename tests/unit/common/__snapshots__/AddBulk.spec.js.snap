@@ -1,6 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddBulk.vue matches snapshot 1`] = `
+<div class="form-header" data-id="form-header">
+  <div class="add-users">Add Users</div><button class="cancel">Cancel</button>
+</div>
 <div class="wrapper">
   <div class="content">
     <h1>Add Users</h1>
