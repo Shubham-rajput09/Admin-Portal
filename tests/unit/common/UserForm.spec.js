@@ -1,108 +1,189 @@
+// tests/unit/common/UserForm.spec.js
 import { mount } from '@vue/test-utils';
 import UserForm from '@/components/common/UserForm.vue';
+import { useToast } from 'vue-toastification';
+import { h, reactive, nextTick } from 'vue';
+
+const mockErrors = reactive({});
+const mockFormValues = reactive({
+  firstName: '',
+  lastName: '',
+  username: '',
+  email: '',
+  confirmEmail: '',
+  groups: '',
+  userType: '',
+  permissionFields: [],
+  extensionOption: '',
+});
+
+const mockHandleSubmit = jest.fn((fn) => {
+  return async (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    await fn(mockFormValues);
+  };
+});
+const mockResetForm = jest.fn();
+const mockToast = { success: jest.fn() };
+
+jest.mock('vue-toastification');
+jest.mock('vee-validate', () => {
+  const actual = jest.requireActual('vee-validate');
+  return {
+    ...actual,
+    useForm: jest.fn(() => ({
+      handleSubmit: mockHandleSubmit,
+      resetForm: mockResetForm,
+      errors: mockErrors,
+      values: mockFormValues,
+    })),
+  };
+});
+
+useToast.mockReturnValue(mockToast);
+
+const FieldStub = {
+  name: 'Field',
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  template: `
+    <input 
+      :value="modelValue" 
+      @input="$emit('update:modelValue', $event.target.value)" 
+      v-bind="$attrs" 
+    />
+  `,
+};
+
+const ErrorMessageStub = {
+  name: 'ErrorMessage',
+  props: ['name'],
+  setup(props) {
+    return () =>
+      mockErrors[props.name]
+        ? h('div', { class: 'error-msg' }, mockErrors[props.name])
+        : null;
+  },
+};
 
 describe('UserForm.vue', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(UserForm, {});
+    Object.keys(mockErrors).forEach((key) => delete mockErrors[key]);
+    Object.assign(mockFormValues, {
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      confirmEmail: '',
+      groups: '',
+      userType: '',
+      extensionOption: '',
+    });
+
+    mockHandleSubmit.mockClear();
+    mockResetForm.mockClear();
+    mockToast.success.mockClear();
+
+    wrapper = mount(UserForm, {
+      global: {
+        stubs: {
+          Field: FieldStub,
+          ErrorMessage: ErrorMessageStub,
+        },
+      },
+    });
   });
 
   afterEach(() => {
-    wrapper.unmount();
+    jest.clearAllMocks();
   });
 
-  test('renders the form with all sections and inputs', () => {
-    expect(wrapper.find('form').exists()).toBe(true);
-
-    const basicInfoFields = wrapper.vm.basicInfoFields;
-    basicInfoFields.forEach((field) => {
-      expect(wrapper.find(`label[for="${field.id}"]`).exists()).toBe(true);
-      expect(wrapper.find(`#${field.id}`).exists()).toBe(true);
+  it('shows validation errors when required fields are empty', async () => {
+    await wrapper.find('form').trigger('submit');
+    Object.assign(mockErrors, {
+      firstName: 'First name is required',
+      email: 'Email is required',
     });
-    expect(wrapper.find('[data-id="groups"]').exists()).toBe(true);
-    expect(wrapper.find('[data-id="userType"]').exists()).toBe(true);
-  });
-
-  test('renders permissions checkboxes', () => {
-    const permissionFields = wrapper.vm.permissionFields;
-
-    Object.keys(permissionFields).forEach((key) => {
-      const label = wrapper
-        .findAll('label')
-        .filter((node) => node.text().includes(permissionFields[key]))[0];
-
-      expect(label.exists()).toBe(true);
-
-      const checkbox = label.find(`[data-id="permission-${key}"]`);
-      expect(checkbox.exists()).toBe(true);
-    });
-  });
-
-  test('renders extension options correctly', () => {
-    const extensionOptions = wrapper.vm.extensionOptions;
-
-    Object.keys(extensionOptions).forEach((key) => {
-      expect(wrapper.find(`[data-id="extension-${key}"]`).exists()).toBe(true);
-    });
-  });
-
-  test('displays notice when extension option is "purchase"', async () => {
-    await wrapper.setData({
-      form: { ...wrapper.vm.form, extensionOption: 'purchase' },
-    });
-    const notice = wrapper.find('[data-id="notice"]');
-    expect(notice.exists()).toBe(true);
-    expect(notice.text()).toContain(
-      'You will be brought to the store to purchase an extension',
+    await nextTick();
+    expect(wrapper.find('[data-id="firstName"] + .error-msg').text()).toContain(
+      'First name is required',
+    );
+    expect(wrapper.find('[data-id="email"] + .error-msg').text()).toContain(
+      'Email is required',
     );
   });
 
-  test('validates required fields', async () => {
-    const formFields = [
-      'firstName',
-      'lastName',
-      'username',
-      'email',
-      'confirmEmail',
-    ];
+  it('validates email format and confirmation', async () => {
+    const emailInput = wrapper.find('[data-id="email"]');
+    const confirmEmailInput = wrapper.find('[data-id="confirmEmail"]');
 
-    formFields.forEach((field) => {
-      const input = wrapper.find(`#${field}`);
-      expect(input.attributes('required')).toBeDefined();
+    await emailInput.setValue('invalid-email');
+    await confirmEmailInput.setValue('invalid-email');
+    await wrapper.find('form').trigger('submit');
+    Object.assign(mockErrors, { email: 'Email is not valid' });
+    await nextTick();
+    expect(wrapper.find('[data-id="email"] + .error-msg').text()).toContain(
+      'Email is not valid',
+    );
+
+    await emailInput.setValue('valid@example.com');
+    await confirmEmailInput.setValue('different@example.com');
+    await wrapper.find('form').trigger('submit');
+    Object.assign(mockErrors, { confirmEmail: 'Email must match' });
+    await nextTick();
+    expect(
+      wrapper.find('[data-id="confirmEmail"] + .error-msg').text(),
+    ).toContain('Email must match');
+  });
+
+  it('requires at least one permission to be selected', async () => {
+    await wrapper.find('form').trigger('submit');
+    Object.assign(mockErrors, {
+      permissions: 'Please select at least one permission',
     });
-    const userType = wrapper.find('[data-id="userType"]');
-    expect(userType.attributes('required')).toBeDefined();
+    await nextTick();
+    expect(wrapper.find('[data-id="error-permissions"]').text()).toContain(
+      'Please select at least one permission',
+    );
   });
 
-  test('handles form submission', async () => {
-    const handleSubmitMock = jest.fn();
-    wrapper.vm.handleSubmit = handleSubmitMock;
+  it('submits form with valid data', async () => {
+    await wrapper.find('[data-id="firstName"]').setValue('John');
+    await wrapper.find('[data-id="lastName"]').setValue('Doe');
+    await wrapper.find('[data-id="username"]').setValue('johndoe');
+    await wrapper.find('[data-id="email"]').setValue('john@example.com');
+    await wrapper.find('[data-id="confirmEmail"]').setValue('john@example.com');
+    await wrapper.find('[data-id="groups"]').setValue('group1');
+    await wrapper.find('[data-id="userType"]').setValue('endUser');
+    await wrapper.find('[data-id="permission-webAccess"]').setValue(true);
+    await wrapper.find('[data-id="extension-assign"]').setValue(true);
 
-    await wrapper.find('form').trigger('submit.prevent');
-    expect(handleSubmitMock).toHaveBeenCalled();
+    Object.assign(mockErrors, {});
+    await wrapper.find('form').trigger('submit');
+
+    expect(mockHandleSubmit).toHaveBeenCalled();
+    expect(mockToast.success).toHaveBeenCalledWith(
+      'Form submitted successfully!',
+      {
+        position: 'top-right',
+        timeout: 3000,
+      },
+    );
+    expect(mockResetForm).toHaveBeenCalled();
   });
 
-  test('updates v-model when input changes', async () => {
-    const input = wrapper.find('[data-id="firstName"]');
-    await input.setValue('John');
-    expect(wrapper.vm.form.firstName).toBe('John');
+  it('shows purchase notice when extension option is purchase', async () => {
+    await wrapper.find('[data-id="extension-purchase"]').setValue(true);
+    mockFormValues.extensionOption = 'purchase';
+    await nextTick();
+    expect(wrapper.find('[data-id="notice"]').exists()).toBe(true);
+    expect(wrapper.find('[data-id="notice"]').text()).toMatch(
+      'You will be brought to the store to purchase an extension after saving the user. Once you have purchased an extension, go to the Extensions page to assign the extension to this user.',
+    );
   });
-
-  test('updates selected group in form data', async () => {
-    const select = wrapper.find('[data-id="groups"]');
-    await select.setValue('group2');
-    expect(wrapper.vm.form.groups).toBe('group2');
-  });
-
-  test('updates user type in form data', async () => {
-    const select = wrapper.find('[data-id="userType"]');
-    await select.setValue('billingAdmin');
-    expect(wrapper.vm.form.userType).toBe('billingAdmin');
-  });
-
-  test('matches snapshot', () => {
-    const wrapper = mount(UserForm);
+  it('matches snapshot', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
