@@ -135,8 +135,14 @@ export default defineComponent({
   setup() {
     const toast = useToast();
     const schema = yup.object({
-      firstName: yup.string().required('First name is required'),
-      lastName: yup.string().required('Last name is required'),
+      firstName: yup
+        .string()
+        .matches(/^[A-Za-z]+$/, 'First name must contain only letters')
+        .required('First name is required'),
+      lastName: yup
+        .string()
+        .matches(/^[A-Za-z]+$/, 'Last name must contain only letters')
+        .required('Last name is required'),
       username: yup.string().required('Username is required'),
       email: yup
         .string()
