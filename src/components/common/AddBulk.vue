@@ -77,6 +77,17 @@ export default {
     goBack() {
       this.$router.back();
     },
+    handleEvent(event) {
+      if (event.key == 'Escape') {
+        this.$router.back();
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleEvent);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleEvent);
   },
 };
 </script>
