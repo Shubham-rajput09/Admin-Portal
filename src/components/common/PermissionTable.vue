@@ -78,7 +78,7 @@ export default {
             permissions: ['✔', '6/16', '✖', '3/16', '✖', '✖', '✖', '✖'],
           },
           {
-            category: 'Business Apps',
+            category: 'Extensions',
             permissions: ['3/4', '✖', '✖', '✖', '✖', '✖', '✖', '✖'],
           },
         ],
@@ -86,16 +86,14 @@ export default {
       {
         category: 'Billing',
         permissions: ['✔', '1/3', '✖', '✖', '2/3', '✖', '✖', '✖'],
-        children: [
-          {
-            category: 'Store',
-            permissions: ['✔', '1/2', '✖', '1/2', '1/2', '✖', '✖', '✖'],
-          },
-          {
-            category: 'Reports',
-            permissions: ['2/8', '✔', '✖', '3/8', '✖', '✔', '✔', '2/8'],
-          },
-        ],
+      },
+      {
+        category: 'Call Groups',
+        permissions: ['2/8', '✔', '✖', '3/8', '✖', '✔', '✔', '2/8'],
+      },
+      {
+        category: 'Store',
+        permissions: ['✔', '1/2', '✖', '1/2', '1/2', '✖', '✖', '✖'],
       },
     ]);
 
