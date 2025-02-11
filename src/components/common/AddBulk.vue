@@ -1,7 +1,7 @@
 <template>
   <div class="form-header" data-id="form-header">
     <div class="add-users">Add Users</div>
-    <button @click="goBack" class="cancel">Cancel</button>
+    <CancelButton buttonName="Cancel" @click="goBack" class="cancel" />
   </div>
   <div class="wrapper">
     <div class="content">
@@ -71,12 +71,21 @@
 </template>
 
 <script>
+import CancelButton from '@/components/common/CancelButton.vue';
+import { useRouter } from 'vue-router';
 export default {
   name: 'AddBulk',
+  components: { CancelButton },
+  setup() {
+    const router = useRouter();
+
+    const goBack = () => {
+      router.back();
+    };
+
+    return { goBack };
+  },
   methods: {
-    goBack() {
-      this.$router.back();
-    },
     handleEvent(event) {
       if (event.key == 'Escape') {
         this.$router.back();
@@ -114,14 +123,7 @@ export default {
   font-weight: bold;
 }
 .cancel {
-  color: black;
-  font-size: 0.9rem;
-  font-weight: 400;
-  border: 1.5px solid;
-  border-radius: 6px;
-  padding: 8px 12px;
-  background-color: transparent;
-  margin-right: 8px;
+  margin-top: 20px;
 }
 .content {
   font-family: Arial, sans-serif;
@@ -134,7 +136,6 @@ export default {
   box-sizing: border-box;
   margin-top: 45px;
 }
-
 .content h1 {
   font-size: 32px;
   font-weight: bold;
