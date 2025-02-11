@@ -17,46 +17,60 @@
           >Send welcome email to all users added below</label
         >
       </div>
-      <div class="form-container">
-        <div class="input-container">
-          <label for="first-name">First Name</label>
-          <input
-            type="text"
-            data-id="first-name"
-            placeholder="First Name"
-            class="input-field"
-          />
+      <form @submit="onSubmit">
+        <div class="form-container">
+          <div class="input-container">
+            <label for="first-name">First Name</label>
+            <Field
+              name="firstName"
+              type="text"
+              data-id="first-name"
+              placeholder="First Name"
+              class="input-field"
+            />
+            <ErrorMessage name="firstName" class="error-msg" />
+          </div>
+          <div class="input-container">
+            <label for="last-name">Last Name</label>
+            <Field
+              name="lastName"
+              type="text"
+              data-id="last-name"
+              placeholder="Last Name"
+              class="input-field"
+            />
+            <ErrorMessage name="lastName" class="error-msg" />
+          </div>
+          <div class="input-container">
+            <label for="email">Email Address</label>
+            <Field
+              name="email"
+              type="email"
+              data-id="email"
+              placeholder="Email Address"
+              class="input-field"
+            />
+            <ErrorMessage name="email" class="error-msg" />
+          </div>
+          <div class="input-container">
+            <label for="select-role">User Type</label>
+            <Field
+              name="role"
+              as="select"
+              data-id="select-role"
+              class="input-field"
+            >
+              <option value="" disabled selected>Select an Option</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </Field>
+            <ErrorMessage name="role" class="error-msg" />
+          </div>
+          <button type="submit" data-id="add-user-btn" class="add-user-btn">
+            Add User
+          </button>
         </div>
-        <div class="input-container">
-          <label for="last-name">Last Name</label>
-          <input
-            type="text"
-            data-id="last-name"
-            placeholder="Last Name"
-            class="input-field"
-          />
-        </div>
-        <div class="input-container">
-          <label for="email">Email Address</label>
-          <input
-            type="email"
-            data-id="email"
-            placeholder="Email Address"
-            class="input-field"
-          />
-        </div>
-        <div class="input-container">
-          <label for="select-role">User Type</label>
-          <select data-id="select-role" class="input-field">
-            <option value="" disabled selected>Select an Option</option>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-          </select>
-        </div>
-        <button data-id="add-user-btn" class="add-user-btn" disabled>
-          Add User
-        </button>
-      </div>
+      </form>
       <div class="empty-state" data-id="no-user-added">
         <div class="empty-circle">
           <img
@@ -71,19 +85,65 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
+import { Field, ErrorMessage, useForm } from 'vee-validate';
+import * as yup from 'yup';
+import { useToast } from 'vue-toastification';
 import CancelButton from '@/components/common/CancelButton.vue';
 import { useRouter } from 'vue-router';
-export default {
+export default defineComponent({
   name: 'AddBulk',
-  components: { CancelButton },
+  components: { Field, ErrorMessage, CancelButton },
   setup() {
     const router = useRouter();
 
     const goBack = () => {
       router.back();
     };
+    const toast = useToast();
+    const schema = yup.object({
+      firstName: yup
+        .string()
+        .matches(/^[A-Za-z]+$/, 'First name must contain only letters')
+        .required('First name is required'),
+      lastName: yup
+        .string()
+        .matches(/^[A-Za-z]+$/, 'Last name must contain only letters')
+        .required('Last name is required'),
+      email: yup
+        .string()
+        .email('Email is not valid')
+        .required('Email is required'),
+      role: yup.string().required('Please select a role'),
+    });
 
-    return { goBack };
+    const {
+      handleSubmit,
+      values: form,
+      resetForm,
+    } = useForm({
+      validationSchema: schema,
+      initialValues: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        role: '',
+      },
+    });
+
+    const onSubmit = handleSubmit((values) => {
+      console.log(values);
+      toast.success('Form submitted successfully!', {
+        position: 'top-right',
+        timeout: 3000,
+      });
+      resetForm();
+    });
+    return {
+      form,
+      onSubmit,
+      goBack,
+    };
   },
   methods: {
     handleEvent(event) {
@@ -98,7 +158,7 @@ export default {
   beforeUnmount() {
     window.removeEventListener('keydown', this.handleEvent);
   },
-};
+});
 </script>
 <style scoped>
 .form-header {
@@ -124,6 +184,11 @@ export default {
 }
 .cancel {
   margin-top: 20px;
+}
+.error-msg {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
 }
 .content {
   font-family: Arial, sans-serif;

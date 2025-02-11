@@ -15,11 +15,6 @@ describe('AddBulk.vue', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  it('disables the "Add User" button initially', () => {
-    const button = wrapper.find('[data-id="add-user-btn"]');
-    expect(button.attributes('disabled')).toBeDefined();
-  });
-
   it('enables the "Add User" button when all fields are filled', async () => {
     const firstNameInput = wrapper.find('[data-id="first-name"]');
     const lastNameInput = wrapper.find('[data-id="last-name"]');
