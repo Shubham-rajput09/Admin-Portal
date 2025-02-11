@@ -2,7 +2,8 @@
 
 exports[`UserForm.vue matches snapshot 1`] = `
 <div class="form-header" data-id="form-header">
-  <div class="add-users">Add User</div><button class="cancel">Cancel</button>
+  <div class="add-users">Add User</div>
+  <div class="cancel"><button class="simple-button">Cancel</button></div>
 </div>
 <div class="form-container">
   <form>
