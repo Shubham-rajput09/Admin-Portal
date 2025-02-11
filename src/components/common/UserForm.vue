@@ -1,4 +1,8 @@
 <template>
+  <div class="form-header" data-id="form-header">
+    <div class="add-users">Add User</div>
+    <button @click="goBack" class="cancel">Cancel</button>
+  </div>
   <div class="form-container">
     <form @submit="onSubmit">
       <!-- Basic Info Section -->
@@ -140,6 +144,22 @@ import { useToast } from 'vue-toastification';
 
 export default defineComponent({
   components: { Field, ErrorMessage },
+  methods: {
+    goBack() {
+      this.$router.back();
+    },
+    handleEvent(event) {
+      if (event.key == 'Escape') {
+        this.$router.back();
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleEvent);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleEvent);
+  },
   setup() {
     const toast = useToast();
     const schema = yup.object({
@@ -288,6 +308,39 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.form-header {
+  width: 100vw; /* Full width of the container */
+  height: 30px; /* Adjust this value for thickness */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-users {
+  font-size: 15px;
+  margin-left: 22px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.cancel {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border: 1.5px solid;
+  border-radius: 6px;
+  padding: 8px 12px;
+  background-color: transparent;
+  margin-right: 8px;
+  margin-bottom: 20px;
+}
 
 .form-container {
   max-width: 800px;
@@ -295,6 +348,7 @@ body {
   padding: 20px;
   border-radius: 8px;
   margin-left: 400px;
+  margin-top: 25px;
 }
 .select-group {
   height: 45px;
