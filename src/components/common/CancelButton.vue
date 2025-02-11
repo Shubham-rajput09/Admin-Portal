@@ -1,5 +1,5 @@
 <template>
-  <PrimaryButton :buttonName="buttonName" @click="goBack" />
+  <PrimaryButton :buttonName="buttonName" @click="goBack" class="cancel" />
 </template>
 
 <script>
@@ -23,3 +23,9 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+.cancel {
+  padding-right: 5px;
+  margin-bottom: 25px;
+}
+</style>

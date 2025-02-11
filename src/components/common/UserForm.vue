@@ -1,7 +1,7 @@
 <template>
   <div class="form-header" data-id="form-header">
     <div class="add-users">Add User</div>
-    <CancelButton buttonName="Cancel" class="cancel" @click="goBack" />
+    <CancelButton buttonName="Cancel" @click="goBack" />
   </div>
   <div class="form-container">
     <form @submit="onSubmit">
@@ -334,12 +334,6 @@ body {
   font-weight: bold;
   margin-bottom: 20px;
 }
-.cancel {
-  padding: 1px 1px 2px 2px;
-  margin-left: 10px;
-  margin-bottom: 25px;
-}
-
 .form-container {
   max-width: 800px;
   width: 100%; /* Make it responsive */
