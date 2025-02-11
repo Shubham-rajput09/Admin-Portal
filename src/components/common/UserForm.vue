@@ -1,4 +1,8 @@
 <template>
+  <div class="form-header" data-id="form-header">
+    <div class="add-users">Add User</div>
+    <CancelButton buttonName="Cancel" @click="goBack" />
+  </div>
   <div class="form-container">
     <form @submit="onSubmit">
       <!-- Basic Info Section -->
@@ -137,9 +141,24 @@ import { defineComponent } from 'vue';
 import { Field, ErrorMessage, useForm } from 'vee-validate';
 import * as yup from 'yup';
 import { useToast } from 'vue-toastification';
+import CancelButton from '@/components/common/CancelButton.vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
-  components: { Field, ErrorMessage },
+  components: { Field, ErrorMessage, CancelButton },
+  methods: {
+    handleEvent(event) {
+      if (event.key == 'Escape') {
+        this.$router.back();
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleEvent);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleEvent);
+  },
   setup() {
     const toast = useToast();
     const schema = yup.object({
@@ -194,9 +213,14 @@ export default defineComponent({
       resetForm();
     });
 
+    const router = useRouter();
+    const goBack = () => {
+      router.back();
+    };
     return {
       form,
       onSubmit,
+      goBack,
       basicInfoFields: [
         {
           id: 'firstName',
@@ -288,13 +312,35 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
+.form-header {
+  width: 100vw; /* Full width of the container */
+  height: 30px; /* Adjust this value for thickness */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-users {
+  font-size: 15px;
+  margin-left: 22px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 .form-container {
   max-width: 800px;
   width: 100%; /* Make it responsive */
   padding: 20px;
   border-radius: 8px;
   margin-left: 400px;
+  margin-top: 25px;
 }
 .select-group {
   height: 45px;
