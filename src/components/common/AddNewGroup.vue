@@ -1,4 +1,8 @@
 <template>
+  <div class="form-header" data-id="form-header">
+    <div class="add-users">Add Group</div>
+    <CancelButton buttonName="Close" @click="goBack" />
+  </div>
   <div class="container">
     <h2 class="title">{{ title }}</h2>
     <form @submit.prevent="handleSubmit" class="form">
@@ -31,7 +35,16 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from 'vue';
+import CancelButton from '@/components/common/CancelButton.vue';
+import { useRouter } from 'vue-router';
+import {
+  ref,
+  computed,
+  defineProps,
+  defineEmits,
+  onMounted,
+  onUnmounted,
+} from 'vue';
 
 const props = defineProps({
   title: {
@@ -57,6 +70,23 @@ const emits = defineEmits(['submit']);
 const localGroupName = ref(props.defaultGroupName);
 const localDescription = ref(props.defaultDescription);
 const errors = ref({ groupName: '', description: '' });
+
+const router = useRouter();
+const goBack = () => {
+  router.back();
+};
+
+const handleEvent = (event) => {
+  if (event.key == 'Escape') {
+    goBack();
+  }
+};
+onMounted(() => {
+  window.addEventListener('keydown', handleEvent);
+});
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEvent);
+});
 
 // Validation for Group Name
 const validateGroupName = () => {
@@ -110,6 +140,30 @@ body {
   align-items: center;
   background: #f5f5f5;
   font-family: Arial, sans-serif;
+  padding-top: 50px;
+}
+.form-header {
+  width: 100vw; /* Full width of the container */
+  height: 30px; /* Adjust this value for thickness */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  left: 0;
+  z-index: 1000;
+  left: 0;
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.add-users {
+  font-size: 15px;
+  margin-left: 22px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -120,7 +174,7 @@ body {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin-left: 450px;
-  margin-top: 200px;
+  margin-top: 80px;
 }
 
 .title {
