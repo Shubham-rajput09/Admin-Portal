@@ -1,6 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`UserForm.vue matches snapshot 1`] = `
+<div class="form-header" data-id="form-header">
+  <div class="add-users">Add User</div><button class="cancel">Cancel</button>
+</div>
 <div class="form-container">
   <form>
     <!-- Basic Info Section -->
