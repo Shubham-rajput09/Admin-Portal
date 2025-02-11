@@ -1,7 +1,7 @@
 <template>
   <div class="form-header" data-id="form-header">
     <div class="add-users">Add User</div>
-    <button @click="goBack" class="cancel">Cancel</button>
+    <CancelButton buttonName="Cancel" class="cancel" @click="goBack" />
   </div>
   <div class="form-container">
     <form @submit="onSubmit">
@@ -141,13 +141,12 @@ import { defineComponent } from 'vue';
 import { Field, ErrorMessage, useForm } from 'vee-validate';
 import * as yup from 'yup';
 import { useToast } from 'vue-toastification';
+import CancelButton from '@/components/common/CancelButton.vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
-  components: { Field, ErrorMessage },
+  components: { Field, ErrorMessage, CancelButton },
   methods: {
-    goBack() {
-      this.$router.back();
-    },
     handleEvent(event) {
       if (event.key == 'Escape') {
         this.$router.back();
@@ -214,9 +213,14 @@ export default defineComponent({
       resetForm();
     });
 
+    const router = useRouter();
+    const goBack = () => {
+      router.back();
+    };
     return {
       form,
       onSubmit,
+      goBack,
       basicInfoFields: [
         {
           id: 'firstName',
@@ -331,15 +335,9 @@ body {
   margin-bottom: 20px;
 }
 .cancel {
-  color: black;
-  font-size: 0.9rem;
-  font-weight: 400;
-  border: 1.5px solid;
-  border-radius: 6px;
-  padding: 8px 12px;
-  background-color: transparent;
-  margin-right: 8px;
-  margin-bottom: 20px;
+  padding: 1px 1px 2px 2px;
+  margin-left: 10px;
+  margin-bottom: 25px;
 }
 
 .form-container {
