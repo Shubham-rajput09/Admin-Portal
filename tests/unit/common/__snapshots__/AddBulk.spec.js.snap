@@ -2,7 +2,8 @@
 
 exports[`AddBulk.vue matches snapshot 1`] = `
 <div class="form-header" data-id="form-header">
-  <div class="add-users">Add Users</div><button class="cancel">Cancel</button>
+  <div class="add-users">Add Users</div>
+  <div class="cancel"><button class="simple-button">Cancel</button></div>
 </div>
 <div class="wrapper">
   <div class="content">
