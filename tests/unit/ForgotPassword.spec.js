@@ -1,75 +1,70 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import ForgotPassword from '@/components/login/ForgotPassword.vue';
+import { nextTick } from 'vue';
+import { useRouter } from 'vue-router';
+
+jest.mock('vue-router', () => ({
+  useRouter: jest.fn(),
+}));
 
 describe('ForgotPassword.vue', () => {
   let wrapper;
-  const mockRouter = {
-    push: jest.fn(),
-  };
+  const mockRouterPush = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallowMount(ForgotPassword, {
+    useRouter.mockReturnValue({ push: mockRouterPush });
+
+    wrapper = mount(ForgotPassword, {
       global: {
-        mocks: {
-          $router: mockRouter,
-        },
+        plugins: [],
       },
     });
   });
 
-  afterEach(() => {
-    wrapper.unmount();
-    mockRouter.push.mockClear();
-  });
-
-  it('renders all expected elements with dynamic data-id', () => {
-    const dataIds = [
-      'password-recovery-page',
-      'username-input',
-      'captcha-checkbox',
-      'cancel-button',
-      'forgot-username-link',
-    ];
-    dataIds.forEach((id) => {
-      expect(wrapper.find(`[data-id="${id}"]`).exists()).toBe(true);
-    });
-  });
-
-  it('shows a message if captcha is not checked', async () => {
-    await wrapper.setData({
-      username: 'tester',
-      captchaChecked: false,
-    });
-
-    wrapper.vm.handlePasswordRecovery();
-
-    expect(mockRouter.push).toHaveBeenCalledWith('/');
-  });
-
-  it('redirects to the home page on cancel button click', async () => {
-    const cancelButton = wrapper.find('[data-id="cancel-button"]');
-    await cancelButton.trigger('click');
-
-    expect(mockRouter.push).toHaveBeenCalledWith('/');
-  });
-
-  it('displays an error message if username is not entered', async () => {
-    wrapper.setData({ username: '' });
-    wrapper.vm.validateUsername();
-
-    const submitButton = wrapper.find('[data-id="password-recovery-form"]'); // Updated line
-    await submitButton.trigger('submit.prevent');
-
-    await wrapper.vm.$nextTick();
-
-    expect(wrapper.vm.errors.username).toBe('Username is required.');
-    expect(wrapper.find('[data-id="username-error"]').text()).toBe(
-      'Username is required.',
+  it('should render the Forgot Password page correctly', () => {
+    expect(wrapper.find('h2').text()).toBe('Password Recovery');
+    expect(wrapper.find('p').text()).toBe(
+      'Enter your email to receive an email with Password Reset instructions.',
     );
-    expect(mockRouter.push).not.toHaveBeenCalled();
+    expect(wrapper.find('button.submit-button').exists()).toBe(true);
+    expect(wrapper.find('button.cancel-button').exists()).toBe(true);
   });
 
-  it('matches the snapshot', () => {
-    expect(wrapper.html()).toMatchSnapshot();
+  it('should not submit the form if captcha is not checked', async () => {
+    const emailInput = wrapper.find('input[type="email"]');
+    const captchaCheckbox = wrapper.find('input[type="checkbox"]');
+    const submitButton = wrapper.find('button.submit-button');
+
+    await emailInput.setValue('validemail@example.com');
+    await captchaCheckbox.setChecked(false);
+
+    await submitButton.trigger('click');
+    await nextTick(); // Ensure the form is re-rendered
+
+    expect(mockRouterPush).not.toHaveBeenCalled();
+  });
+
+  it('should call goBack method and navigate to home on cancel button click', async () => {
+    const cancelButton = wrapper.find('button.cancel-button');
+
+    await cancelButton.trigger('click');
+    await nextTick(); // Ensure the form is re-rendered
+
+    expect(mockRouterPush).toHaveBeenCalledWith('/');
+  });
+
+  it('should render the "Forgot Email?" link correctly', () => {
+    const forgotEmailLink = wrapper.find('a.forgot-email');
+
+    expect(forgotEmailLink.exists()).toBe(true);
+    expect(forgotEmailLink.text()).toBe('Forgot Email?');
+  });
+
+  it('should have correct initial form values', () => {
+    const emailInput = wrapper.find('input[type="email"]');
+    const captchaCheckbox = wrapper.find('input[type="checkbox"]');
+
+    expect(emailInput.element.value).toBe('');
+    expect(captchaCheckbox.element.checked).toBe(false);
   });
 });
