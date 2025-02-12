@@ -260,6 +260,8 @@
 </template>
 
 <script>
+import api from '@/services/axios';
+
 export default {
   name: 'LoginPage',
   data() {
@@ -363,10 +365,22 @@ export default {
       }
       this.$router.push('/dashboard');
     },
-    handleSignup() {
+    async handleSignup() {
+      console.log('Signup button clicked!');
       const isValid = this.validateInputs();
       if (!isValid) {
         return;
+      }
+      try {
+        const response = await api.post('/auth/signup', {
+          email: this.username,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+        });
+        console.log(response);
+      } catch (error) {
+        console.error('Signup failed:', error.response?.data || error.message);
+        this.errors.username = 'Signup failed. Try again later.';
       }
       // Handle signup logic here
       console.log('Signup successful!');
