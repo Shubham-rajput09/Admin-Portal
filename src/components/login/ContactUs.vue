@@ -1,47 +1,36 @@
 <template>
   <div class="background-container" data-id="background-container">
+    <div class="cancel-button">
+      <CancelButton buttonName="Cancel" @click="goBack" />
+    </div>
     <!-- Form Section -->
     <div class="form-section" v-if="!showThankYou" data-id="form-section">
-      <form @submit.prevent="handleSubmit" novalidate data-id="form">
+      <form @submit="onSubmit" novalidate data-id="form">
         <!-- First Name and Last Name -->
         <div class="input-row" data-id="name-input-row">
           <div class="input-group" data-id="first-name-group">
             <label for="firstName">First Name</label>
-            <input
+            <Field
               id="firstName"
+              name="firstName"
               type="text"
-              v-model="formData.firstName"
               placeholder="First Name"
               aria-label="First Name"
-              @blur="validateField('firstName')"
               data-id="first-name-input"
             />
-            <p
-              v-if="errors.firstName"
-              class="error-message"
-              data-id="first-name-error"
-            >
-              {{ errors.firstName }}
-            </p>
+            <ErrorMessage name="firstName" class="error-message" />
           </div>
           <div class="input-group" data-id="last-name-group">
             <label for="lastName">Last Name</label>
-            <input
+            <Field
               id="lastName"
+              name="lastName"
               type="text"
-              v-model="formData.lastName"
               placeholder="Last Name"
               aria-label="Last Name"
-              @blur="validateField('lastName')"
               data-id="last-name-input"
             />
-            <p
-              v-if="errors.lastName"
-              class="error-message"
-              data-id="last-name-error"
-            >
-              {{ errors.lastName }}
-            </p>
+            <ErrorMessage name="lastName" class="error-message" />
           </div>
         </div>
 
@@ -49,28 +38,22 @@
         <div class="input-row" data-id="company-input-row">
           <div class="input-group" data-id="company-name-group">
             <label for="companyName">Company Name</label>
-            <input
+            <Field
               id="companyName"
+              name="companyName"
               type="text"
-              v-model="formData.companyName"
               placeholder="Company Name"
               aria-label="Company Name"
-              @blur="validateField('companyName')"
               data-id="company-name-input"
             />
-            <p
-              v-if="errors.companyName"
-              class="error-message"
-              data-id="company-name-error"
-            >
-              {{ errors.companyName }}
-            </p>
+            <ErrorMessage name="companyName" class="error-message" />
           </div>
           <div class="input-group" data-id="employees-group">
             <label for="employees">Employees (optional)</label>
-            <select
+            <Field
+              as="select"
+              name="employees"
               id="employees"
-              v-model="formData.employees"
               aria-label="Employees"
               data-id="employees-select"
             >
@@ -83,7 +66,7 @@
               >
                 {{ option }}
               </option>
-            </select>
+            </Field>
           </div>
         </div>
 
@@ -91,25 +74,23 @@
         <div class="input-row" data-id="contact-input-row">
           <div class="input-group" data-id="email-group">
             <label for="email">Email</label>
-            <input
+            <Field
+              name="email"
               id="email"
               type="email"
-              v-model="formData.email"
               placeholder="Email"
               aria-label="Email"
-              @blur="validateField('email')"
               data-id="email-input"
             />
-            <p v-if="errors.email" class="error-message" data-id="email-error">
-              {{ errors.email }}
-            </p>
+            <ErrorMessage name="email" class="error-message" />
           </div>
           <div class="input-group" data-id="phone-number-group">
             <label for="phoneNumber">Phone Number</label>
             <div class="phone-input" data-id="phone-input">
-              <select
+              <Field
                 id="dialingCode"
-                v-model="formData.countryCode"
+                as="select"
+                name="dialingCode"
                 aria-label="Dialing Code"
                 required
                 data-id="dialing-code-select"
@@ -125,24 +106,17 @@
                 >
                   {{ country.name }} ({{ country.value }})
                 </option>
-              </select>
-              <input
+              </Field>
+              <Field
+                name="phoneNumber"
                 id="phoneNumber"
                 type="tel"
-                v-model="formData.phoneNumber"
                 placeholder="Phone Number"
                 aria-label="Phone Number"
-                @blur="validateField('phoneNumber')"
                 data-id="phone-number-input"
               />
             </div>
-            <p
-              v-if="errors.phoneNumber"
-              class="error-message"
-              data-id="phone-number-error"
-            >
-              {{ errors.phoneNumber }}
-            </p>
+            <ErrorMessage name="phoneNumber" class="error-message" />
           </div>
         </div>
 
@@ -150,12 +124,12 @@
         <div class="input-row" data-id="interest-country-row">
           <div class="input-group" data-id="interest-group">
             <label for="interest">What are you interested in?</label>
-            <select
+            <Field
+              as="select"
+              name="interest"
               id="interest"
-              v-model="formData.interest"
               required
               aria-label="Interest"
-              @blur="validateField('interest')"
               data-id="interest-select"
             >
               <option value="" disabled>Select</option>
@@ -167,23 +141,17 @@
               >
                 {{ interest }}
               </option>
-            </select>
-            <p
-              v-if="errors.interest"
-              class="error-message"
-              data-id="interest-error"
-            >
-              {{ errors.interest }}
-            </p>
+            </Field>
+            <ErrorMessage name="interest" class="error-message" />
           </div>
           <div class="input-group" data-id="country-group">
             <label for="country">Country/Region</label>
-            <select
+            <Field
+              as="select"
+              name="country"
               id="country"
-              v-model="formData.country"
               required
               aria-label="Country"
-              @blur="validateField('country')"
               data-id="country-select"
             >
               <option value="" disabled>Select</option>
@@ -195,23 +163,19 @@
               >
                 {{ country }}
               </option>
-            </select>
-            <p
-              v-if="errors.country"
-              class="error-message"
-              data-id="country-error"
-            >
-              {{ errors.country }}
-            </p>
+            </Field>
+            <ErrorMessage name="country" class="error-message" />
           </div>
         </div>
 
         <!-- Consent Checkbox -->
         <div class="checkbox-group" data-id="consent-group">
-          <input
+          <Field
+            name="consent"
             id="consent"
             type="checkbox"
-            v-model="formData.consent"
+            :value="true"
+            v-model="form.consent"
             aria-label="Consent Checkbox"
             data-id="consent-checkbox"
           />
@@ -226,6 +190,7 @@
               >privacy policy</a
             >.
           </label>
+          <ErrorMessage name="consent" class="error-message" />
         </div>
 
         <!-- Submit Button -->
@@ -259,22 +224,111 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+import { Field, ErrorMessage, useForm } from 'vee-validate';
+import * as yup from 'yup';
+import { useToast } from 'vue-toastification';
+import CancelButton from '@/components/common/CancelButton.vue';
+import { useRouter } from 'vue-router';
+
+export default defineComponent({
   name: 'ContactUs',
-  data() {
-    return {
-      formData: {
+  components: { Field, ErrorMessage, CancelButton },
+  methods: {
+    handleEvent(event) {
+      if (event.key == 'Escape') {
+        this.$router.back();
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleEvent);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleEvent);
+  },
+  setup() {
+    const toast = useToast();
+    const schema = yup.object({
+      firstName: yup
+        .string()
+        .required('First name is required')
+        .matches(/^[A-Za-z]+$/, 'First name must contain only letters'),
+      lastName: yup
+        .string()
+        .required('Last name is required')
+        .matches(/^[A-Za-z]+$/, 'Last name must contain only letters'),
+      email: yup
+        .string()
+        .required('Email is required')
+        .email('Email is not valid'),
+      companyName: yup.string().required('Please Enter a company name'),
+      phoneNumber: yup
+        .string()
+        .required('Please enter a phone number')
+        .matches(/^[0-9]*$/, 'Enter a valid phone number')
+        .min(10),
+      interest: yup.string().required('Please select a interest'),
+      country: yup.string().required('Please select a contry'),
+      consent: yup
+        .boolean()
+        .required('You must accept the privacy policy')
+        .oneOf([true], 'You must accept the privacy policy'),
+    });
+    const {
+      handleSubmit,
+      values: form,
+      resetForm,
+    } = useForm({
+      validationSchema: schema,
+      initialValues: {
         firstName: '',
         lastName: '',
         companyName: '',
         employees: '',
         email: '',
         phoneNumber: '',
-        countryCode: '',
+        dialingCode: '',
         interest: '',
         country: '',
         consent: false,
       },
+    });
+    const router = useRouter();
+    const goBack = () => {
+      router.back();
+    };
+    const onSubmit = handleSubmit((values) => {
+      console.log(values);
+      toast.success('Form submitted successfully!', {
+        position: 'top-right',
+        timeout: 3000,
+      });
+      resetForm();
+    });
+
+    return {
+      onSubmit,
+      form,
+      goBack,
+      basicInfoFields: [
+        {
+          id: 'firstName',
+          model: 'firstName',
+          type: 'text',
+          label: 'First Name',
+          placeholder: 'Enter first name',
+          required: true,
+        },
+        {
+          id: 'lastName',
+          model: 'lastName',
+          type: 'text',
+          label: 'Last Name',
+          placeholder: 'Enter last name',
+          required: true,
+        },
+      ],
       errors: {},
       employeeOptions: ['1-10', '11-50', '51-200', '201-500', '500+'],
       countryData: [
@@ -449,82 +503,16 @@ export default {
       showThankYou: false,
     };
   },
-  methods: {
-    // Validate each field
-    validateField(field) {
-      if (!this.formData[field]) {
-        this.errors[field] = 'This field is required.';
-      } else {
-        delete this.errors[field];
-      }
-    },
-
-    // Additional field validations
-    validateEmail() {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (this.formData.email && !emailPattern.test(this.formData.email)) {
-        this.errors.email = 'Please enter a valid email address.';
-      }
-    },
-
-    validatePhoneNumber() {
-      const phonePattern = /^\d{10}$/;
-      if (
-        this.formData.phoneNumber &&
-        !phonePattern.test(this.formData.phoneNumber)
-      ) {
-        this.errors.phoneNumber = 'Please enter a valid phone number.';
-      }
-    },
-
-    // Main validation function called on submit
-    handleSubmit() {
-      this.errors = {};
-
-      // Validate each field using the validateField method
-      const fields = [
-        'firstName',
-        'lastName',
-        'companyName',
-        'employees',
-        'email',
-        'phoneNumber',
-        'interest',
-        'country',
-      ];
-      fields.forEach((field) => this.validateField(field));
-
-      // Call additional validation functions
-      this.validateEmail();
-      this.validatePhoneNumber();
-
-      // If no errors, show thank you message
-      if (Object.keys(this.errors).length === 0) {
-        this.showThankYou = true;
-      }
-    },
-
-    resetForm() {
-      this.showThankYou = false;
-      this.formData = {
-        firstName: '',
-        lastName: '',
-        companyName: '',
-        employees: '',
-        email: '',
-        phoneNumber: '',
-        countryCode: '',
-        interest: '',
-        country: '',
-        consent: false,
-      };
-    },
-  },
-};
+});
 </script>
 
 <style scoped>
 /* Style for the background container */
+.cancel-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 
 .error-message {
   color: red;
@@ -568,7 +556,8 @@ p {
   min-height: 100vh; /* Ensures it takes the full height of the viewport */
   display: flex;
   align-items: center;
-  justify-content: center; /* Centers the form inside the container */
+  justify-content: center;
+  margin-top: 20px; /* Centers the form inside the container */
 }
 
 /* Form section styling */

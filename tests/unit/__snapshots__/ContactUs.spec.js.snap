@@ -2,23 +2,25 @@
 
 exports[`ContactUs.vue matches the snapshot 1`] = `
 <div class="background-container" data-id="background-container">
-  <!-- Form Section -->
+  <div class="cancel-button">
+    <div class="cancel"><button class="simple-button">Cancel</button></div>
+  </div><!-- Form Section -->
   <div class="form-section" data-id="form-section">
     <form novalidate="" data-id="form">
       <!-- First Name and Last Name -->
       <div class="input-row" data-id="name-input-row">
-        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input">
-          <!--v-if-->
+        <div class="input-group" data-id="first-name-group"><label for="firstName">First Name</label><input id="firstName" type="text" placeholder="First Name" aria-label="First Name" data-id="first-name-input" name="firstName" value="">
+          <!---->
         </div>
-        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input">
-          <!--v-if-->
+        <div class="input-group" data-id="last-name-group"><label for="lastName">Last Name</label><input id="lastName" type="text" placeholder="Last Name" aria-label="Last Name" data-id="last-name-input" name="lastName" value="">
+          <!---->
         </div>
       </div><!-- Company Name and Employees -->
       <div class="input-row" data-id="company-input-row">
-        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input">
-          <!--v-if-->
+        <div class="input-group" data-id="company-name-group"><label for="companyName">Company Name</label><input id="companyName" type="text" placeholder="Company Name" aria-label="Company Name" data-id="company-name-input" name="companyName" value="">
+          <!---->
         </div>
-        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select">
+        <div class="input-group" data-id="employees-group"><label for="employees">Employees (optional)</label><select id="employees" aria-label="Employees" data-id="employees-select" name="employees" value="">
             <option disabled="" value="">Select</option>
             <option data-id="employee-option-0" value="1-10">1-10</option>
             <option data-id="employee-option-1" value="11-50">11-50</option>
@@ -28,11 +30,11 @@ exports[`ContactUs.vue matches the snapshot 1`] = `
           </select></div>
       </div><!-- Email and Phone Number -->
       <div class="input-row" data-id="contact-input-row">
-        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input">
-          <!--v-if-->
+        <div class="input-group" data-id="email-group"><label for="email">Email</label><input id="email" type="email" placeholder="Email" aria-label="Email" data-id="email-input" name="email" value="">
+          <!---->
         </div>
         <div class="input-group" data-id="phone-number-group"><label for="phoneNumber">Phone Number</label>
-          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select">
+          <div class="phone-input" data-id="phone-input"><select id="dialingCode" aria-label="Dialing Code" required="" data-id="dialing-code-select" name="dialingCode" value="">
               <option selected="" disabled="" value=""></option>
               <option data-country-code="AF" data-country-name="Afghanistan" data-id="dialing-code-option-0" value="+93">Afghanistan (+93) </option>
               <option data-country-code="AL" data-country-name="Albania" data-id="dialing-code-option-1" value="+355">Albania (+355) </option>
@@ -142,20 +144,20 @@ exports[`ContactUs.vue matches the snapshot 1`] = `
               <option data-country-code="LU" data-country-name="Luxembourg" data-id="dialing-code-option-105" value="+352">Luxembourg (+352) </option>
               <option data-country-code="MO" data-country-name="Macau" data-id="dialing-code-option-106" value="+853">Macau (+853) </option>
               <option data-country-code="MK" data-country-name="North Macedonia" data-id="dialing-code-option-107" value="+389">North Macedonia (+389) </option>
-            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input"></div>
-          <!--v-if-->
+            </select><input id="phoneNumber" type="tel" placeholder="Phone Number" aria-label="Phone Number" data-id="phone-number-input" name="phoneNumber" value=""></div>
+          <!---->
         </div>
       </div><!-- Interest and Country/Region -->
       <div class="input-row" data-id="interest-country-row">
-        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select">
+        <div class="input-group" data-id="interest-group"><label for="interest">What are you interested in?</label><select id="interest" required="" aria-label="Interest" data-id="interest-select" name="interest" value="">
             <option disabled="" value="">Select</option>
             <option data-id="interest-option-0" value="Product">Product</option>
             <option data-id="interest-option-1" value="Service">Service</option>
             <option data-id="interest-option-2" value="Other">Other</option>
           </select>
-          <!--v-if-->
+          <!---->
         </div>
-        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select">
+        <div class="input-group" data-id="country-group"><label for="country">Country/Region</label><select id="country" required="" aria-label="Country" data-id="country-select" name="country" value="">
             <option disabled="" value="">Select</option>
             <option data-id="country-option-0" value="Argentina">Argentina</option>
             <option data-id="country-option-1" value="Australia">Australia</option>
@@ -214,10 +216,12 @@ exports[`ContactUs.vue matches the snapshot 1`] = `
             <option data-id="country-option-54" value="Vietnam">Vietnam</option>
             <option data-id="country-option-55" value="Wales">Wales</option>
           </select>
-          <!--v-if-->
+          <!---->
         </div>
       </div><!-- Consent Checkbox -->
-      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label></div><!-- Submit Button --><button data-id="submit-button" type="submit" class="submit-button"> Submit </button>
+      <div class="checkbox-group" data-id="consent-group"><input id="consent" type="checkbox" aria-label="Consent Checkbox" data-id="consent-checkbox" name="consent" value="true"><label for="consent" data-id="consent-label"> By checking this box, you agree to be contacted via phone and email regarding your interest in our products and services. We will treat your data in accordance with our <a href="/privacy-policy" target="_blank" data-id="privacy-policy-link">privacy policy</a>. </label>
+        <!---->
+      </div><!-- Submit Button --><button data-id="submit-button" type="submit" class="submit-button"> Submit </button>
     </form>
   </div><!-- Thank You Section -->
   <!--v-if-->
