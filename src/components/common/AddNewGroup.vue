@@ -37,38 +37,17 @@
 <script setup>
 import CancelButton from '@/components/common/CancelButton.vue';
 import { useRouter } from 'vue-router';
-import {
-  ref,
-  computed,
-  defineProps,
-  defineEmits,
-  onMounted,
-  onUnmounted,
-} from 'vue';
+import { ref, computed, defineEmits, onMounted, onUnmounted } from 'vue';
+import { useToast } from 'vue-toastification';
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: 'Group Info',
-  },
-  defaultGroupName: {
-    type: String,
-    default: '',
-  },
-  defaultDescription: {
-    type: String,
-    default: '',
-  },
-  buttonText: {
-    type: String,
-    default: 'Save',
-  },
-});
+const title = 'Group Info';
+const buttonText = 'Save';
+const toast = useToast();
 
 const emits = defineEmits(['submit']);
 
-const localGroupName = ref(props.defaultGroupName);
-const localDescription = ref(props.defaultDescription);
+const localGroupName = ref('');
+const localDescription = ref('');
 const errors = ref({ groupName: '', description: '' });
 
 const router = useRouter();
@@ -126,6 +105,7 @@ const handleSubmit = () => {
       groupName: localGroupName.value,
       description: localDescription.value,
     });
+    toast.success('Group Added Successfully!');
   }
 };
 </script>
