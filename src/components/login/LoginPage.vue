@@ -260,6 +260,9 @@
 </template>
 
 <script>
+import api from '@/services/axios';
+import { useToast } from 'vue-toastification';
+
 export default {
   name: 'LoginPage',
   data() {
@@ -275,6 +278,7 @@ export default {
         password: '',
         confirmPassword: '',
       },
+      toast: useToast(),
     };
   },
   computed: {
@@ -363,14 +367,28 @@ export default {
       }
       this.$router.push('/dashboard');
     },
-    handleSignup() {
+    async handleSignup() {
       const isValid = this.validateInputs();
       if (!isValid) {
         return;
       }
-      // Handle signup logic here
-      console.log('Signup successful!');
-      this.$router.push('/dashboard');
+      try {
+        await api.post('/auth/signup', {
+          email: this.username,
+          password: this.password,
+          confirmPassword: this.confirmPassword,
+        });
+        this.toast.success('Signup Success, Please Login!', {
+          position: 'top-right',
+          timeout: 3000,
+          onClose: () => this.toggleForm(),
+        });
+      } catch (error) {
+        this.toast.error(error?.response?.data?.message, {
+          position: 'top-right',
+          timeout: 3000,
+        });
+      }
     },
   },
 };
