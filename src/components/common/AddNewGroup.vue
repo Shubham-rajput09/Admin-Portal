@@ -39,6 +39,8 @@ import CancelButton from '@/components/common/CancelButton.vue';
 import { useRouter } from 'vue-router';
 import { ref, computed, defineEmits, onMounted, onUnmounted } from 'vue';
 import { useToast } from 'vue-toastification';
+import api from '@/services/axios';
+import { useAuth } from '@/composables/useAuth';
 
 const title = 'Group Info';
 const buttonText = 'Save';
@@ -49,6 +51,8 @@ const emits = defineEmits(['submit']);
 const localGroupName = ref('');
 const localDescription = ref('');
 const errors = ref({ groupName: '', description: '' });
+
+const { getToken } = useAuth();
 
 const router = useRouter();
 const goBack = () => {
@@ -97,15 +101,33 @@ const isFormValid = computed(
     localDescription.value.trim().length > 0,
 );
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   validateGroupName();
   validateDescription();
   if (isFormValid.value) {
-    emits('submit', {
-      groupName: localGroupName.value,
-      description: localDescription.value,
-    });
-    toast.success('Group Added Successfully!');
+    try {
+      const token = getToken();
+      const response = await api.post(
+        '/groups',
+        {
+          name: localGroupName.value,
+          description: localDescription.value,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // ✅ Include Authorization Token
+          },
+        },
+      );
+      console.log('API Response:', response.data);
+      toast.success('Group Added Successfully!');
+      emits('submit', response.data);
+      localGroupName.value = '';
+      localDescription.value = '';
+    } catch (error) {
+      console.error('Error adding group:', error);
+      toast.error('Failed to add group');
+    }
   }
 };
 </script>
