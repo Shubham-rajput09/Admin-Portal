@@ -109,7 +109,7 @@
           <button
             type="submit"
             class="login-button"
-            :disabled="!isFormValid"
+            :disabled="!isFormValid || isDisabled"
             data-id="login-button"
           >
             Login
@@ -259,138 +259,167 @@
   </div>
 </template>
 
-<script>
-import api from '@/services/axios';
+<script setup>
+import { ref, computed } from 'vue';
+import { useAuth } from '@/composables/useAuth';
 import { useToast } from 'vue-toastification';
+import api from '@/services/axios';
+import { useRouter } from 'vue-router';
 
-export default {
-  name: 'LoginPage',
-  data() {
-    return {
-      username: '',
-      password: '',
-      confirmPassword: '', // New field for signup form
-      rememberMe: false,
-      showPassword: false,
-      isLoginForm: true, // Tracks whether to show login or signup form
-      errors: {
-        username: '',
-        password: '',
-        confirmPassword: '',
+const { setToken } = useAuth();
+const toast = useToast();
+const router = useRouter();
+
+// Reactive state
+const username = ref('');
+const password = ref('');
+const confirmPassword = ref('');
+const rememberMe = ref(false);
+const showPassword = ref(false);
+const isLoginForm = ref(true);
+const errors = ref({
+  username: '',
+  password: '',
+  confirmPassword: '',
+});
+const isDisabled = ref(false);
+// Computed properties
+const isFormValid = computed(() => {
+  if (isLoginForm.value) {
+    return username.value.trim() !== '' && password.value.trim() !== '';
+  } else {
+    return (
+      username.value.trim() !== '' &&
+      password.value.trim() !== '' &&
+      confirmPassword.value.trim() !== '' &&
+      password.value === confirmPassword.value
+    );
+  }
+});
+
+const passwordIconClass = computed(() => {
+  return showPassword.value ? 'fa fa-eye' : 'fa fa-eye-slash';
+});
+
+// Methods
+const togglePasswordVisibility = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const toggleForm = () => {
+  isLoginForm.value = !isLoginForm.value;
+  resetForm();
+};
+
+const resetForm = () => {
+  username.value = '';
+  password.value = '';
+  confirmPassword.value = '';
+  errors.value = {
+    username: '',
+    password: '',
+    confirmPassword: '',
+  };
+};
+
+const validateInputs = () => {
+  let isValid = true;
+
+  // Reset errors
+  errors.value = {
+    username: '',
+    password: '',
+    confirmPassword: '',
+  };
+
+  // Email validation
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!username.value) {
+    errors.value.username = 'Email is required.';
+    isValid = false;
+  } else if (!emailRegex.test(username.value)) {
+    errors.value.username = 'Please enter a valid email.';
+    isValid = false;
+  }
+
+  // Password validation - min 8 character max 16, with specific rules
+  const passwordRegex =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  if (!password.value) {
+    errors.value.password = 'Password is required.';
+    isValid = false;
+  } else if (!passwordRegex.test(password.value)) {
+    errors.value.password =
+      'Password must be at least 8 characters long, including one uppercase letter, one lowercase letter, one special character, and one digit.';
+    isValid = false;
+  }
+
+  // Confirm password validation (only for signup form)
+  if (!isLoginForm.value) {
+    if (!confirmPassword.value) {
+      errors.value.confirmPassword = 'Please confirm your password.';
+      isValid = false;
+    } else if (password.value !== confirmPassword.value) {
+      errors.value.confirmPassword = 'Passwords do not match.';
+      isValid = false;
+    }
+  }
+
+  return isValid;
+};
+
+const handleLogin = async () => {
+  if (!validateInputs()) return;
+  isDisabled.value = true;
+  try {
+    const response = await api.post('/auth/login', {
+      email: username.value,
+      password: password.value,
+    });
+
+    const token = response?.data?.token;
+    setToken(token);
+
+    toast.success('Login Success!', {
+      position: 'top-right',
+      timeout: 3000,
+      onClose: () => {
+        router.push('/dashboard'), (isDisabled.value = false);
       },
-      toast: useToast(),
-    };
-  },
-  computed: {
-    isFormValid() {
-      if (this.isLoginForm) {
-        return this.username.trim() !== '' && this.password.trim() !== '';
-      } else {
-        return (
-          this.username.trim() !== '' &&
-          this.password.trim() !== '' &&
-          this.confirmPassword.trim() !== '' &&
-          this.password === this.confirmPassword
-        );
-      }
-    },
-    // Computed property for the password icon class
-    passwordIconClass() {
-      return this.showPassword ? 'fa fa-eye' : 'fa fa-eye-slash';
-    },
-  },
-  methods: {
-    togglePasswordVisibility() {
-      this.showPassword = !this.showPassword;
-    },
-    toggleForm() {
-      this.isLoginForm = !this.isLoginForm;
-      this.resetForm();
-    },
-    resetForm() {
-      this.username = '';
-      this.password = '';
-      this.confirmPassword = '';
-      this.errors = {
-        username: '',
-        password: '',
-        confirmPassword: '',
-      };
-    },
-    validateInputs() {
-      let isValid = true;
+    });
+  } catch (error) {
+    toast.error(error?.response?.data?.message || 'Login failed.', {
+      position: 'top-right',
+      timeout: 3000,
+    });
+    isDisabled.value = false;
+  }
+};
 
-      // Reset errors
-      this.errors.username = '';
-      this.errors.password = '';
-      this.errors.confirmPassword = '';
+const handleSignup = async () => {
+  if (!validateInputs()) return;
+  isDisabled.value = true;
+  try {
+    await api.post('/auth/signup', {
+      email: username.value,
+      password: password.value,
+      confirmPassword: confirmPassword.value,
+    });
 
-      // Username validation
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!this.username) {
-        this.errors.username = 'Email is required.';
-        isValid = false;
-      } else if (!emailRegex.test(this.username)) {
-        this.errors.username = 'Please enter a valid email';
-        isValid = false;
-      }
-
-      // Password validation - min 8 character max 16 one upper case char, one lower case , one special and one digit
-      const passwordRegex =
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!this.password) {
-        this.errors.password = 'Password is required.';
-        isValid = false;
-      } else if (!passwordRegex.test(this.password)) {
-        this.errors.password =
-          'Password must be atleast 8 characters long, including one uppercase letter, one lowercase letter, one special character, and one digit';
-        isValid = false;
-      }
-
-      // Confirm password validation (only for signup form)
-      if (!this.isLoginForm) {
-        if (!this.confirmPassword) {
-          this.errors.confirmPassword = 'Please confirm your password.';
-          isValid = false;
-        } else if (this.password !== this.confirmPassword) {
-          this.errors.confirmPassword = 'Passwords do not match.';
-          isValid = false;
-        }
-      }
-
-      return isValid;
-    },
-    handleLogin() {
-      const isValid = this.validateInputs();
-      if (!isValid) {
-        return;
-      }
-      this.$router.push('/dashboard');
-    },
-    async handleSignup() {
-      const isValid = this.validateInputs();
-      if (!isValid) {
-        return;
-      }
-      try {
-        await api.post('/auth/signup', {
-          email: this.username,
-          password: this.password,
-          confirmPassword: this.confirmPassword,
-        });
-        this.toast.success('Signup Success, Please Login!', {
-          position: 'top-right',
-          timeout: 3000,
-          onClose: () => this.toggleForm(),
-        });
-      } catch (error) {
-        this.toast.error(error?.response?.data?.message, {
-          position: 'top-right',
-          timeout: 3000,
-        });
-      }
-    },
-  },
+    toast.success('Signup Success, Please Login!', {
+      position: 'top-right',
+      timeout: 3000,
+      onClose: () => {
+        toggleForm(), (isDisabled.value = false);
+      },
+    });
+  } catch (error) {
+    toast.error(error?.response?.data?.message || 'Signup failed.', {
+      position: 'top-right',
+      timeout: 3000,
+    });
+    isDisabled.value = false;
+  }
 };
 </script>
 
